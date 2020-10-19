@@ -9,7 +9,9 @@ import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component'
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { DashboardComponent } from '../../../../pages/admin';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule}from '@angular/material/menu';
+import { DashboardComponent, UserListComponent } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -18,6 +20,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AdminLayoutComponent,
+    UserListComponent,
     DashboardComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
@@ -27,6 +30,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     CommonModule,
     RouterModule,
+    MatIconModule,
+    MatMenuModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -37,4 +42,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

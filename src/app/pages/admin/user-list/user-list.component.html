@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{ 'First Name' | translate }}/{{ 'Last Name' | translate }}</th>
+                    <th>{{ 'Email' | translate }}</th>
+                    <th>{{ 'Date Of Birth' | translate }}</th>
+                    <th>{{ 'Type Name' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td> {{user.UserFirstName}} {{user.UserLastName}}</td>
+                    <td> {{user.UserEmail}}</td>
+                    <td> {{user.UserDateOfBirth}}</td>
+                    <td> {{user.UserTypeName}}</td>
+                    <td class="list-button text-right">
+                        <a mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon class="list-menu">more_vert</mat-icon>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <a mat-menu-item>
+                                <mat-icon>remove_red_eye</mat-icon>
+                                <span>{{ 'Examine' | translate }}</span>
+                            </a>
+                            <a mat-menu-item>
+                                <mat-icon>edit</mat-icon>
+                                <span>{{ 'Edit' | translate }}</span>
+                            </a>
+                            <a mat-menu-item>
+                                <mat-icon>delete</mat-icon>
+                                <span>{{ 'Delete' | translate }}</span>
+                            </a>
+                        </mat-menu>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
