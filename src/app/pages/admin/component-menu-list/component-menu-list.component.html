@@ -38,7 +38,7 @@
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
-                            <a mat-menu-item>
+                            <a mat-menu-item (click)='componentMenuDelete(componentMenu.ComponentMenuID)'>
                                 <mat-icon>delete</mat-icon>
                                 <span>{{ 'Delete' | translate }}</span>
                             </a>
