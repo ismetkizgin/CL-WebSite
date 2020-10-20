@@ -16,12 +16,13 @@ export class AdminHeaderComponent implements OnInit {
   lang: string =
     this._languageService.getLanguage() == 'en'
       ? 'us'
-      : this._languageService.getLanguage();
+      : this._languageService.getLanguage() || 'tr';
   ngOnInit(): void {}
 
   setLang(lang: string) {
     this.lang = lang == 'en' ? 'us' : lang;
     this._languageService.setLanguage(lang);
+    window.location.reload();
   }
 
   async signout() {
