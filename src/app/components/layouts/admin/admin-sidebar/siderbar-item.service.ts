@@ -6,7 +6,7 @@ import { Roles } from '../../../../models/roles';
   providedIn: 'root',
 })
 export class SidebarItemService {
-  constructor(private _router: Router) {}
+  constructor(private _router: Router) { }
 
   _url = this._router.routerState.snapshot.url;
   menu: Array<object> = [
@@ -31,6 +31,20 @@ export class SidebarItemService {
           icon: 'fa fa-user-plus',
           link: '/admin/user/add',
         },
+      ],
+      authorize: [Roles.Root, Roles.Administrator],
+    },
+    {
+      title: 'Component Transections',
+      icon: 'fa fa-user',
+      linkActive: ['/admin/component-menus'],
+      submenuShowHide: this.getChildUrlActiveState(['component-menus']),
+      submenu: [
+        {
+          title: 'Component Menu List',
+          icon: 'fa fa-address-book',
+          link: '/admin/component-menus',
+        }
       ],
       authorize: [Roles.Root, Roles.Administrator],
     },

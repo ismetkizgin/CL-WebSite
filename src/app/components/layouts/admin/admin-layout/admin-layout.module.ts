@@ -22,6 +22,7 @@ import {
   DashboardComponent,
   UserListComponent,
   LoginComponent,
+  ComponentMenuListComponent
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminSidebarComponent,
     DialogWindowComponent,
     LoginComponent,
+    ComponentMenuListComponent
   ],
   imports: [
     CommonModule,
@@ -61,4 +63,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{ 'Menu No' | translate }}</th>
+                    <th>{{ 'Name' | translate }}</th>
+                    <th>{{ 'Description' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let componentMenu of componentMenus">
+                    <td> {{ componentMenu.ComponentMenuID }} </td>
+                    <td> {{ componentMenu.ComponentMenuName }} </td>
+                    <td> {{ componentMenu.ComponentMenuDescription }}</td>
+                    <td class="list-button text-right">
+                        <a mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon class="list-menu">more_vert</mat-icon>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <a mat-menu-item>
+                                <mat-icon>remove_red_eye</mat-icon>
+                                <span>{{ 'Examine' | translate }}</span>
+                            </a>
+                            <a mat-menu-item>
+                                <mat-icon>edit</mat-icon>
+                                <span>{{ 'Edit' | translate }}</span>
+                            </a>
+                            <a mat-menu-item>
+                                <mat-icon>delete</mat-icon>
+                                <span>{{ 'Delete' | translate }}</span>
+                            </a>
+                        </mat-menu>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

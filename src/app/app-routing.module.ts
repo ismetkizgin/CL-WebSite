@@ -9,6 +9,7 @@ import {
   DashboardComponent,
   LoginComponent,
   UserListComponent,
+  ComponentMenuListComponent
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -44,6 +45,15 @@ const routes: Routes = [
         component: UserListComponent,
         data: {
           title: 'User List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'component-menus',
+        component: ComponentMenuListComponent,
+        data: {
+          title: 'Component Menu List',
           icon: 'fa fa-2x fa-address-book',
           authorize: [Roles.Root, Roles.Administrator],
         },
