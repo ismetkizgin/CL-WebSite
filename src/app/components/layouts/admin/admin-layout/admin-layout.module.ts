@@ -7,11 +7,22 @@ import { AdminHeaderComponent } from '../admin-header/admin-header.component';
 import { AdminControlSidebarComponent } from '../admin-control-sidebar/admin-control-sidebar.component';
 import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule}from '@angular/material/menu';
-import { DashboardComponent, UserListComponent } from '../../../../pages/admin';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { NgSearchFilterModule } from 'ng-search-filter';
+import { DialogWindowComponent } from '../../../';
+import {
+  DashboardComponent,
+  UserListComponent,
+  LoginComponent,
+} from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -25,13 +36,21 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
-    AdminSidebarComponent
+    AdminSidebarComponent,
+    DialogWindowComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     MatIconModule,
     MatMenuModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    NgSearchFilterModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -42,4 +61,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class AdminLayoutModule { }
+export class AdminLayoutModule {}

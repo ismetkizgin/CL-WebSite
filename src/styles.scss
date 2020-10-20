@@ -37,8 +37,35 @@ $my-app-theme: mat-light-theme(
 /* You can add global styles to this file, and also import other style files */
 
 .notification {
+  color: white;
+
   &__error {
     background-color: brown;
-    color: white;
   }
+
+  &__error button {
+    color: white;
+    background-color: brown;
+  }
+
+  &__success {
+    background-color: green;
+  }
+
+  &__success button {
+    color: white;
+    background-color: green;
+  }
+}
+
+.card-header {
+  height: 50px;
+}
+
+a[type="button"] {
+  -webkit-appearance: none;
+}
+
+.mat-form-field {
+  width: 100%;
 }
