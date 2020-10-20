@@ -10,6 +10,7 @@ export class ComponentMenuListComponent implements OnInit {
 
   constructor() { }
   componentMenus: Array<ComponentMenu>;
+  searchText: string;
   ngOnInit(): void {
     this.componentMenus = [
       {

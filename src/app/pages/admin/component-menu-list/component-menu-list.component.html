@@ -1,3 +1,15 @@
+<div class="row">
+    <div class="col-md-3 col-sm-12 ml-auto ">
+        <mat-form-field>
+            <mat-label>{{ 'Search' | translate }}</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText"
+                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
+            <a type="button" matSuffix [attr.aria-label]="'Search'">
+                <mat-icon>search</mat-icon>
+            </a>
+        </mat-form-field>
+    </div>
+</div>
 <div class="card">
     <div class="card-body p-0">
         <table class="table table-striped">
@@ -9,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let componentMenu of componentMenus">
+                <tr *ngFor="let componentMenu of componentMenus | filter:searchText">
                     <td> {{ componentMenu.ComponentMenuID }} </td>
                     <td> {{ componentMenu.ComponentMenuName }} </td>
                     <td> {{ componentMenu.ComponentMenuDescription }}</td>
