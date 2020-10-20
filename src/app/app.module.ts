@@ -9,17 +9,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ReactiveFormsModule } from '@angular/forms';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    routingComponents
-  ],
+  declarations: [AppComponent, routingComponents],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,7 +24,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -38,7 +33,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

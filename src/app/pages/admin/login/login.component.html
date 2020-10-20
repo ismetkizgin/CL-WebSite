@@ -6,12 +6,14 @@
             <img src="favicon.ico" class="login__logo" alt="User Icon" />
         </div>
 
-        <form [formGroup]="_loginForm">
-            <input type="text" formControlName="UserEmail" class="login__input"
-                placeholder="{{ 'E-Mail' | translate }}" />
-            <input type="password" formControlName="UserPassword" class="login__input"
-                placeholder="{{ 'Password' | translate }}" />
-            <button type="submit" (click)="onLogin()" class="login__button">{{ 'Login' | translate }}</button>
+        <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+            <input type="text" name="UserEmail" id="UserEmail" class="login__input"
+                placeholder="{{ 'E-Mail' | translate }}" #UserEmail="ngModel" [(ngModel)]="model.UserEmail"
+                required />
+            <input type="password" name="UserPassword" id="UserPassword" class="login__input"
+                placeholder="{{ 'Password' | translate }}" #UserPassword="ngModel" [(ngModel)]="model.UserPassword"
+                required />
+            <button type="submit" class="login__button">{{ 'Login' | translate }}</button>
         </form>
 
         <div class="login__formFooter">
