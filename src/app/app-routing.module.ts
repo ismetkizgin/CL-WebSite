@@ -4,8 +4,15 @@ import {
   ClientLayoutComponent,
   AdminLayoutComponent,
 } from './components/layouts';
-import { HomepageComponent, DashboardComponent, LoginComponent, UserAddComponent } from './pages';
+import {
+  HomepageComponent,
+  DashboardComponent,
+  LoginComponent,
+  UserListComponent,
+  UserAddComponent
+} from './pages';
 import { AuthGuard } from './utils/guards';
+import { Roles } from './models/roles';
 
 const routes: Routes = [
   {
@@ -20,11 +27,27 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
-        path: '', component: DashboardComponent,
+        path: '',
+        component: DashboardComponent,
         data: {
           title: 'Dashboard',
-          icon: 'fa fa-2x fa-home'
-        }
+          icon: 'fa fa-2x fa-home',
+          authorize: [
+            Roles.Root,
+            Roles.Administrator,
+            Roles.Developer,
+            Roles.Editor,
+          ],
+        },
+      },
+      {
+        path: 'users',
+        component: UserListComponent,
+        data: {
+          title: 'User List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
       },
       {
         path: 'user/add',
@@ -40,10 +63,11 @@ const routes: Routes = [
         data: {
           title: 'Edit User Information',
           icon: 'fa fa-2x fa-user-edit',
-        },
-      },
+        }
+      }
     ],
   },
+
   {
     path: 'login',
     component: LoginComponent,
@@ -55,5 +79,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
-export const routingComponents = [LoginComponent];
+export class AppRoutingModule {}
+export const routingComponents = [];

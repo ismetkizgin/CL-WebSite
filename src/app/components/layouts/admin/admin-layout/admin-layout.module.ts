@@ -7,17 +7,23 @@ import { AdminHeaderComponent } from '../admin-header/admin-header.component';
 import { AdminControlSidebarComponent } from '../admin-control-sidebar/admin-control-sidebar.component';
 import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { NgSearchFilterModule } from 'ng-search-filter';
+import { DialogWindowComponent } from '../../../';
 import {
   DashboardComponent,
+  UserListComponent,
+  LoginComponent,
   UserAddComponent
 } from '../../../../pages/admin';
-import { from } from 'rxjs';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -26,20 +32,27 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AdminLayoutComponent,
+    UserListComponent,
     DashboardComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
     AdminSidebarComponent,
-    UserAddComponent
+    UserAddComponent,
+    DialogWindowComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MatIconModule,
     FormsModule,
-    MatFormFieldModule,
+    MatIconModule,
+    MatMenuModule,
     MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    NgSearchFilterModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
