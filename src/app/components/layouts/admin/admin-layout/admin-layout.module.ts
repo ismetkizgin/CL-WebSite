@@ -16,6 +16,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSearchFilterModule } from 'ng-search-filter';
 import { DialogWindowComponent } from '../../../';
 import {
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     RouterModule,
     FormsModule,
+    NgxPaginationModule,
     MatIconModule,
     MatMenuModule,
     MatInputModule,
