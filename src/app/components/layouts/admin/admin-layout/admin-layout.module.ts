@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -23,6 +24,7 @@ import {
   DashboardComponent,
   UserListComponent,
   LoginComponent,
+  UserAddComponent
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -38,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminHeaderComponent,
     AdminControlSidebarComponent,
     AdminSidebarComponent,
+    UserAddComponent,
     DialogWindowComponent,
     LoginComponent,
   ],
@@ -50,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatMenuModule,
     MatInputModule,
     MatFormFieldModule,
+    MatMomentDateModule,
     MatDatepickerModule,
     MatDialogModule,
     NgSearchFilterModule,
@@ -63,4 +67,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
