@@ -3,51 +3,79 @@ import { UserModel } from './user-add.model';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms';
+import { Roles } from '../../../models/roles';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService, UserService, LanguageService } from '../../../utils';
 import {
-  AuthService,
-  UserService
-} from '../../../utils/services';
+  MAT_DATE_LOCALE,
+  DateAdapter,
+  MAT_DATE_FORMATS,
+} from '@angular/material/core';
+import {
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateAdapter,
+} from '@angular/material-moment-adapter';
 
 @Component({
   selector: 'app-user-add',
   templateUrl: './user-add.component.html',
-  styleUrls: ['./user-add.component.scss']
+  styleUrls: ['./user-add.component.scss'],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'tr-TR' },
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE],
+    },
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
+  ],
 })
 export class UserAddComponent implements OnInit {
-
   constructor(
     private _authService: AuthService,
     private _translateService: TranslateService,
     private _snackBar: MatSnackBar,
-    private _userService:UserService,
+    private _userService: UserService,
     private _activatedRoute: ActivatedRoute,
+    private _languageService: LanguageService,
     public _router: Router,
-  ) { }
+    private _dateAdapter: DateAdapter<any>
+  ) {}
 
   _passwordShowHide: boolean = false;
   _model: UserModel = new UserModel();
   _action: Function;
-  
-
+  _UserTypeName = this._authService.currentUserValue.result.UserTypeName;
+  lang: string = this._languageService.getLanguage() || 'tr';
   userRoles: Array<object> = [
     {
-      userStatusName: 'Administrator',
+      userTypeName: 'Administrator',
+      authorize: [Roles.Root].indexOf(this._UserTypeName) === -1 ? false : true,
     },
     {
-      userStatusName: 'Developer',
+      userTypeName: 'Developer',
+      authorize:
+        [Roles.Root, Roles.Administrator].indexOf(this._UserTypeName) === -1
+          ? false
+          : true,
     },
     {
-      userStatusName: 'Editor',
+      userTypeName: 'Editor',
+      authorize:
+        [Roles.Root, Roles.Administrator].indexOf(this._UserTypeName) === -1
+          ? false
+          : true,
     },
   ];
+
   async ngOnInit() {
+    this._dateAdapter.setLocale(this.lang);
     const UserID = this._activatedRoute.snapshot.paramMap.get('UserID');
     if (UserID != null) {
       try {
         this._model = <any>await this._userService.findAsync(UserID);
       } catch (error) {
-        this.errorNotification(error);
+        this._userService.errorNotification(error);
         this._router.navigateByUrl('admin');
       }
       this._action = this.updateActionAsync;
@@ -92,11 +120,12 @@ export class UserAddComponent implements OnInit {
 
   async insertActionAsync(userForm: NgForm) {
     try {
+      console.log(userForm);
       await this._userService.insertAsync(userForm.value);
       userForm.resetForm();
       return true;
     } catch (error) {
-      this.errorNotification(error);
+      this._userService.errorNotification(error);
       return false;
     }
   }
@@ -112,48 +141,8 @@ export class UserAddComponent implements OnInit {
       );
       return true;
     } catch (error) {
-      this.errorNotification(error);
+      this._userService.errorNotification(error);
       return false;
     }
   }
-
-  errorNotification(error) {
-    let errorMessage: string;
-    switch (error.status) {
-      case 401:
-        this._translateService
-          .get('Unauthorized transaction !')
-          .subscribe((value) => (errorMessage = value));
-        break;
-      case 409:
-        this._translateService
-          .get('Such an user is already registered in the system !')
-          .subscribe((value) => (errorMessage = value));
-        break;
-      case 417:
-        this._translateService
-          .get('Please enter correct user information !')
-          .subscribe((value) => (errorMessage = value));
-        break;
-      case 404:
-        this._translateService
-          .get('Such a user is not registered in the system !')
-          .subscribe((value) => (errorMessage = value));
-        break;
-      default:
-        this._translateService
-          .get(
-            'Server error occurred, please try again later If the error persists, we ask you to report this to the authorities'
-          )
-          .subscribe((value) => (errorMessage = value));
-        break;
-    }
-    this._snackBar.open(errorMessage, 'X', {
-      duration: 4000,
-      panelClass: 'notification__error',
-      verticalPosition: 'bottom',
-      horizontalPosition: 'right',
-    });
-  }
-
 }

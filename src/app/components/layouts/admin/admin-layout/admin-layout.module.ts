@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgSearchFilterModule } from 'ng-search-filter';
@@ -50,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatMenuModule,
     MatInputModule,
     MatFormFieldModule,
+    MatMomentDateModule,
     MatDatepickerModule,
     MatDialogModule,
     NgSearchFilterModule,
