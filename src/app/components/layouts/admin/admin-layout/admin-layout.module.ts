@@ -17,7 +17,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgSearchFilterModule } from 'ng-search-filter';
-import { DialogWindowComponent } from '../../../';
+import {
+  DialogWindowComponent,
+  PasswordChangeComponent
+} from '../../../';
 import {
   DashboardComponent,
   UserListComponent,
@@ -39,6 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminSidebarComponent,
     DialogWindowComponent,
     LoginComponent,
+    PasswordChangeComponent,
   ],
   imports: [
     CommonModule,
@@ -61,4 +65,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
