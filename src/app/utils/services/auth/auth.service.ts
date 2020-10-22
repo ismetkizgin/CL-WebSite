@@ -159,4 +159,13 @@ export class AuthService {
     localStorage.removeItem('currentUser');
     this._router.navigate(['login']);
   }
+
+  async changePassword(values) {
+    return await this._apiFetchService.requestAsync(
+      'PUT',
+      'change-password',
+      values,
+      true
+    );
+  }
 }
