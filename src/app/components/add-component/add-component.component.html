@@ -8,41 +8,30 @@
 </div>
 
 <mat-dialog-content class="mat-typography institution-dialog__content">
-    <div class="form">
+    <form #componentForm='ngForm' (ngSubmit)="onSave(componentForm)">
         <div class="card border-top border-info p-3">
-            <div class="dropdown text-right">
-                <button class="btn btn-language dropdown-toggle text-dark" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ 'Languages' | translate }}
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item"><i class="flag-icon flag-icon-tr mr-2"></i>Türkçe</a>
-                    <a class="dropdown-item"><i class="flag-icon flag-icon-us mr-2"></i>English</a>
-                </div>
-            </div>
-
             <div class="form-group mt-2">
                 <mat-form-field appearance="outline" class="w-100">
-                    <mat-label>{{ 'Component Name' | translate }}</mat-label>
-                    <input matInput type="text" placeholder="{{ 'Enter Component Name' | translate }}"
-                        pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="ComponentName" #ComponentName="ngModel"
-                        [(ngModel)]="components.ComponentName" required>
-                    <mat-error *ngIf="ComponentName.invalid&&ComponentName.touched">
+                    <mat-label>{{ 'Component Menu Name' | translate }}</mat-label>
+                    <input matInput type="text" placeholder="{{ 'Enter Component Menu Name' | translate }}"
+                        pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="ComponentMenuName" #ComponentMenuName="ngModel"
+                        [(ngModel)]="_model.ComponentMenuName" required>
+                    <mat-error *ngIf="ComponentMenuName.invalid&&ComponentMenuName.touched">
                         {{ 'User First Name field must be filled' | translate }}</mat-error>
                 </mat-form-field>
             </div>
 
             <div class="form-group">
                 <mat-form-field appearance="outline" class="w-100">
-                    <mat-label>{{ 'Component Description ' | translate }}</mat-label>
-                    <textarea matInput type="text" placeholder="{{ 'Enter Component Description' | translate }}"
-                        name="ComponentDescription" #ComponentDescription="ngModel"
-                        [(ngModel)]="components.ComponentDescription" required></textarea>
-                    <mat-error *ngIf="ComponentDescription.invalid&&ComponentDescription.touched">
+                    <mat-label>{{ 'Component Menu Description ' | translate }}</mat-label>
+                    <textarea matInput type="text" placeholder="{{ 'Enter Component Menu Description' | translate }}"
+                        name="ComponentMenuDescription" #ComponentMenuDescription="ngModel"
+                        [(ngModel)]="_model.ComponentMenuDescription" required></textarea>
+                    <mat-error *ngIf="ComponentMenuDescription.invalid&&ComponentMenuDescription.touched">
                         {{ 'Component Description field must be filled' | translate }}</mat-error>
                 </mat-form-field>
             </div>
             <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
         </div>
-    </div>
+    </form>
 </mat-dialog-content>

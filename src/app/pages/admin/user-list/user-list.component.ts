@@ -27,12 +27,6 @@ export class UserListComponent implements OnInit {
     itemsPerPage: 10,
     currentPage: 1,
   };
-  openDialog() {
-    this._dialog.open(AddComponentComponent, {
-      width: "500px"
-    });
-  }
-
   async ngOnInit() {
     try {
       this.users = <Array<User>>await this._userService.listAsync();
