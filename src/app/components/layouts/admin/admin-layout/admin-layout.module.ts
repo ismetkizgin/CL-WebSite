@@ -19,7 +19,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSearchFilterModule } from 'ng-search-filter';
-import { DialogWindowComponent, PaginationComponent } from '../../../';
+import {
+  DialogWindowComponent,
+  PaginationComponent,
+  PasswordChangeComponent,
+} from '../../../';
 import {
   DashboardComponent,
   UserListComponent,
@@ -43,6 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserAddComponent,
     DialogWindowComponent,
     LoginComponent,
+    PasswordChangeComponent,
     PaginationComponent,
   ],
   imports: [
