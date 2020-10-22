@@ -21,6 +21,11 @@ export class UserListComponent implements OnInit {
 
   users: Array<User>;
   searchText: string;
+  paginationConfig = {
+    id: 'userList',
+    itemsPerPage: 10,
+    currentPage: 1,
+  };
 
   async ngOnInit() {
     try {
@@ -31,10 +36,6 @@ export class UserListComponent implements OnInit {
   }
 
   async userDelete(UserID) {
-    let notification: any = {
-      message: '',
-      panelClass: 'notification__success',
-    };
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
         message: 'Are you sure you want to delete the user ?',
@@ -50,41 +51,19 @@ export class UserListComponent implements OnInit {
             this.users.findIndex((user) => user.UserID == UserID),
             1
           );
+          let notificationMessage: string;
           this._translateService
             .get('Institution information was successfully deleted')
-            .subscribe((value) => (notification.message = value));
-        } catch (error) {
-          console.log(error);
-          notification.panelClass = 'notification__error';
-          switch (error.status) {
-            case 401:
-              this._translateService
-                .get('Unauthorized transaction !')
-                .subscribe((value) => (notification.message = value));
-              break;
-            case 417:
-              this._translateService
-                .get('Please enter correct institution information !')
-                .subscribe((value) => (notification.message = value));
-              break;
-            case 407:
-              window.location.reload();
-              break;
-            default:
-              this._translateService
-                .get(
-                  'Server error occurred, please try again later If the error persists, we ask you to report this to the authorities'
-                )
-                .subscribe((value) => (notification.message = value));
-              break;
-          }
-        } finally {
-          this._snackBar.open(notification.message, 'X', {
+            .subscribe((value) => (notificationMessage = value));
+
+          this._snackBar.open(notificationMessage, 'X', {
             duration: 3000,
-            panelClass: notification.panelClass,
+            panelClass: 'notification__success',
             verticalPosition: 'bottom',
             horizontalPosition: 'right',
           });
+        } catch (error) {
+          this._userService.errorNotification(error);
         }
       }
     });

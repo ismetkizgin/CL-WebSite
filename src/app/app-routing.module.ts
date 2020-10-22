@@ -9,7 +9,8 @@ import {
   DashboardComponent,
   LoginComponent,
   UserListComponent,
-  ComponentMenuListComponent
+  ComponentMenuListComponent,
+  UserAddComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -50,6 +51,24 @@ const routes: Routes = [
         },
       },
       {
+        path: 'user/add',
+        component: UserAddComponent,
+        data: {
+          title: 'User Add',
+          icon: 'fa fa-2x fa-home',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'user/edit/:UserID',
+        component: UserAddComponent,
+        data: {
+          title: 'Edit User Information',
+          icon: 'fa fa-2x fa-user-edit',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
         path: 'component-menus',
         component: ComponentMenuListComponent,
         data: {
@@ -60,7 +79,6 @@ const routes: Routes = [
       },
     ],
   },
-
   {
     path: 'login',
     component: LoginComponent,
