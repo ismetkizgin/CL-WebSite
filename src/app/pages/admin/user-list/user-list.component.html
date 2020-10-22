@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let user of users | filter:searchText | paginate: { itemsPerPage: 1, currentPage: p }">
+                <tr *ngFor="let user of users | filter:searchText | paginate: paginationConfig">
                     <td> {{ user.UserID }} </td>
                     <td> {{ user.UserFirstName }} {{ user.UserLastName }}</td>
                     <td> {{ user.UserEmail }}</td>
@@ -53,5 +53,4 @@
         </table>
     </div>
 </div>
-<pagination-controls (pageChange)="p = $event" responsive="true" maxSize="8" autoHide="true" previousLabel="Previoasdasdus" nextLabel="Next">
-</pagination-controls>
+<app-pagination [config]="paginationConfig"></app-pagination>

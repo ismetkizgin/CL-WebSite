@@ -21,7 +21,12 @@ export class UserListComponent implements OnInit {
 
   users: Array<User>;
   searchText: string;
-  p: number = 1;
+  paginationConfig = {
+    id: 'userList',
+    itemsPerPage: 10,
+    currentPage: 1,
+  };
+
   async ngOnInit() {
     try {
       this.users = <Array<User>>await this._userService.listAsync();
