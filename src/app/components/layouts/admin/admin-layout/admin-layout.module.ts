@@ -14,17 +14,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSearchFilterModule } from 'ng-search-filter';
 import {
   DialogWindowComponent,
-  PasswordChangeComponent
+  PaginationComponent,
+  PasswordChangeComponent,
 } from '../../../';
 import {
   DashboardComponent,
   UserListComponent,
   LoginComponent,
+  UserAddComponent,
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -40,18 +44,23 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminHeaderComponent,
     AdminControlSidebarComponent,
     AdminSidebarComponent,
+    UserAddComponent,
     DialogWindowComponent,
     LoginComponent,
     PasswordChangeComponent,
+    PaginationComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
+    NgxPaginationModule,
     MatIconModule,
     MatMenuModule,
     MatInputModule,
     MatFormFieldModule,
+    MatMomentDateModule,
+    NgxPaginationModule,
     MatDatepickerModule,
     MatDialogModule,
     NgSearchFilterModule,
@@ -64,5 +73,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [],
+  exports: [PaginationComponent],
 })
-export class AdminLayoutModule { }
+export class AdminLayoutModule {}

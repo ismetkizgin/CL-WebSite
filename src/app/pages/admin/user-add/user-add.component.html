@@ -1,0 +1,97 @@
+<form #userForm='ngForm' (ngSubmit)="onSave(userForm)">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-outline card-info">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 form-group">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{ 'First Name' | translate }}</mat-label>
+                                <input matInput type="text" placeholder="{{ 'Enter First Name' | translate }}"
+                                    pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="UserFirstName" #UserFirstName="ngModel"
+                                    [(ngModel)]="_model.UserFirstName" required>
+                                <mat-error *ngIf="UserFirstName.invalid&&UserFirstName.touched">
+                                    {{ 'User First Name field must be filled' | translate }}</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6 col-sm-12 form-group">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{ 'Last Name' | translate }}</mat-label>
+                                <input matInput type="text" placeholder="{{ 'Enter Last Name' | translate }}"
+                                    pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="UserLastName" #UserLastName="ngModel"
+                                    [(ngModel)]="_model.UserLastName" required>
+                                <mat-error *ngIf="UserLastName.invalid&&UserLastName.touched">
+                                    {{ 'User Last Name field must be filled' | translate }}</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6 col-sm-12 form-group">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{ 'Email Address' | translate }}</mat-label>
+                                <input matInput type="text" placeholder="{{ 'Enter Email Address' | translate }}"
+                                    pattern="^[a-z0-9.%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" name="UserEmail"
+                                    #UserEmail="ngModel" [(ngModel)]="_model.UserEmail" required>
+                                <mat-error *ngIf="UserEmail.invalid&&UserEmail.touched">
+                                    {{ 'Email adress field must be filled' | translate }}</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6 col-xs-12 form-group">
+                            <mat-form-field appearance="outline">
+                                <mat-label>{{ 'Date Of Birth' | translate }}</mat-label>
+                                <input matInput [matDatepicker]="UserDateBirth" name="UserDateOfBirth"
+                                    #UserDateOfBirth="ngModel" [(ngModel)]="_model.UserDateOfBirth" required>
+                                <mat-datepicker-toggle matSuffix [for]="UserDateBirth"></mat-datepicker-toggle>
+                                <mat-datepicker #UserDateBirth></mat-datepicker>
+                                <mat-error *ngIf="UserDateBirth.invalid&&UserDateBirth.touched">
+                                    {{ 'Fill in the date of death field' | translate }}</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6 col-sm-12 form-group">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>{{'User Type'| translate}}</mat-label>
+                                <select matNativeControl name="UserTypeName" #UserTypeName="ngModel"
+                                    ng-model="UserTypeNameSelect" [(ngModel)]="_model.UserTypeName" required>
+                                    <option *ngFor="let userRole of userRoles" [value]="userRole.userTypeName"
+                                        [disabled]="!userRole.authorize">
+                                        {{ userRole.userTypeName | translate }}</option>
+                                </select>
+                                <mat-error *ngIf="UserTypeName.invalid&&UserTypeName.touched">
+                                    {{ 'Choose the type of user' | translate }}
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="col-12 form-group">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>{{ 'Password' | translate }}</mat-label>
+                                    <input matInput [type]=" _passwordShowHide ? 'text' : 'password'"
+                                        placeholder="{{ 'Enter Password' | translate }}" name="UserPassword"
+                                        minlength="6" #UserPassword="ngModel"
+                                        [disabled]="_router.isActive('/admin/user/edit',false)"
+                                        [(ngModel)]="_model.UserPassword" required>
+                                    <a type="button" matSuffix (click)="_passwordShowHide = !_passwordShowHide"
+                                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="_passwordShowHide">
+                                        <mat-icon>{{ _passwordShowHide ? 'visibility_off' : 'visibility'}}
+                                        </mat-icon>
+                                    </a>
+                                    <mat-error
+                                        *ngIf="UserPassword.invalid && (UserPassword.dirty || UserPassword.touched) && UserPassword.errors.minlength">
+                                        {{ 'Password cannot be shorter than 6 characters' | translate }}</mat-error>
+                                    <mat-error
+                                        *ngIf="UserPassword.invalid && (UserPassword.dirty || UserPassword.touched) && UserPassword.errors.required">
+                                        {{ 'Password field must be filled' | translate }}</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 form-group text-right">
+                                <button type="button" [hidden]="_router.isActive('/admin/user/edit',false)" (click)="onAutomaticPasswordGeneration()"
+                                    class="btn btn-success">{{ 'Automatic password generation' | translate }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
