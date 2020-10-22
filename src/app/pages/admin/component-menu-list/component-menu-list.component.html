@@ -34,7 +34,7 @@
                                 <mat-icon>remove_red_eye</mat-icon>
                                 <span>{{ 'Examine' | translate }}</span>
                             </a>
-                            <a mat-menu-item>
+                            <a mat-menu-item (click)="openComponentEditModal(componentMenu.ComponentMenuID)">
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
@@ -49,3 +49,4 @@
         </table>
     </div>
 </div>
+<app-pagination [config]="paginationConfig"></app-pagination>
