@@ -18,6 +18,7 @@ export class AdminHeaderComponent implements OnInit {
       ? 'us'
       : this._languageService.getLanguage() || 'tr';
   ngOnInit(): void {}
+  
 
   setLang(lang: string) {
     this.lang = lang == 'en' ? 'us' : lang;

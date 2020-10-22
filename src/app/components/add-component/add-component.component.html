@@ -1,0 +1,48 @@
+<div ma-dialog-title class="institution-dialog__header">
+    <div class="modal-header">
+        <h2>{{ 'Component Add Page' | translate}}</h2>
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon>close</mat-icon>
+        </a>
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography institution-dialog__content">
+    <div class="form">
+        <div class="card border-top border-info p-3">
+            <div class="dropdown text-right">
+                <button class="btn btn-language dropdown-toggle text-dark" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ 'Languages' | translate }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item"><i class="flag-icon flag-icon-tr mr-2"></i>Türkçe</a>
+                    <a class="dropdown-item"><i class="flag-icon flag-icon-us mr-2"></i>English</a>
+                </div>
+            </div>
+
+            <div class="form-group mt-2">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>{{ 'Component Name' | translate }}</mat-label>
+                    <input matInput type="text" placeholder="{{ 'Enter Component Name' | translate }}"
+                        pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="ComponentName" #ComponentName="ngModel"
+                        [(ngModel)]="components.ComponentName" required>
+                    <mat-error *ngIf="ComponentName.invalid&&ComponentName.touched">
+                        {{ 'User First Name field must be filled' | translate }}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>{{ 'Component Description ' | translate }}</mat-label>
+                    <textarea matInput type="text" placeholder="{{ 'Enter Component Description' | translate }}"
+                        name="ComponentDescription" #ComponentDescription="ngModel"
+                        [(ngModel)]="components.ComponentDescription" required></textarea>
+                    <mat-error *ngIf="ComponentDescription.invalid&&ComponentDescription.touched">
+                        {{ 'Component Description field must be filled' | translate }}</mat-error>
+                </mat-form-field>
+            </div>
+            <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
+        </div>
+    </div>
+</mat-dialog-content>

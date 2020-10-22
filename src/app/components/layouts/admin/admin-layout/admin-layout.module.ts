@@ -19,7 +19,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSearchFilterModule } from 'ng-search-filter';
-import { DialogWindowComponent, PaginationComponent } from '../../../';
+import {
+  DialogWindowComponent,
+  PaginationComponent,
+  AddComponentComponent
+} from '../../../';
 import {
   DashboardComponent,
   UserListComponent,
@@ -36,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLayoutComponent,
     UserListComponent,
     DashboardComponent,
+    AddComponentComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
@@ -70,4 +75,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [],
   exports: [PaginationComponent],
 })
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
