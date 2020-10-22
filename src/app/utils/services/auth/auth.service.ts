@@ -168,4 +168,13 @@ export class AuthService {
       true
     );
   }
+
+  async updateProfile(values) {
+    return await this._apiFetchService.requestAsync(
+      'PUT',
+      'my-account',
+      values,
+      true
+    );
+  }
 }
