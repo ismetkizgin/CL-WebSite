@@ -22,6 +22,7 @@ import { NgSearchFilterModule } from 'ng-search-filter';
 import {
   DialogWindowComponent,
   PaginationComponent,
+  AddComponentComponent,
   PasswordChangeComponent,
 } from '../../../';
 import {
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLayoutComponent,
     UserListComponent,
     DashboardComponent,
+    AddComponentComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,

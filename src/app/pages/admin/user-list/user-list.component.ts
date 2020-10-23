@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogWindowComponent } from '../../../components';
+import { AddComponentComponent } from '../../../components';
 
 @Component({
   selector: 'app-user-list',
@@ -17,7 +18,7 @@ export class UserListComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
     private _dialog: MatDialog
-  ) {}
+  ) { }
 
   users: Array<User>;
   searchText: string;
@@ -26,7 +27,6 @@ export class UserListComponent implements OnInit {
     itemsPerPage: 10,
     currentPage: 1,
   };
-
   async ngOnInit() {
     try {
       this.users = <Array<User>>await this._userService.listAsync();
