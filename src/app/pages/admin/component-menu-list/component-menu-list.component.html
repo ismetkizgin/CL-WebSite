@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let componentMenu of componentMenus | filter:searchText">
+                <tr *ngFor="let componentMenu of componentMenus | filter:searchText | paginate: paginationConfig">
                     <td> {{ componentMenu.ComponentMenuID }} </td>
                     <td> {{ componentMenu.ComponentMenuName }} </td>
                     <td> {{ componentMenu.ComponentMenuDescription }}</td>
