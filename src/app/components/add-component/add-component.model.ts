@@ -1,4 +1,4 @@
-export class ComponentProperty{
+export class ComponentMenu{
     ComponentMenuName:string;
     ComponentMenuDescription:string;
 }

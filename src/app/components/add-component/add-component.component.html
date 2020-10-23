@@ -8,8 +8,8 @@
 </div>
 
 <mat-dialog-content class="mat-typography institution-dialog__content">
-    <form #componentForm='ngForm' (ngSubmit)="onSave(componentForm)">
-        <div class="card border-top border-info p-3">
+    <div class="card border-top border-info p-3">
+        <form #componentForm='ngForm' (ngSubmit)="onSave(componentForm)">
             <div class="form-group mt-2">
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'Component Menu Name' | translate }}</mat-label>
@@ -32,6 +32,6 @@
                 </mat-form-field>
             </div>
             <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
-        </div>
-    </form>
+        </form>
+    </div>
 </mat-dialog-content>
