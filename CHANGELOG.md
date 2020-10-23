@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.3.0 (2020-10-23)
+
+
+### Features
+
+* added user edit router path ([0b152bd](https://github.com/ismetkizgin/CL-WebSite/commit/0b152bd46b1bfb66408aa0744ca2d61d95e81342))
+
+
+### Bug Fixes
+
+* fix for component menu list pagination ([1533c32](https://github.com/ismetkizgin/CL-WebSite/commit/1533c32693bcd271092f2c8d855eeda4439a5d57))
+
 ## 1.2.0 (2020-10-23)
 
 
