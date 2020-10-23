@@ -56,6 +56,11 @@ export class UserService {
   errorNotification(error) {
     let errorMessage: string;
     switch (error.status) {
+      case 400:
+        this._translateService
+          .get('User password does not match !')
+          .subscribe((value) => (errorMessage = value));
+        break;
       case 401:
         this._translateService
           .get('Unauthorized transaction !')

@@ -24,10 +24,12 @@
                                     {{ 'User Last Name field must be filled' | translate }}</mat-error>
                             </mat-form-field>
                         </div>
-                        <div class="col-md-6 col-sm-12 form-group">
+                        <div class="col-md-6 col-sm-12 form-group"
+                            [hidden]="_router.isActive('/admin/user/profile',true)">
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>{{ 'Email Address' | translate }}</mat-label>
-                                <input matInput type="text" placeholder="{{ 'Enter Email Address' | translate }}"
+                                <input matInput type="text" [disabled]="_router.isActive('/admin/user/profile',true)"
+                                    placeholder="{{ 'Enter Email Address' | translate }}"
                                     pattern="^[a-z0-9.%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" name="UserEmail"
                                     #UserEmail="ngModel" [(ngModel)]="_model.UserEmail" required>
                                 <mat-error *ngIf="UserEmail.invalid&&UserEmail.touched">
@@ -45,10 +47,12 @@
                                     {{ 'Fill in the date of death field' | translate }}</mat-error>
                             </mat-form-field>
                         </div>
-                        <div class="col-md-6 col-sm-12 form-group">
+                        <div class="col-md-6 col-sm-12 form-group"
+                            [hidden]="_router.isActive('/admin/user/profile',true)">
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>{{'User Type'| translate}}</mat-label>
-                                <select matNativeControl name="UserTypeName" #UserTypeName="ngModel"
+                                <select matNativeControl name="UserTypeName"
+                                    [disabled]="_router.isActive('/admin/user/profile',true)" #UserTypeName="ngModel"
                                     ng-model="UserTypeNameSelect" [(ngModel)]="_model.UserTypeName" required>
                                     <option *ngFor="let userRole of userRoles" [value]="userRole.userTypeName"
                                         [disabled]="!userRole.authorize">
@@ -82,7 +86,9 @@
                                 </mat-form-field>
                             </div>
                             <div class="col-12 form-group text-right">
-                                <button type="button" [hidden]="_router.isActive('/admin/user/edit',false)" (click)="onAutomaticPasswordGeneration()"
+                                <button type="button"
+                                    [hidden]="_router.isActive('/admin/user/edit',false) || _router.isActive('/admin/user/profile',true)"
+                                    (click)="onAutomaticPasswordGeneration()"
                                     class="btn btn-success">{{ 'Automatic password generation' | translate }}</button>
                             </div>
                         </div>
@@ -95,3 +101,8 @@
         </div>
     </div>
 </form>
+<div class="row"  [hidden]="!_router.isActive('/admin/user/profile',true)">
+    <div class="col-12 account_detele">
+        <a>{{ 'Delete my account' | translate }}</a>
+    </div>
+</div>

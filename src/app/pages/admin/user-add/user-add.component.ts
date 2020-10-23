@@ -79,6 +79,13 @@ export class UserAddComponent implements OnInit {
         this._router.navigateByUrl('admin');
       }
       this._action = this.updateActionAsync;
+    } else if (this._router.isActive('/admin/user/profile', true)) {
+      this._model = JSON.parse(
+        JSON.stringify(this._authService.currentUserValue.result)
+      );
+      this._model.UserEmail = null;
+      this._model.UserTypeName = null;
+      this._action = this.updateProfileActionAsync;
     } else {
       this._action = this.insertActionAsync;
     }
@@ -139,6 +146,17 @@ export class UserAddComponent implements OnInit {
           ),
         })
       );
+      return true;
+    } catch (error) {
+      this._userService.errorNotification(error);
+      return false;
+    }
+  }
+
+  async updateProfileActionAsync(userForm: NgForm) {
+    try {
+      await this._authService.updateProfile(userForm.value);
+      this._model.UserPassword = null;
       return true;
     } catch (error) {
       this._userService.errorNotification(error);
