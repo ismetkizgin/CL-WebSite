@@ -53,7 +53,7 @@ export class UserListComponent implements OnInit {
           );
           let notificationMessage: string;
           this._translateService
-            .get('User information was successfully deleted.')
+            .get('User information was successfully deleted')
             .subscribe((value) => (notificationMessage = value));
 
           this._snackBar.open(notificationMessage, 'X', {
