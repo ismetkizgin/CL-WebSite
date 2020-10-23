@@ -58,6 +58,14 @@ const routes: Routes = [
         }
       },
       {
+        path: 'user/profile',
+        component: UserAddComponent,
+        data: {
+          title: 'User Add',
+          icon: 'fa fa-2x fa-home'
+        }
+      },
+      {
         path: 'user/edit/:UserID',
         component: UserAddComponent,
         data: {
