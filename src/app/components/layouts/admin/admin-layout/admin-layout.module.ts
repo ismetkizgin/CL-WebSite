@@ -29,7 +29,8 @@ import {
   DashboardComponent,
   UserListComponent,
   LoginComponent,
-  UserAddComponent,
+  ComponentMenuListComponent,
+  UserAddComponent
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,6 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserAddComponent,
     DialogWindowComponent,
     LoginComponent,
+    ComponentMenuListComponent,
     PasswordChangeComponent,
     PaginationComponent,
   ],
