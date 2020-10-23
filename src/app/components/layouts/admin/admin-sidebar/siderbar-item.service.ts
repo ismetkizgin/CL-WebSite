@@ -6,7 +6,7 @@ import { Roles } from '../../../../models/roles';
   providedIn: 'root',
 })
 export class SidebarItemService {
-  constructor(private _router: Router) { }
+  constructor(private _router: Router) {}
 
   _url = this._router.routerState.snapshot.url;
   menu: Array<object> = [
@@ -44,6 +44,7 @@ export class SidebarItemService {
           title: 'Component Menu List',
           icon: 'fa fa-address-book',
           link: '/admin/component-menus',
+          authorize: [Roles.Root, Roles.Administrator],
         }
       ],
       authorize: [Roles.Root, Roles.Administrator],
