@@ -11,6 +11,7 @@ import {
   UserListComponent,
   ComponentMenuListComponent,
   UserAddComponent,
+  ComponentListComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -83,6 +84,15 @@ const routes: Routes = [
           title: 'Component Menu List',
           icon: 'fa fa-2x fa-address-book',
           authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'component-list',
+        component: ComponentListComponent,
+        data: {
+          title: 'Component List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator,Roles.Developer],
         },
       },
     ],
