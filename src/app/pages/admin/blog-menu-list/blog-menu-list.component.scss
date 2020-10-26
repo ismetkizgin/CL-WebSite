@@ -1,0 +1,16 @@
+.list-menu:hover {
+    cursor: pointer;
+  }
+  
+  .add-button {
+    text-align: right;
+  }
+  
+  @media only screen and (min-width: 770px) {
+    .add-button {
+      display: inherit;
+      align-items: end;
+      margin-bottom: 5px;
+    }
+  }
+  

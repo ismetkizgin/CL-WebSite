@@ -44,6 +44,11 @@ export class SidebarItemService {
           title: 'Component Menu List',
           icon: 'fa fa-address-book',
           link: '/admin/component-menus',
+        },
+        {
+          title: 'Blog Menu List',
+          icon: 'fa fa-address-book',
+          link: '/admin/blog-menus',
         }
       ],
       authorize: [Roles.Root, Roles.Administrator],

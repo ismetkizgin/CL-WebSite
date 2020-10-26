@@ -11,6 +11,7 @@ import {
   UserListComponent,
   ComponentMenuListComponent,
   UserAddComponent,
+  BlogMenuListComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -81,6 +82,15 @@ const routes: Routes = [
         component: ComponentMenuListComponent,
         data: {
           title: 'Component Menu List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'blog-menus',
+        component: BlogMenuListComponent,
+        data: {
+          title: 'Blog Menu List',
           icon: 'fa fa-2x fa-address-book',
           authorize: [Roles.Root, Roles.Administrator],
         },
