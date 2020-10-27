@@ -1,10 +1,6 @@
-export class ComponentList {
-    ComponentID: number;
-    ComponentName: string;
-    UserName: string;
-    ComponentCreationDate: string;
+export class ComponentModel {
+  ComponentID: number;
+  ComponentName: string;
+  UserNameSurname: string;
+  ComponentCreatedDate: string;
 }
-
-
-
-

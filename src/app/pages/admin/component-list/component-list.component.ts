@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ComponentList } from './component-list.model';
-import { TranslateService } from '@ngx-translate/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { ComponentModel } from './component-list.model';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  AddComponentComponent,
-  DialogWindowComponent,
-} from '../../../components';
+import { DialogWindowComponent } from '../../../components';
+import { ComponentService } from '../../../utils/services';
+
 @Component({
   selector: 'app-component-list',
   templateUrl: './component-list.component.html',
@@ -14,13 +11,11 @@ import {
 })
 export class ComponentListComponent implements OnInit {
   constructor(
-    private _snackBar: MatSnackBar,
-    private _translateService: TranslateService,
-  
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _componentService: ComponentService
   ) {}
 
-  componentLists: Array<ComponentList>;
+  components: Array<ComponentModel>;
   searchText: string;
   paginationConfig = {
     id: 'ComponentList',
@@ -28,30 +23,22 @@ export class ComponentListComponent implements OnInit {
     currentPage: 1,
   };
 
-  ngOnInit(): void {
-    
+  async ngOnInit() {
+    try {
+      this.components = <Array<ComponentModel>>(
+        await this._componentService.listAsync()
+      );
+    } catch (error) {
+      this._componentService.errorNotification(error);
+    }
   }
 
-  openComponentListModal(ComponentID = null) {
-    const diologRef = this._dialog.open(AddComponentComponent, {
-      width: '500px',
-      data: this.componentLists.find(
-        (componentList) => componentList.ComponentID == ComponentID
-      ),
-    });
-    diologRef.afterClosed().subscribe((result: any) => {
-      if (result) this.ngOnInit();
-    });
-  }
-
-  async componentListDelete(ComponentID) {
+  async componentDelete(ComponentID) {
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
         message: 'Are you sure you want to delete the component ?',
         icon: 'fa fa-exclamation',
       },
     });
-  
   }
-
 }

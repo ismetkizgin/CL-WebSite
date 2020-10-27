@@ -1,8 +1,4 @@
 <div class="row">
-    <div class="col-md-4 col-sm-12 add-button">
-        <button type="button" (click)="openComponentListModal()" class="btn btn-sm btn-outline-success"><i
-                class="fas fa-plus"></i> {{ 'Add Component' | translate }}</button>
-    </div>
     <div class="col-md-3 col-sm-12 ml-auto">
         <mat-form-field>
             <mat-label>{{ 'Search' | translate }}</mat-label>
@@ -22,20 +18,33 @@
                     <th>{{ 'Component No' | translate }}</th>
                     <th>{{ 'Component Name' | translate }}</th>
                     <th>{{ 'User Name' | translate }}</th>
-                    <th>{{ 'Component Creation Date' | translate }}</th>
+                    <th>{{ 'Created Date' | translate }}</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let componentList of componentLists | filter:searchText | paginate: paginationConfig">
-                    <td> {{ componentList.ComponentID }} </td>
-                    <td> {{ componentList.ComponentName }} </td>
-                    <td> {{ componentList.UserName }}</td>
-                    <td> {{ componentList.ComponentCreationDate }}</td>
+                <tr *ngFor="let component of components | filter:searchText | paginate: paginationConfig">
+                    <td> {{ component.ComponentID }} </td>
+                    <td> {{ component.ComponentName }} </td>
+                    <td> {{ component.UserNameSurname }}</td>
+                    <td> {{ component.ComponentCreatedDate }}</td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
                         </a>
-                        
+                        <mat-menu #menu="matMenu">
+                            <a mat-menu-item>
+                                <mat-icon>remove_red_eye</mat-icon>
+                                <span>{{ 'Examine' | translate }}</span>
+                            </a>
+                            <a mat-menu-item [routerLink]="['/admin/component/edit/',component.ComponentID]">
+                                <mat-icon>edit</mat-icon>
+                                <span>{{ 'Edit' | translate }}</span>
+                            </a>
+                            <a mat-menu-item (click)="componentDelete(component.ComponentID)">
+                                <mat-icon>delete</mat-icon>
+                                <span>{{ 'Delete' | translate }}</span>
+                            </a>
+                        </mat-menu>
                     </td>
                 </tr>
             </tbody>
