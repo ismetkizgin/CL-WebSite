@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogMenu } from './blog-menu-list.model';
-import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  AddComponentComponent,
-  DialogWindowComponent,
-} from '../../../components';
-import { ComponentMenuService } from '../../../utils/services';
+import { BlogMenuService } from '../../../utils/services';
 
 @Component({
   selector: 'app-blog-menu-list',
@@ -17,8 +12,8 @@ import { ComponentMenuService } from '../../../utils/services';
 export class BlogMenuListComponent implements OnInit {
   constructor(
     private _snackBar: MatSnackBar,
-    
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _blogMenuService: BlogMenuService
   ) {}
 
   blogMenus: Array<BlogMenu>;
@@ -30,20 +25,10 @@ export class BlogMenuListComponent implements OnInit {
   };
 
   async ngOnInit() {
-   
+    try {
+      this.blogMenus = <Array<BlogMenu>>await this._blogMenuService.listAsync();
+    } catch (error) {
+      this._blogMenuService.errorNotification(error);
+    }
   }
-
-  openBlogMenuModal(BlogMenuID = null) {
-    const diologRef = this._dialog.open(AddComponentComponent, {
-      width: '500px',
-      data: this.blogMenus.find(
-        (blogMenu) => blogMenu.BlogMenuID == BlogMenuID
-      ),
-    });
-    diologRef.afterClosed().subscribe((result: any) => {
-      if (result) this.ngOnInit();
-    });
-  }
-
-  }
-
+}
