@@ -14,12 +14,7 @@ export class BlogMenuService {
   ) {}
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync(
-      'GET',
-      'blog-menu',
-      null,
-      true
-    );
+    return await this._apiFetchService.requestAsync('GET', 'blog-menu', null);
   }
 
   async deleteAsync(values) {
