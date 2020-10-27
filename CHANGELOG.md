@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.4.0 (2020-10-27)
+
+
+### Features
+
+* added role filter for sidebar submenus ([6271c72](https://github.com/ismetkizgin/CL-WebSite/commit/6271c72629b475bbf0710121d20cc5b213789b55))
+* added component list page ([bdd556e](https://github.com/ismetkizgin/CL-WebSite/commit/bdd556ea706e1d2e9a8cc8d8a71cfe1e0ccbb957))
+* added blog menu delete window ([de5d3aa](https://github.com/ismetkizgin/CL-WebSite/commit/de5d3aa108a15a7e8f2d8cfe3d6f43872c406e66))
+* added component delete window ([a50e667](https://github.com/ismetkizgin/CL-WebSite/commit/a50e667e0b3812d43b64bcd4335de12e3f580853))
+* added component service ([8954a3d](https://github.com/ismetkizgin/CL-WebSite/commit/8954a3d497b446b757ec6997b5de8945063b2254))
+* added blog menu service ([ff76f2a](https://github.com/ismetkizgin/CL-WebSite/commit/ff76f2a17ac0239fe0927096c1cf46aa30c03031))
+* added-blog-menu-list-page ([01ef6a9](https://github.com/ismetkizgin/CL-WebSite/commit/01ef6a98d01ef733b217c90bf5256b4f860f3e90))
+* add and edit blog menu window added ([4521678](https://github.com/ismetkizgin/CL-WebSite/commit/45216784d83ac5ea70a46f970f0588ff37116f17))
+
+
+### Bug Fixes
+
+* fix for component menu files rename ([bec8ad0](https://github.com/ismetkizgin/CL-WebSite/commit/bec8ad0b383dcc59822c225d8896d6f2d7cb9607))
+
 ## 1.3.0 (2020-10-23)
 
 
