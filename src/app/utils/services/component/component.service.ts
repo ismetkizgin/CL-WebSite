@@ -6,21 +6,21 @@ import { TranslateService } from '@ngx-translate/core';
 @Injectable({
   providedIn: 'root',
 })
-export class ComponentMenuService {
+export class ComponentService {
   constructor(
     private _apiFetchService: ApiFetchService,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService
   ) {}
 
-  async listAsync() {
-    return await this._apiFetchService.requestAsync('GET', 'component-menu', null);
+  async listAsync(values = null) {
+    return await this._apiFetchService.requestAsync('GET', 'component', values);
   }
 
   async deleteAsync(values) {
     return await this._apiFetchService.requestAsync(
       'DELETE',
-      'component-menu',
+      'component',
       values,
       true
     );
@@ -29,7 +29,7 @@ export class ComponentMenuService {
   async findAsync(userID) {
     return await this._apiFetchService.requestAsync(
       'GET',
-      `component-menu/${userID}`,
+      `component/${userID}`,
       null,
       true
     );
@@ -38,7 +38,7 @@ export class ComponentMenuService {
   async insertAsync(values) {
     return await this._apiFetchService.requestAsync(
       'POST',
-      'component-menu',
+      'component',
       values,
       true
     );
@@ -47,7 +47,7 @@ export class ComponentMenuService {
   async updateAsync(values) {
     return await this._apiFetchService.requestAsync(
       'PUT',
-      'component-menu',
+      'component',
       values,
       true
     );
@@ -63,17 +63,17 @@ export class ComponentMenuService {
         break;
       case 409:
         this._translateService
-          .get('Such an component menu is already registered in the system !')
+          .get('Such an component is already registered in the system !')
           .subscribe((value) => (errorMessage = value));
         break;
       case 417:
         this._translateService
-          .get('Please enter correct component menu information !')
+          .get('Please enter correct component information !')
           .subscribe((value) => (errorMessage = value));
         break;
       case 404:
         this._translateService
-          .get('No component menu record found in the system !')
+          .get('No component record found in the system !')
           .subscribe((value) => (errorMessage = value));
         break;
       default:
