@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { BlogMenu } from './add-blog-menu.model';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
@@ -11,10 +11,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-add-blog-menu',
   templateUrl: './add-blog-menu.component.html',
-  styleUrls: ['./add-blog-menu.component.scss']
+  styleUrls: ['./add-blog-menu.component.scss'],
 })
 export class AddBlogMenuComponent implements OnInit {
-
   constructor(
     private _translateService: TranslateService,
     private _snackBar: MatSnackBar,
@@ -22,7 +21,7 @@ export class AddBlogMenuComponent implements OnInit {
     public _router: Router,
     private dialogRef: MatDialogRef<AddBlogMenuComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  ) {}
 
   _model: BlogMenu = new BlogMenu();
   _blogMenuListRenew: boolean = false;
@@ -50,7 +49,7 @@ export class AddBlogMenuComponent implements OnInit {
 
     if (blogMenuForm.valid) {
       this._translateService
-        .get('Component menu registration completed')
+        .get('Blog menu registration completed')
         .subscribe((value) => (notification.message = value));
       notification.panelClass = 'notification__success';
       if (!(await this._action(blogMenuForm))) return;
@@ -73,6 +72,7 @@ export class AddBlogMenuComponent implements OnInit {
     try {
       await this._blogMenuService.insertAsync(blogMenuForm.value);
       blogMenuForm.resetForm();
+      this._blogMenuListRenew = true;
       return true;
     } catch (error) {
       this._blogMenuService.errorNotification(error);
@@ -84,7 +84,7 @@ export class AddBlogMenuComponent implements OnInit {
     try {
       await this._blogMenuService.updateAsync(
         Object.assign(blogMenuForm.value, {
-          ComponentMenuID: this.data.ComponentMenuID,
+          BlogMenuID: this.data.BlogMenuID,
         })
       );
       return true;
@@ -93,5 +93,4 @@ export class AddBlogMenuComponent implements OnInit {
       return false;
     }
   }
-
 }

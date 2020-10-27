@@ -3,7 +3,10 @@ import { BlogMenu } from './blog-menu-list.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { BlogMenuService } from '../../../utils/services';
-import { DialogWindowComponent } from '../../../components';
+import {
+  AddBlogMenuComponent,
+  DialogWindowComponent,
+} from '../../../components';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -33,6 +36,18 @@ export class BlogMenuListComponent implements OnInit {
     } catch (error) {
       this._blogMenuService.errorNotification(error);
     }
+  }
+
+  openBlogMenuModal(BlogMenuID = null) {
+    const diologRef = this._dialog.open(AddBlogMenuComponent, {
+      width: '500px',
+      data: this.blogMenus.find(
+        (blogMenu) => blogMenu.BlogMenuID == BlogMenuID
+      ),
+    });
+    diologRef.afterClosed().subscribe((result: any) => {
+      if (result) this.ngOnInit();
+    });
   }
 
   async blogMenuDelete(BlogMenuID) {

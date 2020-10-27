@@ -34,7 +34,7 @@
                             <mat-icon class="list-menu">more_vert</mat-icon>
                         </a>
                         <mat-menu #menu="matMenu">
-                            <a mat-menu-item>
+                            <a mat-menu-item (click)="openBlogMenuModal(blogMenu.BlogMenuID)">
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
