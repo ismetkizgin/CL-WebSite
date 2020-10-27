@@ -35,7 +35,7 @@ export class BlogMenuListComponent implements OnInit {
     }
   }
 
-  async componentDelete(BlogMenuID) {
+  async blogMenuDelete(BlogMenuID) {
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
         message: 'Are you sure you want to delete the blog menu ?',

@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-md-4 col-sm-12 add-button">
-        <button type="button" (click)="openBlogMenuModal()" class="btn btn-sm btn-outline-success"><i class="fas fa-plus"></i> {{ 'Add Blog Menu' | translate }}</button>
+        <button type="button" (click)="openBlogMenuModal()" class="btn btn-sm btn-outline-success"><i
+                class="fas fa-plus"></i> {{ 'Add Blog Menu' | translate }}</button>
     </div>
     <div class="col-md-3 col-sm-12 ml-auto">
         <mat-form-field>
@@ -32,7 +33,16 @@
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
                         </a>
-                        
+                        <mat-menu #menu="matMenu">
+                            <a mat-menu-item>
+                                <mat-icon>edit</mat-icon>
+                                <span>{{ 'Edit' | translate }}</span>
+                            </a>
+                            <a mat-menu-item (click)='blogMenuDelete(blogMenu.BlogMenuID)'>
+                                <mat-icon>delete</mat-icon>
+                                <span>{{ 'Delete' | translate }}</span>
+                            </a>
+                        </mat-menu>
                     </td>
                 </tr>
             </tbody>
