@@ -14,7 +14,7 @@ export class ComponentMenuService {
   ) {}
 
   async listAsync() {
-    return await this._apiFetchService.requestAsync('GET', 'component-menu', null, true);
+    return await this._apiFetchService.requestAsync('GET', 'component-menu', null);
   }
 
   async deleteAsync(values) {
