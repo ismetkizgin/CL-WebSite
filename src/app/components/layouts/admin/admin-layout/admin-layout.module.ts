@@ -32,6 +32,7 @@ import {
   LoginComponent,
   ComponentMenuListComponent,
   UserAddComponent,
+  BlogMenuListComponent,
   ComponentListComponent
 } from '../../../../pages/admin';
 
@@ -56,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ComponentMenuListComponent,
     PasswordChangeComponent,
     PaginationComponent,
+    BlogMenuListComponent,
     ComponentListComponent
   ],
   imports: [
