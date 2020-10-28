@@ -19,13 +19,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSearchFilterModule } from 'ng-search-filter';
-import {ProfileDeleteComponent}from '../../../profile-delete/profile-delete.component';
 import {
   DialogWindowComponent,
   PaginationComponent,
   AddComponentMenuComponent,
   PasswordChangeComponent,
-  AddBlogMenuComponent
+  AddBlogMenuComponent,
+  PasswordControlWindowComponent
 } from '../../../';
 import {
   DashboardComponent,
@@ -48,7 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     AddComponentMenuComponent,
     AddBlogMenuComponent,
-    ProfileDeleteComponent,
+    PasswordControlWindowComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,

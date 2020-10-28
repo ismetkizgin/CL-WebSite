@@ -25,7 +25,8 @@
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                 <img src="assets/images/default/user.png" class="user-image img-circle elevation-2" alt="User Image">
-                <span class="d-none d-md-inline">{{ userInformation.UserFirstName }} {{ userInformation.UserLastName }}</span>
+                <span class="d-none d-md-inline">{{ userInformation.UserFirstName }}
+                    {{ userInformation.UserLastName }}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
                 <li class="user-header bg-primary">
@@ -33,13 +34,20 @@
 
                     <p>
                         {{ userInformation.UserFirstName }} {{ userInformation.UserLastName }}
-                        <small>{{ userInformation.UserStatusName | translate }}</small>
+                        <small>{{ userInformation.UserTypeName | translate }}</small>
                     </p>
                 </li>
+                <li class="user-body">
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <a (click)="openPasswordChangeWindow()">{{ 'Change Password' | translate }}</a>
+                        </div>
+                    </div>
+                </li>
                 <li class="user-footer">
-                    <a (click)="openPasswordChangeWindow()" class="btn btn-default btn-flat d-block">{{ 'Change Password' | translate }}</a>
-                    <a (click)="deleteProfile()" class="btn btn-default btn-flat d-block">{{ 'Delete Profile' | translate }}</a>
-                    <a (click)="signout()" class="btn btn-default btn-flat d-block">{{ 'Sign out' | translate }}</a>
+                    <a [routerLink]="['/admin/user/profile']"
+                        class="btn btn-default btn-flat">{{ 'Profile' | translate }}</a>
+                    <a (click)="signout()" class="btn btn-default btn-flat float-right">{{ 'Sign out' | translate }}</a>
                 </li>
             </ul>
         </li>
