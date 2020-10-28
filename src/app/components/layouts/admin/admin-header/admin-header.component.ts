@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LanguageService, AuthService } from '../../../../utils';
 import { MatDialog } from '@angular/material/dialog';
 import { PasswordChangeComponent } from 'src/app/components/password-change/password-change.component';
+import { ProfileDeleteComponent } from 'src/app/components/profile-delete/profile-delete.component';
 
 @Component({
   selector: 'app-admin-header',
@@ -35,5 +36,10 @@ export class AdminHeaderComponent implements OnInit {
 
   async signout() {
     await this._authService.logout();
+  }
+  deleteProfile(){
+    this._dialog.open(ProfileDeleteComponent,{
+      width:"400px",
+    })
   }
 }

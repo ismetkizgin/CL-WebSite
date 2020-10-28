@@ -37,8 +37,9 @@
                     </p>
                 </li>
                 <li class="user-footer">
-                    <a (click)="openPasswordChangeWindow()" class="btn btn-default btn-flat">{{ 'Change Password' | translate }}</a>
-                    <a (click)="signout()" class="btn btn-default btn-flat float-right">{{ 'Sign out' | translate }}</a>
+                    <a (click)="openPasswordChangeWindow()" class="btn btn-default btn-flat d-block">{{ 'Change Password' | translate }}</a>
+                    <a (click)="deleteProfile()" class="btn btn-default btn-flat d-block">{{ 'Delete Profile' | translate }}</a>
+                    <a (click)="signout()" class="btn btn-default btn-flat d-block">{{ 'Sign out' | translate }}</a>
                 </li>
             </ul>
         </li>
