@@ -3,19 +3,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Roles } from '../../../models/roles';
 import { LanguageService } from '../../../utils';
-import { AuthService, BlogMenuService, BlogService } from '../../../utils/services';
-import { Blog } from './blog-add.model';
-import { BlogMenu } from 'src/app/components/add-blog-menu/add-blog-menu.model';
+import {
+  AuthService,
+  BlogMenuService,
+  BlogService,
+} from '../../../utils/services';
+import { Blog, BlogMenu } from './blog-add.model';
 
 @Component({
   selector: 'app-blog-add',
   templateUrl: './blog-add.component.html',
-  styleUrls: ['./blog-add.component.scss']
+  styleUrls: ['./blog-add.component.scss'],
 })
 export class BlogAddComponent implements OnInit {
-
   constructor(
     private _languageService: LanguageService,
     private _blogService: BlogService,
@@ -23,39 +24,17 @@ export class BlogAddComponent implements OnInit {
     private _blogMenuService: BlogMenuService,
     public _router: Router,
     private _translateService: TranslateService,
-    private _snackBar: MatSnackBar,
-    private _authService: AuthService,
-  ) { }
+    private _snackBar: MatSnackBar
+  ) {}
 
   _action: Function;
   lang: string = this._languageService.getLanguage() || 'tr';
-  _UserTypeName = this._authService.currentUserValue.result.UserTypeName;
-  blogMenu: Array<BlogMenu>;
+  blogMenus: Array<BlogMenu>;
   _model: Blog = new Blog();
-  userRoles: Array<object> = [
-    {
-      userTypeName: 'Administrator',
-      authorize: [Roles.Root].indexOf(this._UserTypeName) === -1 ? false : true,
-    },
-    {
-      userTypeName: 'Developer',
-      authorize:
-        [Roles.Root, Roles.Administrator].indexOf(this._UserTypeName) === -1
-          ? false
-          : true,
-    },
-    {
-      userTypeName: 'Editor',
-      authorize:
-        [Roles.Root, Roles.Administrator].indexOf(this._UserTypeName) === -1
-          ? false
-          : true,
-    },
-  ];
 
   async ngOnInit() {
     try {
-      this.blogMenu = <Array<BlogMenu>>await this._blogMenuService.listAsync();
+      this.blogMenus = <Array<BlogMenu>>await this._blogMenuService.listAsync();
     } catch (error) {
       this._blogMenuService.errorNotification(error);
       this._router.navigateByUrl('admin');
@@ -64,15 +43,11 @@ export class BlogAddComponent implements OnInit {
     if (BlogID != null) {
       try {
         this._model = <any>await this._blogService.findAsync(BlogID);
+        this._model.BlogState = this._model.BlogState ? true : false;
       } catch (error) {
         this._blogService.errorNotification(error);
         this._router.navigateByUrl('admin');
       }
-      this._action = this.updateAsync;
-    } else if (this._router.isActive('/admin/user/profile', true)) {
-      this._model = JSON.parse(
-        JSON.stringify(this._authService.currentUserValue.result)
-      );
       this._action = this.updateAsync;
     } else {
       this._action = this.insertAsync;
@@ -104,6 +79,7 @@ export class BlogAddComponent implements OnInit {
       panelClass: notification.panelClass,
     });
   }
+
   async insertAsync(blogForm: NgForm) {
     try {
       await this._blogService.insertAsync(blogForm.value);
@@ -131,4 +107,3 @@ export class BlogAddComponent implements OnInit {
     }
   }
 }
-

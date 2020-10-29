@@ -1,39 +1,31 @@
 <form #blogForm='ngForm' (ngSubmit)="onSave(blogForm)">
     <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-right">
+        <div class="col-12 text-right">
             <div class="form-group">
-                <mat-form-field appearance="outline">
-                    <mat-label>{{'Blog State'| translate}}</mat-label>
-                    <select matNativeControl name="BlogState" #BlogState="ngModel"
-                        [(ngModel)]="_model.BlogState" required>
-                        <option [value]="BlogState">{{ 'Active' | translate }}</option>
-                        <option [value]="BlogState">{{ 'Passive' | translate }}</option>
-                    </select>
-                    <mat-error *ngIf="BlogState.invalid">
-                        {{ 'Select the Component State' | translate }}</mat-error>
-                </mat-form-field>
+                <mat-slide-toggle labelPosition="before" color="primary" name="BlogState" #BlogState="ngModel"
+                [(ngModel)]="_model.BlogState">
+                {{ _model.BlogState ? 'Blog Active' : 'Blog Pasive' | translate }}</mat-slide-toggle>
             </div>
         </div>
     </div>
     <div class="card p-3 border-top border-info">
-        
         <mat-form-field appearance="outline" class="w-100">
             <mat-label>{{ 'Blog Name' | translate }}</mat-label>
             <input matInput type="text" placeholder="{{ 'Enter Blog Name' | translate }}"
-                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="BlogName" #BlogName="ngModel"
-                [(ngModel)]="_model.BlogName" required>
-            <mat-error *ngIf="BlogName.invalid&&BlogName.touched">
-                {{ 'Component Name field must be filled' | translate }}</mat-error>
+                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="BlogTitle" #BlogTitle="ngModel"
+                [(ngModel)]="_model.BlogTitle" required>
+            <mat-error *ngIf="BlogTitle.invalid&&BlogTitle.touched">
+                {{ 'Blog Name field must be filled' | translate }}</mat-error>
         </mat-form-field>
         <div class="form-group">
             <mat-form-field appearance="outline">
                 <mat-label>{{'Blog Menu'| translate}}</mat-label>
-                <select matNativeControl name="BlogMenuName" #BlogMenuName="ngModel"
-                    [(ngModel)]="_model.BlogMenuName" required>
-                    <option *ngFor="let _blogMenu of blogMenu" [value]="BlogMenuName">
-                        {{ _blogMenu.BlogMenuName }}</option>
+                <select matNativeControl name="BlogMenuID" #BlogMenuID="ngModel"
+                    [(ngModel)]="_model.BlogMenuID" required>
+                    <option *ngFor="let blogMenu of blogMenus" [value]="blogMenu.BlogMenuID">
+                        {{ blogMenu.BlogMenuName }}</option>
                 </select>
-                <mat-error *ngIf="BlogMenuName.invalid">
+                <mat-error *ngIf="BlogMenuID.invalid">
                     {{ 'Select the Blog Menu Name' | translate }}</mat-error>
             </mat-form-field>
         </div>
