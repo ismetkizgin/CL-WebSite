@@ -37,7 +37,7 @@ export class SidebarItemService {
     {
       title: 'Component Transections',
       icon: 'fa fa-user',
-      linkActive: ['/admin/component-menus', '/admin/components'],
+      linkActive: ['/admin/component-menus', '/admin/components', '/admin/component/add'],
       submenuShowHide: this.getChildUrlActiveState(['component-menus', 'components']),
       submenu: [
         {
@@ -50,6 +50,11 @@ export class SidebarItemService {
           title: 'Component List',
           icon: 'fa fa-address-book',
           link: '/admin/components',
+        },
+        {
+          title: 'Add Component',
+          icon: 'fa fa-address-book',
+          link: '/admin/component/add',
         },
       ],
       authorize: [Roles.Root, Roles.Administrator, Roles.Developer],

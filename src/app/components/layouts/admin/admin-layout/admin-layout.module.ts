@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { CKEditorModule } from 'ckeditor4-angular';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSearchFilterModule } from 'ng-search-filter';
 import {
@@ -31,6 +32,7 @@ import {
   UserListComponent,
   LoginComponent,
   ComponentMenuListComponent,
+  ComponentAddComponent,
   UserAddComponent,
   BlogMenuListComponent,
   ComponentListComponent
@@ -44,6 +46,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AdminLayoutComponent,
     UserListComponent,
+    ComponentAddComponent,
     DashboardComponent,
     AddComponentMenuComponent,
     AddBlogMenuComponent,
@@ -68,6 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatIconModule,
     MatMenuModule,
     MatInputModule,
+    CKEditorModule,
     MatFormFieldModule,
     MatMomentDateModule,
     NgxPaginationModule,
