@@ -54,10 +54,10 @@ const routes: Routes = [
         },
       },
       {
-        path: 'component/add/:ComponentID',
+        path: 'component/edit/:ComponentID',
         component:ComponentAddComponent,
         data: {
-          title: 'Add Component',
+          title: 'Edit Component',
           icon: 'fa fa-2x fa-home',
         },
       },

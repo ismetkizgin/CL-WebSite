@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ComponentProperty } from './component-add.model';
+import { ComponentProperty, ComponentMenu } from './component-add.model';
 import { LanguageService } from '../../../utils';
-import { ComponentMenuService, ComponentService, AuthService } from '../../../utils/services';
-import { ComponentMenu } from 'src/app/components/add-component-menu/add-component-menu.model';
+import {
+  ComponentMenuService,
+  ComponentService,
+} from '../../../utils/services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Roles } from '../../../models/roles';
-
 
 @Component({
   selector: 'app-component-add',
   templateUrl: './component-add.component.html',
-  styleUrls: ['./component-add.component.scss']
+  styleUrls: ['./component-add.component.scss'],
 })
 export class ComponentAddComponent implements OnInit {
-
   constructor(
     private _languageService: LanguageService,
     private _componentMenuService: ComponentMenuService,
@@ -24,61 +23,42 @@ export class ComponentAddComponent implements OnInit {
     private _componentService: ComponentService,
     public _router: Router,
     private _translateService: TranslateService,
-    private _snackBar: MatSnackBar,
-    private _authService: AuthService,
-  ) { }
+    private _snackBar: MatSnackBar
+  ) {}
 
   _action: Function;
   lang: string = this._languageService.getLanguage() || 'tr';
-  _UserTypeName = this._authService.currentUserValue.result.UserTypeName;
-  componentMenu: Array<ComponentMenu>;
+  componentMenus: Array<ComponentMenu>;
   _model: ComponentProperty = new ComponentProperty();
-  userRoles: Array<object> = [
-    {
-      userTypeName: 'Administrator',
-      authorize: [Roles.Root].indexOf(this._UserTypeName) === -1 ? false : true,
-    },
-    {
-      userTypeName: 'Developer',
-      authorize:
-        [Roles.Root, Roles.Administrator].indexOf(this._UserTypeName) === -1
-          ? false
-          : true,
-    },
-    {
-      userTypeName: 'Editor',
-      authorize:
-        [Roles.Root, Roles.Administrator].indexOf(this._UserTypeName) === -1
-          ? false
-          : true,
-    },
-  ];
 
   async ngOnInit() {
     try {
-      this.componentMenu =<Array<ComponentMenu>> await this._componentMenuService.listAsync();
+      this.componentMenus = <Array<ComponentMenu>>(
+        await this._componentMenuService.listAsync()
+      );
     } catch (error) {
       this._componentMenuService.errorNotification(error);
       this._router.navigateByUrl('admin');
     }
-    const ComponentID = this._activatedRoute.snapshot.paramMap.get('ComponentID');
+    const ComponentID = this._activatedRoute.snapshot.paramMap.get(
+      'ComponentID'
+    );
     if (ComponentID != null) {
       try {
-        this._model = <any>await this._componentService.findAsync(ComponentID);
+        this._model = <ComponentProperty>(
+          await this._componentService.findAsync(ComponentID)
+        );
+        this._model.ComponentState = this._model.ComponentState ? true : false;
       } catch (error) {
         this._componentService.errorNotification(error);
         this._router.navigateByUrl('admin');
       }
       this._action = this.updateAsync;
-    } else if (this._router.isActive('/admin/user/profile', true)) {
-      this._model = JSON.parse(
-        JSON.stringify(this._authService.currentUserValue.result)
-      );
-      this._action = this.updateAsync;
     } else {
       this._action = this.insertAsync;
     }
   }
+
   async onSave(componentForm: NgForm) {
     let notification: any = {
       message: '',
@@ -105,6 +85,7 @@ export class ComponentAddComponent implements OnInit {
       panelClass: notification.panelClass,
     });
   }
+
   async insertAsync(componentForm: NgForm) {
     try {
       await this._componentService.insertAsync(componentForm.value);
