@@ -12,6 +12,7 @@ import {
   ComponentMenuListComponent,
   UserAddComponent,
   BlogMenuListComponent,
+  BlogListComponent,
   ComponentListComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
@@ -66,8 +67,8 @@ const routes: Routes = [
         component: UserAddComponent,
         data: {
           title: 'User Add',
-          icon: 'fa fa-2x fa-home'
-        }
+          icon: 'fa fa-2x fa-home',
+        },
       },
       {
         path: 'user/edit/:UserID',
@@ -93,7 +94,7 @@ const routes: Routes = [
         data: {
           title: 'Component List',
           icon: 'fa fa-2x fa-address-book',
-          authorize: [Roles.Root, Roles.Administrator,Roles.Developer],
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
       },
       {
@@ -104,7 +105,16 @@ const routes: Routes = [
           icon: 'fa fa-2x fa-address-book',
           authorize: [Roles.Root, Roles.Administrator],
         },
-      }
+      },
+      {
+        path: 'blogs',
+        component: BlogListComponent,
+        data: {
+          title: 'Blog List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Editor],
+        },
+      },
     ],
   },
   {
