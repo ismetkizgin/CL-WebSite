@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-md-4 col-sm-12 add-button">
-        <button type="button" (click)="openComponentMenuModal()" class="btn btn-sm btn-outline-success"><i class="fas fa-plus"></i> {{ 'Add Component Menu' | translate }}</button>
+        <button type="button" (click)="openProjectListModal()" class="btn btn-sm btn-outline-success"><i
+                class="fas fa-plus"></i> {{ 'Add Project' | translate }}</button>
     </div>
     <div class="col-md-3 col-sm-12 ml-auto">
         <mat-form-field>
@@ -18,16 +19,18 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>{{ 'Menu No' | translate }}</th>
-                    <th>{{ 'Name' | translate }}</th>
-                    <th>{{ 'Description' | translate }}</th>
+                    <th>{{ 'Project No' | translate }}</th>
+                    <th>{{ 'Project Name' | translate }}</th>
+                    <th>{{ 'User Name' | translate }}</th>
+                    <th>{{ 'Project Creation Date' | translate }}</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let componentMenu of componentMenus | filter:searchText | paginate: paginationConfig">
-                    <td> {{ componentMenu.ComponentMenuID }} </td>
-                    <td> {{ componentMenu.ComponentMenuName }} </td>
-                    <td> {{ componentMenu.ComponentMenuDescription }}</td>
+                <tr *ngFor="let projectList of projectLists | filter:searchText | paginate: paginationConfig">
+                    <td> {{ projectList.ProjectID }} </td>
+                    <td> {{ projectList.ProjectName }} </td>
+                    <td> {{ projectList.UserName }}</td>
+                    <td> {{ projectList.ProjectCreationDate }}</td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
@@ -37,19 +40,20 @@
                                 <mat-icon>remove_red_eye</mat-icon>
                                 <span>{{ 'Examine' | translate }}</span>
                             </a>
-                            <a mat-menu-item (click)="openComponentMenuModal(componentMenu.ComponentMenuID)">
+                            <a mat-menu-item (click)="openProjectListModal(projectList.ProjectID)">
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
-                            <a mat-menu-item (click)='componentMenuDelete(componentMenu.ComponentMenuID)'>
+                            <a mat-menu-item (click)='projectListDelete(projectList.ProjectID)'>
                                 <mat-icon>delete</mat-icon>
                                 <span>{{ 'Delete' | translate }}</span>
                             </a>
                         </mat-menu>
+
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
-<app-pagination [config]="paginationConfig"></app-pagination>
+<app-pagination [config]="paginationConfig"></app-pagination> 

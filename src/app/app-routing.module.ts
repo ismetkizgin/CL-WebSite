@@ -13,6 +13,7 @@ import {
   UserAddComponent,
   BlogMenuListComponent,
   ComponentListComponent,
+  ProjectListComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -104,7 +105,16 @@ const routes: Routes = [
           icon: 'fa fa-2x fa-address-book',
           authorize: [Roles.Root, Roles.Administrator],
         },
-      }
+      },
+      {
+        path: 'project-list',
+        component: ProjectListComponent,
+        data: {
+          title: 'Project List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator,Roles.Developer,Roles.Editor,Roles.User],
+        },
+      },
     ],
   },
   {

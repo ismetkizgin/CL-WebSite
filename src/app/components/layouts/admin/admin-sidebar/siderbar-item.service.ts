@@ -51,8 +51,13 @@ export class SidebarItemService {
           icon: 'fa fa-address-book',
           link: '/admin/components',
         },
+        {
+          title: 'Project List',
+          icon: 'fa fa-address-book',
+          link: '/admin/project-list',
+        },
       ],
-      authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
+      authorize: [Roles.Root, Roles.Administrator, Roles.Developer,Roles.User,Roles.Editor],
     },
     {
       title: 'Blog Transections',
