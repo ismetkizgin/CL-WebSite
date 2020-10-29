@@ -37,8 +37,8 @@ export class SidebarItemService {
     {
       title: 'Component Transections',
       icon: 'fa fa-user',
-      linkActive: ['/admin/component-menus', '/admin/components'],
-      submenuShowHide: this.getChildUrlActiveState(['component-menus', 'components']),
+      linkActive: ['/admin/component-menus', '/admin/components', '/admin/component/add'],
+      submenuShowHide: this.getChildUrlActiveState(['component-menus', 'components', 'component']),
       submenu: [
         {
           title: 'Component Menu List',
@@ -51,19 +51,30 @@ export class SidebarItemService {
           icon: 'fa fa-address-book',
           link: '/admin/components',
         },
+        {
+          title: 'Add Component',
+          icon: 'fa fa-address-book',
+          link: '/admin/component/add',
+        },
       ],
       authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
     },
     {
       title: 'Blog Transections',
       icon: 'fa fa-user',
-      linkActive: ['/admin/blog-menus', '/admin/blog/add'],
-      submenuShowHide: this.getChildUrlActiveState(['blog-menus', 'blog']),
+      linkActive: ['/admin/blog-menus', '/admin/blog/add', '/admin/blogs'],
+      submenuShowHide: this.getChildUrlActiveState(['blog-menus', 'blog', 'blogs']),
       submenu: [
         {
           title: 'Blog Menu List',
           icon: 'fa fa-address-book',
           link: '/admin/blog-menus',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+        {
+          title: 'Blog List',
+          icon: 'fa fa-address-book',
+          link: '/admin/blogs',
         },
         {
           title: 'Blog Add',
@@ -71,7 +82,7 @@ export class SidebarItemService {
           link: '/admin/blog/add',
         },
       ],
-      authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
+      authorize: [Roles.Root, Roles.Administrator, Roles.Editor],
     },
   ];
 

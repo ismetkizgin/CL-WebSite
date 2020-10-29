@@ -103,6 +103,6 @@
 </form>
 <div class="row"  [hidden]="!_router.isActive('/admin/user/profile',true)">
     <div class="col-12 account_detele">
-        <a>{{ 'Delete my account' | translate }}</a>
+        <a (click)="myAccountDelete()">{{ 'Delete my account' | translate }}</a>
     </div>
 </div>

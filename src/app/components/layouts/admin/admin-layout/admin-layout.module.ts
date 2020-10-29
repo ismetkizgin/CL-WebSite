@@ -17,6 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CKEditorModule } from 'ckeditor4-angular';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSearchFilterModule } from 'ng-search-filter';
 import {
@@ -24,7 +26,8 @@ import {
   PaginationComponent,
   AddComponentMenuComponent,
   PasswordChangeComponent,
-  AddBlogMenuComponent
+  AddBlogMenuComponent,
+  PasswordControlWindowComponent,
 } from '../../../';
 import {
   DashboardComponent,
@@ -32,9 +35,11 @@ import {
   LoginComponent,
   BlogAddComponent,
   ComponentMenuListComponent,
+  ComponentAddComponent,
   UserAddComponent,
   BlogMenuListComponent,
-  ComponentListComponent
+  BlogListComponent,
+  ComponentListComponent,
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,10 +50,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AdminLayoutComponent,
     UserListComponent,
+    ComponentAddComponent,
     DashboardComponent,
     AddComponentMenuComponent,
     BlogAddComponent,
     AddBlogMenuComponent,
+    PasswordControlWindowComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
@@ -60,7 +67,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PasswordChangeComponent,
     PaginationComponent,
     BlogMenuListComponent,
-    ComponentListComponent
+    BlogListComponent,
+    ComponentListComponent,
   ],
   imports: [
     CommonModule,
@@ -70,8 +78,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatIconModule,
     MatMenuModule,
     MatInputModule,
+    CKEditorModule,
     MatFormFieldModule,
     MatMomentDateModule,
+    MatSlideToggleModule,
     NgxPaginationModule,
     MatDatepickerModule,
     MatDialogModule,
@@ -87,4 +97,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [],
   exports: [PaginationComponent],
 })
-export class AdminLayoutModule { }
+export class AdminLayoutModule {}
