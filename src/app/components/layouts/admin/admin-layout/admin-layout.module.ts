@@ -17,6 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CKEditorModule } from 'ckeditor4-angular';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgSearchFilterModule } from 'ng-search-filter';
 import {
@@ -25,17 +27,18 @@ import {
   AddComponentMenuComponent,
   PasswordChangeComponent,
   AddBlogMenuComponent,
-  PasswordControlWindowComponent
+  PasswordControlWindowComponent,
 } from '../../../';
 import {
   DashboardComponent,
   UserListComponent,
   LoginComponent,
   ComponentMenuListComponent,
+  ComponentAddComponent,
   UserAddComponent,
   BlogMenuListComponent,
   BlogListComponent,
-  ComponentListComponent
+  ComponentListComponent,
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -46,6 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AdminLayoutComponent,
     UserListComponent,
+    ComponentAddComponent,
     DashboardComponent,
     AddComponentMenuComponent,
     AddBlogMenuComponent,
@@ -62,7 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PaginationComponent,
     BlogMenuListComponent,
     BlogListComponent,
-    ComponentListComponent
+    ComponentListComponent,
   ],
   imports: [
     CommonModule,
@@ -72,8 +76,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatIconModule,
     MatMenuModule,
     MatInputModule,
+    CKEditorModule,
     MatFormFieldModule,
     MatMomentDateModule,
+    MatSlideToggleModule,
     NgxPaginationModule,
     MatDatepickerModule,
     MatDialogModule,
@@ -89,4 +95,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [],
   exports: [PaginationComponent],
 })
-export class AdminLayoutModule { }
+export class AdminLayoutModule {}

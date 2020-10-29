@@ -7,3 +7,4 @@ export * from './user-list/user-list.component';
 export * from './blog-menu-list/blog-menu-list.component';
 export * from './blog-list/blog-list.component';
 export * from './component-list/component-list.component';
+export * from './component-add/component-add.component';

@@ -8,6 +8,7 @@ import {
   HomepageComponent,
   DashboardComponent,
   LoginComponent,
+  ComponentAddComponent,
   UserListComponent,
   ComponentMenuListComponent,
   UserAddComponent,
@@ -42,6 +43,22 @@ const routes: Routes = [
             Roles.Developer,
             Roles.Editor,
           ],
+        },
+      },
+      {
+        path: 'component/add',
+        component:ComponentAddComponent,
+        data: {
+          title: 'Add Component',
+          icon: 'fa fa-2x fa-home',
+        },
+      },
+      {
+        path: 'component/edit/:ComponentID',
+        component:ComponentAddComponent,
+        data: {
+          title: 'Edit Component',
+          icon: 'fa fa-2x fa-home',
         },
       },
       {
