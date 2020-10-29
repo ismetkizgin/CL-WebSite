@@ -1,6 +1,6 @@
 export class BlogList {
     BlogID: number;
-    BlogName: string;
+    BlogTitle: string;
     UserName: string;
-    BlogCreationDate: string;
+    BlogDecsription: string;
 }

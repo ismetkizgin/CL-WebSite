@@ -20,17 +20,15 @@
             <thead>
                 <tr>
                     <th>{{ 'Blog No' | translate }}</th>
-                    <th>{{ 'Blog Name' | translate }}</th>
-                    <th>{{ 'User Name' | translate }}</th>
-                    <th>{{ 'Blog Creation Date' | translate }}</th>
+                    <th>{{ 'Blog Title' | translate }}</th>
+                    <th>{{ 'Blog Description' | translate }}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let blogList of blogLists | filter:searchText | paginate: paginationConfig">
                     <td> {{ blogList.BlogID }} </td>
-                    <td> {{ blogList.BlogName }} </td>
-                    <td> {{ blogList.UserName }}</td>
-                    <td> {{ blogList.BlogCreationDate }}</td>
+                    <td> {{ blogList.BlogTitle }} </td>
+                    <td> {{ blogList.BlogDescription }}</td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
