@@ -13,9 +13,11 @@ import {
   UserAddComponent,
   BlogMenuListComponent,
   ComponentListComponent,
+  BlogAddComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
+import { AddBlogMenuComponent } from './components';
 
 const routes: Routes = [
   {
@@ -41,6 +43,22 @@ const routes: Routes = [
             Roles.Developer,
             Roles.Editor,
           ],
+        },
+      },
+      {
+        path: 'blog/add',
+        component: BlogAddComponent,
+        data: {
+          title: 'Add Blog',
+          icon: 'fa fa-2x fa-address-book',
+        },
+      },
+      {
+        path: 'blog/edit/:BlogID',
+        component: BlogAddComponent,
+        data: {
+          title: 'Edit Blog',
+          icon: 'fa fa-2x fa-address-book',
         },
       },
       {
