@@ -168,8 +168,30 @@ export class UserAddComponent implements OnInit {
   }
 
   myAccountDelete() {
-    this._dialog.open(PasswordControlWindowComponent, {
+    const diologRef = this._dialog.open(PasswordControlWindowComponent, {
       width: '400px',
+    });
+
+    diologRef.afterClosed().subscribe(async (result: any) => {
+      if (result) {
+        try {
+          await this._authService.deleteProfile(result);
+          let message;
+          this._translateService
+            .get('Your account has been deleted.')
+            .subscribe((value) => (message = value));
+          this._snackBar.open(message, 'X', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'bottom',
+            panelClass: 'notification__success',
+          });
+          this._authService.logout();
+          this._router.navigateByUrl('login');
+        } catch (error) {
+          this._authService.errorNotification(error);
+        }
+      }
     });
   }
 }
