@@ -25,7 +25,8 @@ import {
   PaginationComponent,
   AddComponentMenuComponent,
   PasswordChangeComponent,
-  AddBlogMenuComponent
+  AddBlogMenuComponent,
+  PasswordControlWindowComponent
 } from '../../../';
 import {
   DashboardComponent,
@@ -35,6 +36,7 @@ import {
   ComponentAddComponent,
   UserAddComponent,
   BlogMenuListComponent,
+  BlogListComponent,
   ComponentListComponent
 } from '../../../../pages/admin';
 
@@ -50,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     AddComponentMenuComponent,
     AddBlogMenuComponent,
+    PasswordControlWindowComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
@@ -61,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PasswordChangeComponent,
     PaginationComponent,
     BlogMenuListComponent,
+    BlogListComponent,
     ComponentListComponent
   ],
   imports: [
