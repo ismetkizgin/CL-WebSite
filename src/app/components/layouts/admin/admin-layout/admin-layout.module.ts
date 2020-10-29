@@ -24,7 +24,8 @@ import {
   PaginationComponent,
   AddComponentMenuComponent,
   PasswordChangeComponent,
-  AddBlogMenuComponent
+  AddBlogMenuComponent,
+  PasswordControlWindowComponent
 } from '../../../';
 import {
   DashboardComponent,
@@ -47,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     AddComponentMenuComponent,
     AddBlogMenuComponent,
+    PasswordControlWindowComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
