@@ -1,8 +1,4 @@
 <div class="row">
-    <div class="col-md-4 col-sm-12 add-button">
-        <button type="button" (click)="openBlogListModal()" class="btn btn-sm btn-outline-success"><i
-                class="fas fa-plus"></i> {{ 'Add Blog' | translate }}</button>
-    </div>
     <div class="col-md-3 col-sm-12 ml-auto">
         <mat-form-field>
             <mat-label>{{ 'Search' | translate }}</mat-label>
@@ -21,14 +17,16 @@
                 <tr>
                     <th>{{ 'Blog No' | translate }}</th>
                     <th>{{ 'Blog Title' | translate }}</th>
-                    <th>{{ 'Blog Description' | translate }}</th>
+                    <th>{{ 'User Name' | translate }}</th>
+                    <th>{{ 'Created Date' | translate }}</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let blogList of blogLists | filter:searchText | paginate: paginationConfig">
-                    <td> {{ blogList.BlogID }} </td>
-                    <td> {{ blogList.BlogTitle }} </td>
-                    <td> {{ blogList.BlogDescription }}</td>
+                <tr *ngFor="let blog of blogs | filter:searchText | paginate: paginationConfig">
+                    <td> {{ blog.BlogID }} </td>
+                    <td> {{ blog.BlogTitle }} </td>
+                    <td> {{ blog.UserNameSurname }}</td>
+                    <td> {{ blog.BlogCreatedDate }} </td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
@@ -38,11 +36,11 @@
                                 <mat-icon>remove_red_eye</mat-icon>
                                 <span>{{ 'Examine' | translate }}</span>
                             </a>
-                            <a mat-menu-item (click)="openBlogListModal(blogList.BlogID)">
+                            <a mat-menu-item>
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
-                            <a mat-menu-item (click)='blogListDelete(blogList.BlogID)'>
+                            <a mat-menu-item (click)='blogDelete(blog.BlogID)'>
                                 <mat-icon>delete</mat-icon>
                                 <span>{{ 'Delete' | translate }}</span>
                             </a>
@@ -53,4 +51,4 @@
         </table>
     </div>
 </div>
-<app-pagination [config]="paginationConfig"></app-pagination> 
+<app-pagination [config]="paginationConfig"></app-pagination>

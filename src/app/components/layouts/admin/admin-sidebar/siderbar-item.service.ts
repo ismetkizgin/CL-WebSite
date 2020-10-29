@@ -60,8 +60,8 @@ export class SidebarItemService {
     {
       title: 'Blog Transections',
       icon: 'fa fa-user',
-      linkActive: ['/admin/blog-menus'],
-      submenuShowHide: this.getChildUrlActiveState(['blog-menus']),
+      linkActive: ['/admin/blog-menus', '/admin/blogs'],
+      submenuShowHide: this.getChildUrlActiveState(['blog-menus', 'blogs']),
       submenu: [
         {
           title: 'Blog Menu List',
