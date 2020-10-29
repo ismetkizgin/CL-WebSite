@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ComponentMenu } from './add-component.model';
+import { ComponentMenu } from './add-component-menu.model';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -9,23 +9,24 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-add-component',
-  templateUrl: './add-component.component.html',
-  styleUrls: ['./add-component.component.scss'],
+  selector: 'app-add-component-menu',
+  templateUrl: './add-component-menu.component.html',
+  styleUrls: ['./add-component-menu.component.scss'],
 })
-export class AddComponentComponent implements OnInit {
+export class AddComponentMenuComponent implements OnInit {
   constructor(
     private _translateService: TranslateService,
     private _snackBar: MatSnackBar,
     private _componentMenuService: ComponentMenuService,
     public _router: Router,
-    private dialogRef: MatDialogRef<AddComponentComponent>,
+    private dialogRef: MatDialogRef<AddComponentMenuComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   _model: ComponentMenu = new ComponentMenu();
   _componentMenuListRenew: boolean = false;
   _action: Function;
+
   async ngOnInit() {
     if (this.data?.ComponentMenuID != null) {
       try {
@@ -40,6 +41,7 @@ export class AddComponentComponent implements OnInit {
       this._action = this.insertActionAsync;
     }
   }
+
   async onSave(componentForm: NgForm) {
     let notification: any = {
       message: '',
@@ -67,10 +69,12 @@ export class AddComponentComponent implements OnInit {
       panelClass: notification.panelClass,
     });
   }
+
   async insertActionAsync(componentForm: NgForm) {
     try {
       await this._componentMenuService.insertAsync(componentForm.value);
       componentForm.resetForm();
+      this._componentMenuListRenew = true;
       return true;
     } catch (error) {
       this._componentMenuService.errorNotification(error);

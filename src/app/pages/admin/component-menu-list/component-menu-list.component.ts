@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import {
-  AddComponentComponent,
+  AddComponentMenuComponent,
   DialogWindowComponent,
 } from '../../../components';
 import { ComponentMenuService } from '../../../utils/services';
@@ -41,7 +41,7 @@ export class ComponentMenuListComponent implements OnInit {
   }
 
   openComponentMenuModal(ComponentMenuID = null) {
-    const diologRef = this._dialog.open(AddComponentComponent, {
+    const diologRef = this._dialog.open(AddComponentMenuComponent, {
       width: '500px',
       data: this.componentMenus.find(
         (componentMenu) => componentMenu.ComponentMenuID == ComponentMenuID

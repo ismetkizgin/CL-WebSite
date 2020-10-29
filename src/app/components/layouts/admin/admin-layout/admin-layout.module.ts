@@ -22,8 +22,10 @@ import { NgSearchFilterModule } from 'ng-search-filter';
 import {
   DialogWindowComponent,
   PaginationComponent,
-  AddComponentComponent,
+  AddComponentMenuComponent,
   PasswordChangeComponent,
+  AddBlogMenuComponent,
+  PasswordControlWindowComponent
 } from '../../../';
 import {
   DashboardComponent,
@@ -33,6 +35,7 @@ import {
   UserAddComponent,
   BlogMenuListComponent,
   BlogListComponent,
+  ComponentListComponent
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -44,7 +47,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLayoutComponent,
     UserListComponent,
     DashboardComponent,
-    AddComponentComponent,
+    AddComponentMenuComponent,
+    AddBlogMenuComponent,
+    PasswordControlWindowComponent,
     AdminFooterComponent,
     AdminHeaderComponent,
     AdminControlSidebarComponent,
@@ -57,6 +62,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PaginationComponent,
     BlogMenuListComponent,
     BlogListComponent,
+    ComponentListComponent
   ],
   imports: [
     CommonModule,

@@ -5,7 +5,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogWindowComponent } from '../../../components';
-import { AddComponentComponent } from '../../../components';
 
 @Component({
   selector: 'app-user-list',
