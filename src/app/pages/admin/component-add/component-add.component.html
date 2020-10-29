@@ -1,17 +1,21 @@
 <form #componentForm='ngForm' (ngSubmit)="onSave(componentForm)">
-    <div class="card p-3 border-top border-info">
-        <div class="form-group">
-            <mat-form-field appearance="outline">
-                <mat-label>{{'Component State'| translate}}</mat-label>
-                <select matNativeControl name="ComponentState" #ComponentState="ngModel"
-                    [(ngModel)]="_model.ComponentState" required>
-                    <option [value]="ComponentState">{{ 'Active' | translate }}</option>
-                    <option [value]="ComponentState">{{ 'Passive' | translate }}</option>
-                </select>
-                <mat-error *ngIf="ComponentState.invalid">
-                    {{ 'Select the Component State' | translate }}</mat-error>
-            </mat-form-field>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-right">
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>{{'Component State'| translate}}</mat-label>
+                    <select matNativeControl name="ComponentState" #ComponentState="ngModel"
+                        [(ngModel)]="_model.ComponentState" required>
+                        <option [value]="ComponentState">{{ 'Active' | translate }}</option>
+                        <option [value]="ComponentState">{{ 'Passive' | translate }}</option>
+                    </select>
+                    <mat-error *ngIf="ComponentState.invalid">
+                        {{ 'Select the Component State' | translate }}</mat-error>
+                </mat-form-field>
+            </div>
         </div>
+    </div>
+    <div class="card p-3 border-top border-info">
         <mat-form-field appearance="outline" class="w-100">
             <mat-label>{{ 'Component Name' | translate }}</mat-label>
             <input matInput type="text" placeholder="{{ 'Enter Component Name' | translate }}"
