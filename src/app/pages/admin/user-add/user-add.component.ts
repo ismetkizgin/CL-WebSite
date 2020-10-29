@@ -3,9 +3,11 @@ import { UserModel } from './user-add.model';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Roles } from '../../../models/roles';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService, UserService, LanguageService } from '../../../utils';
+import { PasswordControlWindowComponent } from '../../../components/';
 import {
   MAT_DATE_LOCALE,
   DateAdapter,
@@ -38,6 +40,7 @@ export class UserAddComponent implements OnInit {
     private _userService: UserService,
     private _activatedRoute: ActivatedRoute,
     private _languageService: LanguageService,
+    private _dialog: MatDialog,
     public _router: Router,
     private _dateAdapter: DateAdapter<any>
   ) {}
@@ -162,5 +165,33 @@ export class UserAddComponent implements OnInit {
       this._userService.errorNotification(error);
       return false;
     }
+  }
+
+  myAccountDelete() {
+    const diologRef = this._dialog.open(PasswordControlWindowComponent, {
+      width: '400px',
+    });
+
+    diologRef.afterClosed().subscribe(async (result: any) => {
+      if (result) {
+        try {
+          await this._authService.deleteProfile(result);
+          let message;
+          this._translateService
+            .get('Your account has been deleted.')
+            .subscribe((value) => (message = value));
+          this._snackBar.open(message, 'X', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'bottom',
+            panelClass: 'notification__success',
+          });
+          this._authService.logout();
+          this._router.navigateByUrl('login');
+        } catch (error) {
+          this._authService.errorNotification(error);
+        }
+      }
+    });
   }
 }
