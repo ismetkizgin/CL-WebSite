@@ -58,7 +58,7 @@ export class ComponentAddComponent implements OnInit {
     try {
       this.componentMenu =<Array<ComponentMenu>> await this._componentMenuService.listAsync();
     } catch (error) {
-      this._componentService.errorNotification(error);
+      this._componentMenuService.errorNotification(error);
       this._router.navigateByUrl('admin');
     }
     const ComponentID = this._activatedRoute.snapshot.paramMap.get('ComponentID');
@@ -87,7 +87,7 @@ export class ComponentAddComponent implements OnInit {
 
     if (componentForm.valid) {
       this._translateService
-        .get('User registration is complete')
+        .get('Component registration is complete')
         .subscribe((value) => (notification.message = value));
       notification.panelClass = 'notification__success';
       if (!(await this._action(componentForm))) return;
@@ -106,7 +106,6 @@ export class ComponentAddComponent implements OnInit {
     });
   }
   async insertAsync(componentForm: NgForm) {
-    alert("çalıştı");
     try {
       await this._componentService.insertAsync(componentForm.value);
       componentForm.resetForm();

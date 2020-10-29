@@ -38,7 +38,7 @@ export class SidebarItemService {
       title: 'Component Transections',
       icon: 'fa fa-user',
       linkActive: ['/admin/component-menus', '/admin/components', '/admin/component/add'],
-      submenuShowHide: this.getChildUrlActiveState(['component-menus', 'components']),
+      submenuShowHide: this.getChildUrlActiveState(['component-menus', 'components', 'component']),
       submenu: [
         {
           title: 'Component Menu List',
