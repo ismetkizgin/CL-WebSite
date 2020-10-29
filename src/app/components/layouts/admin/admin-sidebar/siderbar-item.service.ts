@@ -49,9 +49,14 @@ export class SidebarItemService {
           title: 'Blog Menu List',
           icon: 'fa fa-address-book',
           link: '/admin/blog-menus',
+        },
+        {
+          title: 'Blog List',
+          icon: 'fa fa-address-book',
+          link: '/admin/blog-list',
         }
       ],
-      authorize: [Roles.Root, Roles.Administrator],
+      authorize: [Roles.Root, Roles.Administrator,Roles.Developer,Roles.Editor,Roles.User],
     },
   ];
 
