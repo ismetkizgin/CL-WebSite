@@ -26,7 +26,7 @@ export class ComponentAddComponent implements OnInit {
     public _router: Router,
     private _translateService: TranslateService,
     private _snackBar: MatSnackBar,
-    private _authSerivce: AuthService
+    private _authService: AuthService
   ) {}
 
   _action: Function;
@@ -35,7 +35,7 @@ export class ComponentAddComponent implements OnInit {
   _model: ComponentProperty = new ComponentProperty();
   hiddenSlideToggle =
     [Roles.Root, Roles.Administrator].indexOf(
-      this._authSerivce.currentUserValue.result.UserTypeName
+      this._authService.currentUserValue.result.UserTypeName
     ) === -1
       ? true
       : false;
