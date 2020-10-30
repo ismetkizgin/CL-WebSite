@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ComponentModel } from './component-list.model';
+import { ComponentModel } from '../../../models';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogWindowComponent } from '../../../components';
 import { ComponentService } from '../../../utils/services';

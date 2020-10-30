@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ComponentMenu } from './component-menu-list.model';
+import { ComponentMenu } from '../../../models';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';

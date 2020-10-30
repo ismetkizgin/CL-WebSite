@@ -1,4 +1,4 @@
-export class UserModel {
+export class User{
     UserID: string;
     UserFirstName: string;
     UserLastName: string;
@@ -6,4 +6,5 @@ export class UserModel {
     UserDateOfBirth: string;
     UserTypeName: string;
     UserPassword:string;
+    UserNewPassword: string;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogList } from './blog-list.model';
+import { Blog } from '../../../models';
 import { MatDialog } from '@angular/material/dialog';
 import { BlogService } from '../../../utils';
 import { DialogWindowComponent } from '../../../components';
@@ -19,7 +19,7 @@ export class BlogListComponent implements OnInit {
     private _translateService: TranslateService
   ) {}
 
-  blogs: Array<BlogList>;
+  blogs: Array<Blog>;
   searchText: string;
   paginationConfig = {
     id: 'BlogList',
@@ -29,7 +29,7 @@ export class BlogListComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      this.blogs = <Array<BlogList>>await this._blogService.listAsync();
+      this.blogs = <Array<Blog>>await this._blogService.listAsync();
       console.log(this.blogs);
     } catch (error) {
       this._blogService.errorNotification(error);

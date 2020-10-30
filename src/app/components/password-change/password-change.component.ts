@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ChangePassword } from './password-change.model';
+import { User } from '../../models';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../utils/services';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,7 +20,7 @@ export class PasswordChangeComponent implements OnInit {
     private dialogRef:MatDialogRef<PasswordChangeComponent>
   ) { }
 
-  _model: ChangePassword = new ChangePassword();
+  _model: User = new User();
   _passwordShowHide: boolean = false;
   ngOnInit(): void {}
 
