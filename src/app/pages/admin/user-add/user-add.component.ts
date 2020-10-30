@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserModel } from './user-add.model';
+import { User } from '../../../models';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms';
@@ -46,7 +46,7 @@ export class UserAddComponent implements OnInit {
   ) {}
 
   _passwordShowHide: boolean = false;
-  _model: UserModel = new UserModel();
+  _model: User = new User();
   _action: Function;
   _UserTypeName = this._authService.currentUserValue.result.UserTypeName;
   lang: string = this._languageService.getLanguage() || 'tr';

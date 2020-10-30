@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ComponentProperty, ComponentMenu } from './component-add.model';
+import { ComponentModel, ComponentMenu,Roles } from '../../../models';
 import { LanguageService } from '../../../utils';
 import {
   AuthService,
@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Roles } from '../../../models/roles';
 
 @Component({
   selector: 'app-component-add',
@@ -32,7 +31,7 @@ export class ComponentAddComponent implements OnInit {
   _action: Function;
   lang: string = this._languageService.getLanguage() || 'tr';
   componentMenus: Array<ComponentMenu>;
-  _model: ComponentProperty = new ComponentProperty();
+  _model: ComponentModel = new ComponentModel();
   hiddenSlideToggle =
     [Roles.Root, Roles.Administrator].indexOf(
       this._authService.currentUserValue.result.UserTypeName
@@ -54,7 +53,7 @@ export class ComponentAddComponent implements OnInit {
     );
     if (ComponentID != null) {
       try {
-        this._model = <ComponentProperty>(
+        this._model = <ComponentModel>(
           await this._componentService.findAsync(ComponentID)
         );
         this._model.ComponentState = this._model.ComponentState ? true : false;

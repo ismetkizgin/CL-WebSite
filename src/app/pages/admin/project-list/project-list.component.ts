@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectList } from './project-list.model';
+import { Project } from '../../../models';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,7 +20,7 @@ export class ProjectListComponent implements OnInit {
     private _dialog: MatDialog
   ) {}
 
-  projectLists: Array<ProjectList>;
+  projectLists: Array<Project>;
   searchText: string;
   paginationConfig = {
     id: 'ProjectList',

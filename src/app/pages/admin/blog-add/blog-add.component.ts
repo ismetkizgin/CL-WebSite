@@ -9,8 +9,7 @@ import {
   BlogMenuService,
   BlogService,
 } from '../../../utils/services';
-import { Blog, BlogMenu } from './blog-add.model';
-import { Roles } from '../../../models/roles';
+import { Roles,Blog, BlogMenu } from '../../../models';
 
 @Component({
   selector: 'app-blog-add',

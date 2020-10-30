@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogMenu } from './blog-menu-list.model';
+import { BlogMenu } from '../../../models';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { BlogMenuService } from '../../../utils/services';

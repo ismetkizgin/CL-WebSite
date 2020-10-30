@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../utils/services';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { User } from './password-control-window.model';
+import { User } from '../../models';
 
 @Component({
   selector: 'app-password-control-window',

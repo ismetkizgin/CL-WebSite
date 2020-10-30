@@ -3,7 +3,7 @@ import { AuthService } from '../../../utils/services';
 import { LanguageService } from '../../../utils';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { LoginModel } from './login.model';
+import { User } from '../../../models';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService
   ) {}
-  model: LoginModel = new LoginModel();
+  model: User = new User();
   ngOnInit(): void {}
 
   onLogin(loginForm: NgForm) {
