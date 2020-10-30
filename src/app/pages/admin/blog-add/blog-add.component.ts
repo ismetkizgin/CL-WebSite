@@ -10,6 +10,7 @@ import {
   BlogService,
 } from '../../../utils/services';
 import { Blog, BlogMenu } from './blog-add.model';
+import { Roles } from '../../../models/roles';
 
 @Component({
   selector: 'app-blog-add',
@@ -24,13 +25,20 @@ export class BlogAddComponent implements OnInit {
     private _blogMenuService: BlogMenuService,
     public _router: Router,
     private _translateService: TranslateService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _authService: AuthService
   ) {}
 
   _action: Function;
   lang: string = this._languageService.getLanguage() || 'tr';
   blogMenus: Array<BlogMenu>;
   _model: Blog = new Blog();
+  hiddenSlideToggle =
+    [Roles.Root, Roles.Administrator].indexOf(
+      this._authService.currentUserValue.result.UserTypeName
+    ) === -1
+      ? true
+      : false;
 
   async ngOnInit() {
     try {
