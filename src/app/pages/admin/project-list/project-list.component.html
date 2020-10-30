@@ -30,7 +30,7 @@
                     <td> {{ projectList.ProjectID }} </td>
                     <td> {{ projectList.ProjectName }} </td>
                     <td> {{ projectList.UserName }}</td>
-                    <td> {{ projectList.ProjectCreationDate }}</td>
+                    <td> {{ projectList.ProjectCreationDate | date:'M/d/yyyy, H:mm':'+3' }}</td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
