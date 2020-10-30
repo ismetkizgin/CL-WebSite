@@ -15,9 +15,11 @@ import {
   BlogMenuListComponent,
   BlogListComponent,
   ComponentListComponent,
+  BlogAddComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
+import { AddBlogMenuComponent } from './components';
 
 const routes: Routes = [
   {
@@ -46,19 +48,19 @@ const routes: Routes = [
         },
       },
       {
-        path: 'component/add',
-        component:ComponentAddComponent,
+        path: 'blog/add',
+        component: BlogAddComponent,
         data: {
-          title: 'Add Component',
-          icon: 'fa fa-2x fa-home',
+          title: 'Add Blog',
+          icon: 'fa fa-2x fa-address-book',
         },
       },
       {
-        path: 'component/edit/:ComponentID',
-        component:ComponentAddComponent,
+        path: 'blog/edit/:BlogID',
+        component: BlogAddComponent,
         data: {
-          title: 'Edit Component',
-          icon: 'fa fa-2x fa-home',
+          title: 'Edit Blog',
+          icon: 'fa fa-2x fa-address-book',
         },
       },
       {
@@ -108,6 +110,24 @@ const routes: Routes = [
       {
         path: 'components',
         component: ComponentListComponent,
+        data: {
+          title: 'Component List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
+        },
+      },
+      {
+        path: 'component/add',
+        component: ComponentAddComponent,
+        data: {
+          title: 'Component List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
+        },
+      },
+      {
+        path: 'component/edit/:ComponentID',
+        component: ComponentAddComponent,
         data: {
           title: 'Component List',
           icon: 'fa fa-2x fa-address-book',

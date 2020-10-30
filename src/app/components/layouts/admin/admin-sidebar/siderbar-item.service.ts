@@ -62,8 +62,8 @@ export class SidebarItemService {
     {
       title: 'Blog Transections',
       icon: 'fa fa-user',
-      linkActive: ['/admin/blog-menus', '/admin/blogs'],
-      submenuShowHide: this.getChildUrlActiveState(['blog-menus', 'blogs']),
+      linkActive: ['/admin/blog-menus', '/admin/blog/add', '/admin/blogs'],
+      submenuShowHide: this.getChildUrlActiveState(['blog-menus', 'blog', 'blogs']),
       submenu: [
         {
           title: 'Blog Menu List',
@@ -75,6 +75,11 @@ export class SidebarItemService {
           title: 'Blog List',
           icon: 'fa fa-address-book',
           link: '/admin/blogs',
+        },
+        {
+          title: 'Blog Add',
+          icon: 'fa fa-address-book',
+          link: '/admin/blog/add',
         },
       ],
       authorize: [Roles.Root, Roles.Administrator, Roles.Editor],
