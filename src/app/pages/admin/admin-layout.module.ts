@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AdminLayoutComponent } from './admin-layout.component';
-import { AdminFooterComponent } from '../admin-footer/admin-footer.component';
-import { AdminHeaderComponent } from '../admin-header/admin-header.component';
-import { AdminControlSidebarComponent } from '../admin-control-sidebar/admin-control-sidebar.component';
-import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
+import { AdminLayoutComponent } from '../../components/layouts/admin/admin-layout/admin-layout.component';
+import { AdminFooterComponent } from '../../components/layouts/admin/admin-footer/admin-footer.component';
+import { AdminHeaderComponent } from '../../components/layouts/admin/admin-header/admin-header.component';
+import { AdminControlSidebarComponent } from '../../components/layouts/admin/admin-control-sidebar/admin-control-sidebar.component';
+import { AdminSidebarComponent } from '../../components/layouts/admin/admin-sidebar/admin-sidebar.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -28,7 +28,7 @@ import {
   PasswordChangeComponent,
   AddBlogMenuComponent,
   PasswordControlWindowComponent,
-} from '../../../';
+} from '../../components';
 import {
   DashboardComponent,
   UserListComponent,
@@ -41,7 +41,7 @@ import {
   ComponentListComponent,
   ProjectListComponent,
   BlogListComponent,
-} from '../../../../pages/admin';
+} from '.';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
