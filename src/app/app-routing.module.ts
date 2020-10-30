@@ -8,15 +8,19 @@ import {
   HomepageComponent,
   DashboardComponent,
   LoginComponent,
+  ComponentAddComponent,
   UserListComponent,
   ComponentMenuListComponent,
   UserAddComponent,
   BlogMenuListComponent,
+  BlogListComponent,
   ComponentListComponent,
   ProjectListComponent,
+  BlogAddComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
+import { AddBlogMenuComponent } from './components';
 
 const routes: Routes = [
   {
@@ -45,6 +49,22 @@ const routes: Routes = [
         },
       },
       {
+        path: 'blog/add',
+        component: BlogAddComponent,
+        data: {
+          title: 'Add Blog',
+          icon: 'fa fa-2x fa-address-book',
+        },
+      },
+      {
+        path: 'blog/edit/:BlogID',
+        component: BlogAddComponent,
+        data: {
+          title: 'Edit Blog',
+          icon: 'fa fa-2x fa-address-book',
+        },
+      },
+      {
         path: 'users',
         component: UserListComponent,
         data: {
@@ -67,8 +87,8 @@ const routes: Routes = [
         component: UserAddComponent,
         data: {
           title: 'User Add',
-          icon: 'fa fa-2x fa-home'
-        }
+          icon: 'fa fa-2x fa-home',
+        },
       },
       {
         path: 'user/edit/:UserID',
@@ -94,7 +114,25 @@ const routes: Routes = [
         data: {
           title: 'Component List',
           icon: 'fa fa-2x fa-address-book',
-          authorize: [Roles.Root, Roles.Administrator,Roles.Developer],
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
+        },
+      },
+      {
+        path: 'component/add',
+        component: ComponentAddComponent,
+        data: {
+          title: 'Component List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
+        },
+      },
+      {
+        path: 'component/edit/:ComponentID',
+        component: ComponentAddComponent,
+        data: {
+          title: 'Component List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
       },
       {
@@ -107,7 +145,16 @@ const routes: Routes = [
         },
       },
       {
-        path: 'project-list',
+        path: 'blogs',
+        component: BlogListComponent,
+        data: {
+          title: 'Blog List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Editor],
+        },
+      },
+      {
+        path: 'projects',
         component: ProjectListComponent,
         data: {
           title: 'Project List',

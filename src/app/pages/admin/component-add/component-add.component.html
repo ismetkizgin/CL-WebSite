@@ -1,0 +1,49 @@
+<form #componentForm='ngForm' (ngSubmit)="onSave(componentForm)">
+    <div class="row" [hidden]="hiddenSlideToggle">
+        <div class="col-12 text-right">
+            <div class="form-group">
+                <mat-slide-toggle labelPosition="before" [disabled]="hiddenSlideToggle" [checked]="0" name="ComponentState" color="primary" #ComponentState="ngModel" [(ngModel)]="_model.ComponentState">
+                {{ _model.ComponentState ? 'Component Active' : 'Component Pasive' | translate }}</mat-slide-toggle>
+            </div>
+        </div>
+    </div>
+    <div class="card p-3 border-top border-info">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>{{ 'Component Name' | translate }}</mat-label>
+            <input matInput type="text" placeholder="{{ 'Enter Component Name' | translate }}"
+                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="ComponentName" #ComponentName="ngModel"
+                [(ngModel)]="_model.ComponentName" required>
+            <mat-error *ngIf="ComponentName.invalid&&ComponentName.touched">
+                {{ 'Component Name field must be filled' | translate }}</mat-error>
+        </mat-form-field>
+        <div class="form-group">
+            <mat-form-field appearance="outline">
+                <mat-label>{{'Componnent Menu'| translate}}</mat-label>
+                <select matNativeControl name="ComponentMenuID" #ComponentMenuID="ngModel"
+                    [(ngModel)]="_model.ComponentMenuID" required>
+                    <option *ngFor="let componentMenu of componentMenus" [value]="componentMenu.ComponentMenuID">
+                        {{ componentMenu.ComponentMenuName }}</option>
+                </select>
+                <mat-error *ngIf="ComponentMenuID.invalid">
+                    {{ 'Select the Component Menu Name' | translate }}</mat-error>
+            </mat-form-field>
+        </div>
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>{{ 'Component Description' | translate }}</mat-label>
+            <textarea style="resize: none;" rows="4" matInput type="text"
+                placeholder="{{ 'Enter Component Description' | translate }}" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$"
+                name="ComponentDescription" #ComponentDescription="ngModel" [(ngModel)]="_model.ComponentDescription"
+                required></textarea>
+            <mat-error *ngIf="ComponentDescription.invalid&&ComponentDescription.touched">
+                {{ 'Component Desccription field must be filled' | translate }}</mat-error>
+        </mat-form-field>
+        <div class="form-group">
+            <ckeditor [(ngModel)]="_model.ComponentCode" #ComponentCode="ngModel" id="ComponentCode"
+                name="ComponentCode" [data]="_model.ComponentCode" [config]="{ language:lang }">
+            </ckeditor>
+        </div>
+        <div class="card-footer p-0">
+            <button type="submit" class="btn btn-info w-100">{{'Save'| translate}}</button>
+        </div>
+    </div>
+</form>
