@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                    <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle" src="assets/images/default/user.png"
+                            alt="User profile picture">
+                    </div>
+                    <h3 class="profile-username text-center">{{ user.UserFirstName }} {{ user.UserLastName }}</h3>
+                    <p class="text-muted text-center">{{ user.UserTypeName }}</p>
+                    <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b>{{ 'Email Address' | translate}}:</b> {{ user.UserEmail }}
+                        </li>
+                        <li class="list-group-item">
+                            <b>{{ 'Date Of Birth' | translate }}:</b> {{user.UserDateOfBirth}}
+                        </li>
+                    </ul>
+                    <a [routerLink]="['/admin/user/edit/',user.UserID]"
+                        class="btn btn-primary btn-block"><b>{{ 'Profile Edit' | translate }}</b></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header p-2">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a class="nav-link active" href="#projects"
+                                data-toggle="tab">{{ 'Projects' | translate }}</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#components"
+                                data-toggle="tab">{{ 'Components' | translate }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#blogs"
+                                data-toggle="tab">{{ 'Blogs' | translate }}</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="projects">
+                            <app-project-list></app-project-list>
+                        </div>
+                        <div class="tab-pane" id="components">
+                            <app-component-list></app-component-list>
+                        </div>
+                        <div class="tab-pane" id="blogs">
+                            <app-blog-list></app-blog-list>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

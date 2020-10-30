@@ -17,6 +17,7 @@ import {
   ComponentListComponent,
   ProjectListComponent,
   BlogAddComponent,
+  UserDetailComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -69,6 +70,15 @@ const routes: Routes = [
         component: UserListComponent,
         data: {
           title: 'User List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'user/:UserID',
+        component: UserDetailComponent,
+        data: {
+          title: 'User Detail',
           icon: 'fa fa-2x fa-address-book',
           authorize: [Roles.Root, Roles.Administrator],
         },
