@@ -117,6 +117,24 @@ const routes: Routes = [
         },
       },
       {
+        path: 'component/add',
+        component: ComponentAddComponent,
+        data: {
+          title: 'Component List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
+        },
+      },
+      {
+        path: 'component/edit/:ComponentID',
+        component: ComponentAddComponent,
+        data: {
+          title: 'Component List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
+        },
+      },
+      {
         path: 'blog-menus',
         component: BlogMenuListComponent,
         data: {
