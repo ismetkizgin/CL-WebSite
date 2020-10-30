@@ -15,6 +15,7 @@ import {
   BlogMenuListComponent,
   BlogListComponent,
   ComponentListComponent,
+  ProjectListComponent,
   BlogAddComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
@@ -150,6 +151,15 @@ const routes: Routes = [
           title: 'Blog List',
           icon: 'fa fa-2x fa-address-book',
           authorize: [Roles.Root, Roles.Administrator, Roles.Editor],
+        },
+      },
+      {
+        path: 'projects',
+        component: ProjectListComponent,
+        data: {
+          title: 'Project List',
+          icon: 'fa fa-2x fa-address-book',
+          authorize: [Roles.Root, Roles.Administrator,Roles.Developer,Roles.Editor,Roles.User],
         },
       },
     ],

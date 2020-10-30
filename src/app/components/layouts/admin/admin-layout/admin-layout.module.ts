@@ -38,8 +38,9 @@ import {
   ComponentAddComponent,
   UserAddComponent,
   BlogMenuListComponent,
-  BlogListComponent,
   ComponentListComponent,
+  ProjectListComponent,
+  BlogListComponent,
 } from '../../../../pages/admin';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -67,8 +68,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     PasswordChangeComponent,
     PaginationComponent,
     BlogMenuListComponent,
-    BlogListComponent,
     ComponentListComponent,
+    ProjectListComponent,
+    BlogListComponent,
   ],
   imports: [
     CommonModule,

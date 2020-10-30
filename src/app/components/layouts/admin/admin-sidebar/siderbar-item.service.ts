@@ -37,8 +37,16 @@ export class SidebarItemService {
     {
       title: 'Component Transections',
       icon: 'fa fa-user',
-      linkActive: ['/admin/component-menus', '/admin/components', '/admin/component/add'],
-      submenuShowHide: this.getChildUrlActiveState(['component-menus', 'components', 'component']),
+      linkActive: [
+        '/admin/component-menus',
+        '/admin/components',
+        '/admin/component/add',
+      ],
+      submenuShowHide: this.getChildUrlActiveState([
+        'component-menus',
+        'components',
+        'component',
+      ]),
       submenu: [
         {
           title: 'Component Menu List',
@@ -52,18 +60,28 @@ export class SidebarItemService {
           link: '/admin/components',
         },
         {
-          title: 'Add Component',
+          title: 'Add Componwent',
           icon: 'fa fa-address-book',
           link: '/admin/component/add',
         },
       ],
-      authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
+      authorize: [
+        Roles.Root,
+        Roles.Administrator,
+        Roles.Developer,
+        Roles.User,
+        Roles.Editor,
+      ],
     },
     {
       title: 'Blog Transections',
       icon: 'fa fa-user',
       linkActive: ['/admin/blog-menus', '/admin/blog/add', '/admin/blogs'],
-      submenuShowHide: this.getChildUrlActiveState(['blog-menus', 'blog', 'blogs']),
+      submenuShowHide: this.getChildUrlActiveState([
+        'blog-menus',
+        'blog',
+        'blogs',
+      ]),
       submenu: [
         {
           title: 'Blog Menu List',
@@ -83,6 +101,20 @@ export class SidebarItemService {
         },
       ],
       authorize: [Roles.Root, Roles.Administrator, Roles.Editor],
+    },
+    {
+      title: 'Project Transections',
+      icon: 'fa fa-user',
+      linkActive: ['/admin/projects'],
+      submenuShowHide: this.getChildUrlActiveState(['projects']),
+      submenu: [
+        {
+          title: 'Project List',
+          icon: 'fa fa-address-book',
+          link: '/admin/projects',
+        },
+      ],
+      authorize: [Roles.Root, Roles.Administrator],
     },
   ];
 
