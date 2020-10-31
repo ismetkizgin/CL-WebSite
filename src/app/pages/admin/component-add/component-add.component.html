@@ -35,7 +35,7 @@
                 name="ComponentDescription" #ComponentDescription="ngModel" [(ngModel)]="_model.ComponentDescription"
                 required></textarea>
             <mat-error *ngIf="ComponentDescription.invalid&&ComponentDescription.touched">
-                {{ 'Component Desccription field must be filled' | translate }}</mat-error>
+                {{ 'Component Description field must be filled' | translate }}</mat-error>
         </mat-form-field>
         <div class="form-group">
             <ckeditor [(ngModel)]="_model.ComponentCode" #ComponentCode="ngModel" id="ComponentCode"

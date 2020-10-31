@@ -35,7 +35,7 @@
                 pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="BlogDescription" #BlogDescription="ngModel"
                 [(ngModel)]="_model.BlogDescription" required></textarea>
             <mat-error *ngIf="BlogDescription.invalid&&BlogDescription.touched">
-                {{ 'Blog Desccription field must be filled' | translate }}</mat-error>
+                {{ 'Blog Description field must be filled' | translate }}</mat-error>
         </mat-form-field>
         <div class="form-group">
             <ckeditor [(ngModel)]="_model.BlogContent" #BlogContent="ngModel" id="BlogContent"
