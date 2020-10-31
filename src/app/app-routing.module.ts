@@ -40,7 +40,7 @@ const routes: Routes = [
         component: DashboardComponent,
         data: {
           title: 'Dashboard',
-          icon: 'fa fa-2x fa-home',
+          icon: 'fas fa-tachometer-alt fa-2x',
           authorize: [
             Roles.Root,
             Roles.Administrator,
@@ -54,7 +54,7 @@ const routes: Routes = [
         component: BlogAddComponent,
         data: {
           title: 'Add Blog',
-          icon: 'fa fa-2x fa-address-book',
+          icon: 'fas fa-plus fa-2x',
         },
       },
       {
@@ -70,7 +70,7 @@ const routes: Routes = [
         component: UserListComponent,
         data: {
           title: 'User List',
-          icon: 'fa fa-2x fa-address-book',
+          icon: 'fas fa-list-ul fa-2x',
           authorize: [Roles.Root, Roles.Administrator],
         },
       },
@@ -88,7 +88,7 @@ const routes: Routes = [
         component: UserAddComponent,
         data: {
           title: 'User Add',
-          icon: 'fa fa-2x fa-home',
+          icon: 'fas fa-user-plus fa-2x',
           authorize: [Roles.Root, Roles.Administrator],
         },
       },
@@ -114,7 +114,7 @@ const routes: Routes = [
         component: ComponentMenuListComponent,
         data: {
           title: 'Component Menu List',
-          icon: 'fa fa-2x fa-address-book',
+          icon: 'fas fa-list-alt fa-2x',
           authorize: [Roles.Root, Roles.Administrator],
         },
       },
@@ -123,7 +123,7 @@ const routes: Routes = [
         component: ComponentListComponent,
         data: {
           title: 'Component List',
-          icon: 'fa fa-2x fa-address-book',
+          icon: 'fas fa-list fa-2x',
           authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
       },
@@ -132,7 +132,7 @@ const routes: Routes = [
         component: ComponentAddComponent,
         data: {
           title: 'Component List',
-          icon: 'fa fa-2x fa-address-book',
+          icon: 'fas fa-plus-square fa-2x',
           authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
       },
@@ -141,7 +141,7 @@ const routes: Routes = [
         component: ComponentAddComponent,
         data: {
           title: 'Component List',
-          icon: 'fa fa-2x fa-address-book',
+          icon: 'fas fa-list fa-2x',
           authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
       },
@@ -150,7 +150,7 @@ const routes: Routes = [
         component: BlogMenuListComponent,
         data: {
           title: 'Blog Menu List',
-          icon: 'fa fa-2x fa-address-book',
+          icon: 'fas fa-stream fa-2x',
           authorize: [Roles.Root, Roles.Administrator],
         },
       },
@@ -159,7 +159,7 @@ const routes: Routes = [
         component: BlogListComponent,
         data: {
           title: 'Blog List',
-          icon: 'fa fa-2x fa-address-book',
+          icon: 'fas fa-list fa-2x',
           authorize: [Roles.Root, Roles.Administrator, Roles.Editor],
         },
       },
@@ -168,7 +168,7 @@ const routes: Routes = [
         component: ProjectListComponent,
         data: {
           title: 'Project List',
-          icon: 'fa fa-2x fa-address-book',
+          icon: 'fas fa-clipboard-list fa-2x',
           authorize: [Roles.Root, Roles.Administrator,Roles.Developer,Roles.Editor,Roles.User],
         },
       },

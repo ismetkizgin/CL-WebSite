@@ -1,8 +1,4 @@
 <div class="row">
-    <div class="col-md-4 col-sm-12 add-button">
-        <button type="button" (click)="openProjectListModal()" class="btn btn-sm btn-outline-success"><i
-                class="fas fa-plus"></i> {{ 'Add Project' | translate }}</button>
-    </div>
     <div class="col-md-3 col-sm-12 ml-auto">
         <mat-form-field>
             <mat-label>{{ 'Search' | translate }}</mat-label>
@@ -26,11 +22,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let projectList of projectLists | filter:searchText | paginate: paginationConfig">
-                    <td> {{ projectList.ProjectID }} </td>
-                    <td> {{ projectList.ProjectName }} </td>
-                    <td> {{ projectList.UserName }}</td>
-                    <td> {{ projectList.ProjectCreationDate }}</td>
+                <tr *ngFor="let project of projects | filter:searchText | paginate: paginationConfig">
+                    <td> {{ project.ProjectID }} </td>
+                    <td> {{ project.ProjectName }} </td>
+                    <td> {{ project.UserNameSurname }}</td>
+                    <td> {{ project.ProjectCreatedDate | date:'M/d/yyyy, H:mm':'+3' }}</td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
@@ -40,16 +36,11 @@
                                 <mat-icon>remove_red_eye</mat-icon>
                                 <span>{{ 'Examine' | translate }}</span>
                             </a>
-                            <a mat-menu-item (click)="openProjectListModal(projectList.ProjectID)">
-                                <mat-icon>edit</mat-icon>
-                                <span>{{ 'Edit' | translate }}</span>
-                            </a>
-                            <a mat-menu-item (click)='projectListDelete(projectList.ProjectID)'>
+                            <a mat-menu-item (click)='projectDelete(project.ProjectID)'>
                                 <mat-icon>delete</mat-icon>
                                 <span>{{ 'Delete' | translate }}</span>
                             </a>
                         </mat-menu>
-
                     </td>
                 </tr>
             </tbody>

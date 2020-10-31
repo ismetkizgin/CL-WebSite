@@ -20,8 +20,8 @@
             <thead>
                 <tr>
                     <th>{{ 'Menu No' | translate }}</th>
-                    <th>{{ 'Name' | translate }}</th>
-                    <th>{{ 'Description' | translate }}</th>
+                    <th>{{ 'Menu Name' | translate }}</th>
+                    <th>{{ 'Menu Description' | translate }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +31,8 @@
                     <td> {{ blogMenu.BlogMenuDescription }}</td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
-                            <mat-icon class="list-menu">more_vert</mat-icon>
+                                     <mat-icon class="list-menu">more_vert</mat-icon>
+
                         </a>
                         <mat-menu #menu="matMenu">
                             <a mat-menu-item (click)="openBlogMenuModal(blogMenu.BlogMenuID)">
