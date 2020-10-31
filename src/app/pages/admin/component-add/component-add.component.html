@@ -23,7 +23,7 @@
         </mat-form-field>
         <div class="form-group">
             <mat-form-field appearance="outline">
-                <mat-label>{{'Componnent Menu'| translate}}</mat-label>
+                <mat-label>{{'Component Menu'| translate}}</mat-label>
                 <select matNativeControl name="ComponentMenuID" #ComponentMenuID="ngModel"
                     [(ngModel)]="_model.ComponentMenuID" required>
                     <option *ngFor="let componentMenu of componentMenus" [value]="componentMenu.ComponentMenuID">
