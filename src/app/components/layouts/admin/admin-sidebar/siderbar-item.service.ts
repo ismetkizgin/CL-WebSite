@@ -12,23 +12,23 @@ export class SidebarItemService {
   menu: Array<object> = [
     {
       title: 'Dashboard',
-      icon: 'fa fa-tachometer-alt',
+      icon: 'fas fa-tachometer-alt',
       link: '/admin',
     },
     {
       title: 'User Transactions',
-      icon: 'fa fa-user',
+      icon: 'fas fa-users',
       linkActive: ['/admin/users', '/admin/user/add'],
       submenuShowHide: this.getChildUrlActiveState(['user', 'users']),
       submenu: [
         {
           title: 'User List',
-          icon: 'fa fa-address-book',
+          icon: 'fas fa-list-ul',
           link: '/admin/users',
         },
         {
           title: 'User Add',
-          icon: 'fa fa-user-plus',
+          icon: 'fas fa-user-plus',
           link: '/admin/user/add',
         },
       ],
@@ -36,7 +36,7 @@ export class SidebarItemService {
     },
     {
       title: 'Component Transections',
-      icon: 'fa fa-user',
+      icon: 'nav-icon fas fa-th',
       linkActive: [
         '/admin/component-menus',
         '/admin/components',
@@ -50,18 +50,18 @@ export class SidebarItemService {
       submenu: [
         {
           title: 'Component Menu List',
-          icon: 'fa fa-address-book',
+          icon: 'fas fa-list-alt',
           link: '/admin/component-menus',
           authorize: [Roles.Root, Roles.Administrator],
         },
         {
           title: 'Component List',
-          icon: 'fa fa-address-book',
+          icon: 'fas fa-list',
           link: '/admin/components',
         },
         {
-          title: 'Add Componwent',
-          icon: 'fa fa-address-book',
+          title: 'Add Component',
+          icon: 'far fa-plus-square',
           link: '/admin/component/add',
         },
       ],
@@ -75,7 +75,7 @@ export class SidebarItemService {
     },
     {
       title: 'Blog Transections',
-      icon: 'fa fa-user',
+      icon: 'fas fa-blog',
       linkActive: ['/admin/blog-menus', '/admin/blog/add', '/admin/blogs'],
       submenuShowHide: this.getChildUrlActiveState([
         'blog-menus',
@@ -85,18 +85,18 @@ export class SidebarItemService {
       submenu: [
         {
           title: 'Blog Menu List',
-          icon: 'fa fa-address-book',
+          icon: 'fas fa-stream',
           link: '/admin/blog-menus',
           authorize: [Roles.Root, Roles.Administrator],
         },
         {
           title: 'Blog List',
-          icon: 'fa fa-address-book',
+          icon: 'fas fa-list',
           link: '/admin/blogs',
         },
         {
           title: 'Blog Add',
-          icon: 'fa fa-address-book',
+          icon: 'fas fa-plus',
           link: '/admin/blog/add',
         },
       ],
@@ -104,13 +104,13 @@ export class SidebarItemService {
     },
     {
       title: 'Project Transections',
-      icon: 'fa fa-user',
+      icon: 'fas fa-lightbulb',
       linkActive: ['/admin/projects'],
       submenuShowHide: this.getChildUrlActiveState(['projects']),
       submenu: [
         {
           title: 'Project List',
-          icon: 'fa fa-address-book',
+          icon: 'fas fa-clipboard-list',
           link: '/admin/projects',
         },
       ],
