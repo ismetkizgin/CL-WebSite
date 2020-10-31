@@ -2,8 +2,13 @@
     <div class="row" [hidden]="hiddenSlideToggle">
         <div class="col-12 text-right">
             <div class="form-group">
-                <mat-slide-toggle labelPosition="before" [disabled]="hiddenSlideToggle" [checked]="0" name="ComponentState" color="primary" #ComponentState="ngModel" [(ngModel)]="_model.ComponentState">
-                {{ _model.ComponentState ? 'Component Active' : 'Component Pasive' | translate }}</mat-slide-toggle>
+                <mat-slide-toggle labelPosition="before" [disabled]="hiddenSlideToggle" [checked]="0"
+                    name="ComponentState" color="primary" #ComponentState="ngModel" [(ngModel)]="_model.ComponentState">
+                    <ng-container [ngSwitch]="_model.ComponentState">
+                        <span *ngSwitchCase="1">{{ 'Component Active' | translate }}</span>
+                        <span *ngSwitchDefault>{{ 'Component Pasive' | translate }}</span>
+                    </ng-container>
+                </mat-slide-toggle>
             </div>
         </div>
     </div>
