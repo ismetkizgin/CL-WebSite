@@ -2,8 +2,13 @@
     <div class="row" [hidden]="hiddenSlideToggle">
         <div class="col-12 text-right">
             <div class="form-group">
-                <mat-slide-toggle labelPosition="before" [disabled]="hiddenSlideToggle" [checked]="0" name="ComponentState" color="primary" #ComponentState="ngModel" [(ngModel)]="_model.ComponentState">
-                {{ _model.ComponentState ? 'Component Active' : 'Component Pasive' | translate }}</mat-slide-toggle>
+                <mat-slide-toggle labelPosition="before" [disabled]="hiddenSlideToggle" [checked]="0"
+                    name="ComponentState" color="primary" #ComponentState="ngModel" [(ngModel)]="_model.ComponentState">
+                    <ng-container [ngSwitch]="_model.ComponentState">
+                        <span *ngSwitchCase="1">{{ 'Component Active' | translate }}</span>
+                        <span *ngSwitchDefault>{{ 'Component Pasive' | translate }}</span>
+                    </ng-container>
+                </mat-slide-toggle>
             </div>
         </div>
     </div>
@@ -18,7 +23,7 @@
         </mat-form-field>
         <div class="form-group">
             <mat-form-field appearance="outline">
-                <mat-label>{{'Componnent Menu'| translate}}</mat-label>
+                <mat-label>{{'Component Menu'| translate}}</mat-label>
                 <select matNativeControl name="ComponentMenuID" #ComponentMenuID="ngModel"
                     [(ngModel)]="_model.ComponentMenuID" required>
                     <option *ngFor="let componentMenu of componentMenus" [value]="componentMenu.ComponentMenuID">
@@ -35,7 +40,7 @@
                 name="ComponentDescription" #ComponentDescription="ngModel" [(ngModel)]="_model.ComponentDescription"
                 required></textarea>
             <mat-error *ngIf="ComponentDescription.invalid&&ComponentDescription.touched">
-                {{ 'Component Desccription field must be filled' | translate }}</mat-error>
+                {{ 'Component Description field must be filled' | translate }}</mat-error>
         </mat-form-field>
         <div class="form-group">
             <ckeditor [(ngModel)]="_model.ComponentCode" #ComponentCode="ngModel" id="ComponentCode"

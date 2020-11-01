@@ -19,8 +19,8 @@
             <thead>
                 <tr>
                     <th>{{ 'Menu No' | translate }}</th>
-                    <th>{{ 'Name' | translate }}</th>
-                    <th>{{ 'Description' | translate }}</th>
+                    <th>{{ 'Menu Name' | translate }}</th>
+                    <th>{{ 'Menu Description' | translate }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,10 +33,6 @@
                             <mat-icon class="list-menu">more_vert</mat-icon>
                         </a>
                         <mat-menu #menu="matMenu">
-                            <a mat-menu-item >
-                                <mat-icon>remove_red_eye</mat-icon>
-                                <span>{{ 'Examine' | translate }}</span>
-                            </a>
                             <a mat-menu-item (click)="openComponentMenuModal(componentMenu.ComponentMenuID)">
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>

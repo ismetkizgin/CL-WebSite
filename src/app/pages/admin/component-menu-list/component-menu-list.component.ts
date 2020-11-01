@@ -55,7 +55,7 @@ export class ComponentMenuListComponent implements OnInit {
   async componentMenuDelete(ComponentMenuID) {
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
-        message: 'Are you sure you want to delete the user ?',
+        message: 'Are you sure you want to delete the component menu ?',
         icon: 'fa fa-exclamation',
       },
     });

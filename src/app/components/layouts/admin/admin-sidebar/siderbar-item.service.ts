@@ -35,7 +35,7 @@ export class SidebarItemService {
       authorize: [Roles.Root, Roles.Administrator],
     },
     {
-      title: 'Component Transections',
+      title: 'Component Transactions',
       icon: 'nav-icon fas fa-th',
       linkActive: [
         '/admin/component-menus',
@@ -74,7 +74,7 @@ export class SidebarItemService {
       ],
     },
     {
-      title: 'Blog Transections',
+      title: 'Blog Transactions',
       icon: 'fas fa-blog',
       linkActive: ['/admin/blog-menus', '/admin/blog/add', '/admin/blogs'],
       submenuShowHide: this.getChildUrlActiveState([
@@ -103,7 +103,7 @@ export class SidebarItemService {
       authorize: [Roles.Root, Roles.Administrator, Roles.Editor],
     },
     {
-      title: 'Project Transections',
+      title: 'Project Transactions',
       icon: 'fas fa-lightbulb',
       linkActive: ['/admin/projects'],
       submenuShowHide: this.getChildUrlActiveState(['projects']),

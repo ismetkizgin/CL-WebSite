@@ -38,7 +38,7 @@ export class BlogAddComponent implements OnInit {
     ) === -1
       ? true
       : false;
-
+  
   async ngOnInit() {
     try {
       this.blogMenus = <Array<BlogMenu>>await this._blogMenuService.listAsync();

@@ -178,7 +178,7 @@ export class UserAddComponent implements OnInit {
           await this._authService.deleteProfile(result);
           let message;
           this._translateService
-            .get('Your account has been deleted.')
+            .get('Your account has been deleted')
             .subscribe((value) => (message = value));
           this._snackBar.open(message, 'X', {
             duration: 3000,
