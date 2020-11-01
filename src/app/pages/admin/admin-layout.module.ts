@@ -28,6 +28,7 @@ import {
   PasswordChangeComponent,
   AddBlogMenuComponent,
   PasswordControlWindowComponent,
+  ErrorComponent
 } from '../../components';
 import {
   DashboardComponent,
@@ -73,6 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProjectListComponent,
     BlogListComponent,
     UserDetailComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
