@@ -75,7 +75,7 @@ const routes: Routes = [
         },
       },
       {
-        path: 'user/:UserID',
+        path: 'user/detail/:UserID',
         component: UserDetailComponent,
         data: {
           title: 'User Detail',

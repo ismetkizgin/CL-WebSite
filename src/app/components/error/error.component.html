@@ -1,6 +1,6 @@
 <div id="notfound">
     <div class="notfound">
-        <div *ngIf="title and statucCode" class="notfound-404">
+        <div *ngIf="title; statucCode" class="notfound-404">
             <h3 *ngIf="title">{{ title }}</h3>
             <h1 *ngIf="statusCode"><span *ngFor="let item of statusCodeSplit">{{ item }}</span></h1>
         </div>
