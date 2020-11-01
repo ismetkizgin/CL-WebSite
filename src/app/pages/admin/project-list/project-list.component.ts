@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Project } from '../../../models';
+import { Component, Input, OnInit } from '@angular/core';
+import { Project, User } from '../../../models';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogWindowComponent } from '../../../components';
 import { ProjectService } from 'src/app/utils';
@@ -26,13 +26,17 @@ export class ProjectListComponent implements OnInit {
     itemsPerPage: 10,
     currentPage: 1,
   };
+  tableShowHide = true;
+  @Input() UserID = null;
 
   async ngOnInit() {
     try {
-      this.projects = <Array<Project>>await this._projectService.listAsync();
-      console.log(this.projects);
+      this.projects = <Array<Project>>(
+        await this._projectService.listAsync(this.UserID ? { UserID: this.UserID } : null)
+      );
     } catch (error) {
-      this._projectService.errorNotification(error);
+      if (error.status === 404) this.tableShowHide = false;
+      else this._projectService.errorNotification(error);
     }
   }
 

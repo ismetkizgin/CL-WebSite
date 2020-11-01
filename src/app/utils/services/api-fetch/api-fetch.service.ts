@@ -16,10 +16,14 @@ export class ApiFetchService {
   ) {
     return new Promise((resolve, reject) => {
       let config: object = {};
-      if (data != null) Object.assign(config, { body: data });
+      if (data != null)
+        if (method === 'GET') Object.assign(config, { params: data });
+        else Object.assign(config, { body: data });
       if (getToken)
         Object.assign(config, {
-          headers: { token: JSON.parse(localStorage.getItem('currentUser')).token },
+          headers: {
+            token: JSON.parse(localStorage.getItem('currentUser')).token,
+          },
         });
 
       this._http
@@ -30,9 +34,7 @@ export class ApiFetchService {
             reject({
               status: error.status,
               message:
-                error.error != undefined
-                  ? error.error.message
-                  : error.message,
+                error.error != undefined ? error.error.message : error.message,
             })
         );
     });

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Blog } from '../../../models';
 import { MatDialog } from '@angular/material/dialog';
 import { BlogService } from '../../../utils';
@@ -26,13 +26,19 @@ export class BlogListComponent implements OnInit {
     itemsPerPage: 10,
     currentPage: 1,
   };
+  tableShowHide = true;
+  @Input() UserID = null;
 
   async ngOnInit() {
     try {
-      this.blogs = <Array<Blog>>await this._blogService.listAsync();
-      console.log(this.blogs);
+      this.blogs = <Array<Blog>>(
+        await this._blogService.listAsync(
+          this.UserID ? { UserID: this.UserID } : null
+        )
+      );
     } catch (error) {
-      this._blogService.errorNotification(error);
+      if (error.status === 404) this.tableShowHide = false;
+      else this._blogService.errorNotification(error);
     }
   }
 

@@ -1,0 +1,9 @@
+<div id="notfound">
+    <div class="notfound">
+        <div *ngIf="title; statucCode" class="notfound-404">
+            <h3 *ngIf="title">{{ title }}</h3>
+            <h1 *ngIf="statusCode"><span *ngFor="let item of statusCodeSplit">{{ item }}</span></h1>
+        </div>
+        <h2 *ngIf="message">{{ message }}</h2>
+    </div>
+</div>

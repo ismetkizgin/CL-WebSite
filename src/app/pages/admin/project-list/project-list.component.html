@@ -1,50 +1,56 @@
-<div class="row">
-    <div class="col-md-3 col-sm-12 ml-auto">
-        <mat-form-field>
-            <mat-label>{{ 'Search' | translate }}</mat-label>
-            <input matInput type="text" [(ngModel)]="searchText"
-                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
-            <a type="button" matSuffix [attr.aria-label]="'Search'">
-                <mat-icon>search</mat-icon>
-            </a>
-        </mat-form-field>
+<ng-container *ngIf="!tableShowHide">
+    <app-error message="{{ 'No project record found in the system !' | translate }}"></app-error>
+</ng-container>
+
+<ng-container *ngIf="tableShowHide">
+    <div class="row">
+        <div class="col-md-3 col-sm-12 ml-auto">
+            <mat-form-field>
+                <mat-label>{{ 'Search' | translate }}</mat-label>
+                <input matInput type="text" [(ngModel)]="searchText"
+                    placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
+                <a type="button" matSuffix [attr.aria-label]="'Search'">
+                    <mat-icon>search</mat-icon>
+                </a>
+            </mat-form-field>
+        </div>
     </div>
-</div>
-<div class="card">
-    <div class="card-body p-0">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>{{ 'Project No' | translate }}</th>
-                    <th>{{ 'Project Name' | translate }}</th>
-                    <th>{{ 'User Name' | translate }}</th>
-                    <th>{{ 'Project Creation Date' | translate }}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let project of projects | filter:searchText | paginate: paginationConfig">
-                    <td> {{ project.ProjectID }} </td>
-                    <td> {{ project.ProjectName }} </td>
-                    <td> {{ project.UserNameSurname }}</td>
-                    <td> {{ project.ProjectCreatedDate | date:'M/d/yyyy, H:mm':'+3' }}</td>
-                    <td class="list-button text-right">
-                        <a mat-icon-button [matMenuTriggerFor]="menu">
-                            <mat-icon class="list-menu">more_vert</mat-icon>
-                        </a>
-                        <mat-menu #menu="matMenu">
-                            <a mat-menu-item >
-                                <mat-icon>remove_red_eye</mat-icon>
-                                <span>{{ 'Examine' | translate }}</span>
+    <div class="card">
+        <div class="card-body p-0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>{{ 'Project No' | translate }}</th>
+                        <th>{{ 'Project Name' | translate }}</th>
+                        <th>{{ 'User Name' | translate }}</th>
+                        <th>{{ 'Project Creation Date' | translate }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let project of projects | filter:searchText | paginate: paginationConfig">
+                        <td> {{ project.ProjectID }} </td>
+                        <td> {{ project.ProjectName }} </td>
+                        <td> {{ project.UserNameSurname }}</td>
+                        <td> {{ project.ProjectCreatedDate | date:'M/d/yyyy, H:mm':'+3' }}</td>
+                        <td class="list-button text-right">
+                            <a mat-icon-button [matMenuTriggerFor]="menu">
+                                <mat-icon class="list-menu">more_vert</mat-icon>
                             </a>
-                            <a mat-menu-item (click)='projectDelete(project.ProjectID)'>
-                                <mat-icon>delete</mat-icon>
-                                <span>{{ 'Delete' | translate }}</span>
-                            </a>
-                        </mat-menu>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                            <mat-menu #menu="matMenu">
+                                <a mat-menu-item>
+                                    <mat-icon>remove_red_eye</mat-icon>
+                                    <span>{{ 'Examine' | translate }}</span>
+                                </a>
+                                <a mat-menu-item (click)='projectDelete(project.ProjectID)'>
+                                    <mat-icon>delete</mat-icon>
+                                    <span>{{ 'Delete' | translate }}</span>
+                                </a>
+                            </mat-menu>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-<app-pagination [config]="paginationConfig"></app-pagination> 
+    <app-pagination [config]="paginationConfig"></app-pagination>
+</ng-container>

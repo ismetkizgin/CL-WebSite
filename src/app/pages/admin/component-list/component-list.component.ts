@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ComponentModel } from '../../../models';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogWindowComponent } from '../../../components';
@@ -26,14 +26,19 @@ export class ComponentListComponent implements OnInit {
     itemsPerPage: 10,
     currentPage: 1,
   };
+  tableShowHide: boolean = true;
+  @Input() UserID = null;
 
   async ngOnInit() {
     try {
       this.components = <Array<ComponentModel>>(
-        await this._componentService.listAsync()
+        await this._componentService.listAsync(
+          this.UserID ? { UserID: this.UserID } : null
+        )
       );
     } catch (error) {
-      this._componentService.errorNotification(error);
+      if (error.status === 404) this.tableShowHide = false;
+      else this._componentService.errorNotification(error);
     }
   }
 
