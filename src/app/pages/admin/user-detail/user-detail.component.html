@@ -14,7 +14,7 @@
                             <b>{{ 'Email Address' | translate}}:</b> {{ user.UserEmail }}
                         </li>
                         <li class="list-group-item">
-                            <b>{{ 'Date Of Birth' | translate }}:</b> {{ user.UserDateOfBirth }}
+                            <b>{{ 'Date Of Birth' | translate }}:</b> {{ user.UserDateOfBirth | date:'M/dd/yyyy' }}
                         </li>
                     </ul>
                     <a [routerLink]="['/admin/user/edit/',user.UserID]"

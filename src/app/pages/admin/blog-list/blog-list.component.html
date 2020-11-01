@@ -31,7 +31,7 @@
                         <td> {{ blog.BlogID }} </td>
                         <td> {{ blog.BlogTitle }} </td>
                         <td *ngIf="!UserID"> {{ blog.UserNameSurname }}</td>
-                        <td> {{ blog.BlogCreatedDate | date:'M/d/yyyy, H:mm':'+3' }} </td>
+                        <td> {{ blog.BlogCreatedDate | date:'M/dd/yyyy, HH:mm':'+3' }} </td>
                         <td class="list-button text-right">
                             <a mat-icon-button [matMenuTriggerFor]="menu">
                                 <mat-icon class="list-menu">more_vert</mat-icon>

@@ -31,7 +31,7 @@
                         <td> {{ project.ProjectID }} </td>
                         <td> {{ project.ProjectName }} </td>
                         <td *ngIf="!UserID"> {{ project.UserNameSurname }}</td>
-                        <td> {{ project.ProjectCreatedDate | date:'M/d/yyyy, H:mm':'+3' }}</td>
+                        <td> {{ project.ProjectCreatedDate | date:'M/dd/yyyy, HH:mm':'+3' }}</td>
                         <td class="list-button text-right">
                             <a mat-icon-button [matMenuTriggerFor]="menu">
                                 <mat-icon class="list-menu">more_vert</mat-icon>

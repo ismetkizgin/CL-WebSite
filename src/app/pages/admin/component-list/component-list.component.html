@@ -31,7 +31,7 @@
                         <td> {{ component.ComponentID }} </td>
                         <td> {{ component.ComponentName }} </td>
                         <td *ngIf="!UserID"> {{ component.UserNameSurname }}</td>
-                        <td> {{ component.ComponentCreatedDate | date:'M/d/yyyy, H:mm':'+3' }}</td>
+                        <td> {{ component.ComponentCreatedDate | date:'M/dd/yyyy, HH:mm':'+3' }}</td>
                         <td class="list-button text-right">
                             <a mat-icon-button [matMenuTriggerFor]="menu">
                                 <mat-icon class="list-menu">more_vert</mat-icon>
