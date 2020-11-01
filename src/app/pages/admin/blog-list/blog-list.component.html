@@ -22,7 +22,7 @@
                     <tr>
                         <th>{{ 'Blog No' | translate }}</th>
                         <th>{{ 'Blog Title' | translate }}</th>
-                        <th>{{ 'User Name' | translate }}</th>
+                        <th *ngIf="!UserID">{{ 'User Name' | translate }}</th>
                         <th>{{ 'Created Date' | translate }}</th>
                     </tr>
                 </thead>
@@ -30,7 +30,7 @@
                     <tr *ngFor="let blog of blogs | filter:searchText | paginate: paginationConfig">
                         <td> {{ blog.BlogID }} </td>
                         <td> {{ blog.BlogTitle }} </td>
-                        <td> {{ blog.UserNameSurname }}</td>
+                        <td *ngIf="!UserID"> {{ blog.UserNameSurname }}</td>
                         <td> {{ blog.BlogCreatedDate | date:'M/d/yyyy, H:mm':'+3' }} </td>
                         <td class="list-button text-right">
                             <a mat-icon-button [matMenuTriggerFor]="menu">

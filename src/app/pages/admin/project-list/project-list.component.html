@@ -22,7 +22,7 @@
                     <tr>
                         <th>{{ 'Project No' | translate }}</th>
                         <th>{{ 'Project Name' | translate }}</th>
-                        <th>{{ 'User Name' | translate }}</th>
+                        <th *ngIf="!UserID">{{ 'User Name' | translate }}</th>
                         <th>{{ 'Project Creation Date' | translate }}</th>
                     </tr>
                 </thead>
@@ -30,7 +30,7 @@
                     <tr *ngFor="let project of projects | filter:searchText | paginate: paginationConfig">
                         <td> {{ project.ProjectID }} </td>
                         <td> {{ project.ProjectName }} </td>
-                        <td> {{ project.UserNameSurname }}</td>
+                        <td *ngIf="!UserID"> {{ project.UserNameSurname }}</td>
                         <td> {{ project.ProjectCreatedDate | date:'M/d/yyyy, H:mm':'+3' }}</td>
                         <td class="list-button text-right">
                             <a mat-icon-button [matMenuTriggerFor]="menu">

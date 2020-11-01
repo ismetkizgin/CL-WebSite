@@ -22,7 +22,7 @@
                     <tr>
                         <th>{{ 'Component No' | translate }}</th>
                         <th>{{ 'Component Name' | translate }}</th>
-                        <th>{{ 'User Name' | translate }}</th>
+                        <th *ngIf="!UserID">{{ 'User Name' | translate }}</th>
                         <th>{{ 'Created Date' | translate }}</th>
                     </tr>
                 </thead>
@@ -30,7 +30,7 @@
                     <tr *ngFor="let component of components | filter:searchText | paginate: paginationConfig">
                         <td> {{ component.ComponentID }} </td>
                         <td> {{ component.ComponentName }} </td>
-                        <td> {{ component.UserNameSurname }}</td>
+                        <td *ngIf="!UserID"> {{ component.UserNameSurname }}</td>
                         <td> {{ component.ComponentCreatedDate | date:'M/d/yyyy, H:mm':'+3' }}</td>
                         <td class="list-button text-right">
                             <a mat-icon-button [matMenuTriggerFor]="menu">
