@@ -27,7 +27,7 @@
                     <td> {{ user.UserID }} </td>
                     <td> {{ user.UserFirstName }} {{ user.UserLastName }}</td>
                     <td> {{ user.UserEmail }}</td>
-                    <td> {{ user.UserDateOfBirth | date:'M/dd/yyyy'}}</td>
+                    <td> {{ user.UserDateOfBirth }}</td>
                     <td> {{ user.UserTypeName | translate }}</td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
