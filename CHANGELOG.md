@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.5.0 (2020-11-02)
+
+
+### Features
+
+* add and edit blog menu window added ([4521678](https://github.com/ismetkizgin/CL-WebSite/commit/45216784d83ac5ea70a46f970f0588ff37116f17))
+* add user page added ([246f740](https://github.com/ismetkizgin/CL-WebSite/commit/246f74020877cdb3a41ab473527d54f5b4a7cf81))
+* added blog menu delete window ([de5d3aa](https://github.com/ismetkizgin/CL-WebSite/commit/de5d3aa108a15a7e8f2d8cfe3d6f43872c406e66))
+* added blog menu service ([ff76f2a](https://github.com/ismetkizgin/CL-WebSite/commit/ff76f2a17ac0239fe0927096c1cf46aa30c03031))
+* added blog service ([d9abfa8](https://github.com/ismetkizgin/CL-WebSite/commit/d9abfa849bcb16e2248095be20b722c00a1fa8c4))
+* added change password window ([e230a2c](https://github.com/ismetkizgin/CL-WebSite/commit/e230a2cf6006756536ca75d4ff1eec261ae9b253))
+* added component add page ([3c2bbab](https://github.com/ismetkizgin/CL-WebSite/commit/3c2bbab0556d64ec6f6fc6ecb9a73d607e535b9c))
+* added component delete window ([a50e667](https://github.com/ismetkizgin/CL-WebSite/commit/a50e667e0b3812d43b64bcd4335de12e3f580853))
+* added component list page ([bdd556e](https://github.com/ismetkizgin/CL-WebSite/commit/bdd556ea706e1d2e9a8cc8d8a71cfe1e0ccbb957))
+* added component menu delete window ([304ad2c](https://github.com/ismetkizgin/CL-WebSite/commit/304ad2cdd3760768ba25e5061c696770332f0450))
+* added component menu list page design ([d31b8e5](https://github.com/ismetkizgin/CL-WebSite/commit/d31b8e53a815a01923fe1b6d120c7c6259053e02))
+* added component menu services ([bff59a1](https://github.com/ismetkizgin/CL-WebSite/commit/bff59a1f219853948967ec013d2469f994c1a76d))
+* added component service ([8954a3d](https://github.com/ismetkizgin/CL-WebSite/commit/8954a3d497b446b757ec6997b5de8945063b2254))
+* added error warning component ([9c2f1d0](https://github.com/ismetkizgin/CL-WebSite/commit/9c2f1d081ceedbd70fa69ac272a7ac5abd78e5d5))
+* added pagination component ([cadcd93](https://github.com/ismetkizgin/CL-WebSite/commit/cadcd93c819e723f4e1625ef7c9b730d07ab2013))
+* added profile page design ([905b500](https://github.com/ismetkizgin/CL-WebSite/commit/905b50089a13afc259e3b318920e4d506d4573d1))
+* added project list page ([095e127](https://github.com/ismetkizgin/CL-WebSite/commit/095e1277d004d7a7c5e173ccc0708b0bcb06284c))
+* added project service ([e3ecfaa](https://github.com/ismetkizgin/CL-WebSite/commit/e3ecfaa2df5b50732d6b85d1b7f1ba84211678bd))
+* added role filter for sidebar submenus ([6271c72](https://github.com/ismetkizgin/CL-WebSite/commit/6271c72629b475bbf0710121d20cc5b213789b55))
+* added user edit router path ([0b152bd](https://github.com/ismetkizgin/CL-WebSite/commit/0b152bd46b1bfb66408aa0744ca2d61d95e81342))
+* added user profile information update page ([2aa05d2](https://github.com/ismetkizgin/CL-WebSite/commit/2aa05d2a0ec50908a99c5da1b56d04bd45d2c2bf))
+* added user services ([dddbd96](https://github.com/ismetkizgin/CL-WebSite/commit/dddbd967f1bc4df21d99b13f743a6a5d283e9113))
+* added-blog-menu-list-page ([01ef6a9](https://github.com/ismetkizgin/CL-WebSite/commit/01ef6a98d01ef733b217c90bf5256b4f860f3e90))
+* added-blog-menu-list-page ([38a24e8](https://github.com/ismetkizgin/CL-WebSite/commit/38a24e877d5e2782222277d17e7359f2215451be))
+* blog add and update form page designed ([32faa94](https://github.com/ismetkizgin/CL-WebSite/commit/32faa946328f12516c2e84534c22d20370d03772))
+* component add and update form page designed ([c900dfa](https://github.com/ismetkizgin/CL-WebSite/commit/c900dfa83eca9c04159fb8945dd98302c5fe555b))
+* delete profile window added ([a59e5eb](https://github.com/ismetkizgin/CL-WebSite/commit/a59e5eb30a9524f88a9280962cac96bcb023cf85))
+* pagination feature added for user list table. ([62bd543](https://github.com/ismetkizgin/CL-WebSite/commit/62bd543c595b2cff62ed0368bbda7a1adae237d4))
+* user list page added ([3064f6e](https://github.com/ismetkizgin/CL-WebSite/commit/3064f6e138ad9a59e302115e2777affcc2cafc8c))
+
+
+### Bug Fixes
+
+* drop down menu cursor rearranged ([2487513](https://github.com/ismetkizgin/CL-WebSite/commit/2487513c63ff91a03a04c4273b5be921208b773d))
+* fix for component menu files rename ([bec8ad0](https://github.com/ismetkizgin/CL-WebSite/commit/bec8ad0b383dcc59822c225d8896d6f2d7cb9607))
+* fix for component menu list pagination ([1533c32](https://github.com/ismetkizgin/CL-WebSite/commit/1533c32693bcd271092f2c8d855eeda4439a5d57))
+* fix for date formats ([c165e4a](https://github.com/ismetkizgin/CL-WebSite/commit/c165e4adb1646ade931a9a1fa092e26c9ed6a9e3))
+* fix for mobile sidebar staying open problem ([363f324](https://github.com/ismetkizgin/CL-WebSite/commit/363f324591dd207afb399cff952926d9fc9e6475))
+* fix for navbar language selection menu ([3b6f40a](https://github.com/ismetkizgin/CL-WebSite/commit/3b6f40a261993384e7dcdc722d4f842f17a58deb))
+* fix for user delete notification text ([1e0fab6](https://github.com/ismetkizgin/CL-WebSite/commit/1e0fab6327a34b6897c573d9f07840746b1edf99))
+
 ## 1.4.0 (2020-10-27)
 
 
