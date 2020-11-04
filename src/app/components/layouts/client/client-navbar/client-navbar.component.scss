@@ -1,0 +1,84 @@
+nav {
+  background: linear-gradient(to bottom, #8e1968, #1c1a1a);
+
+  i {
+    color: white;
+  }
+
+  .nav-link {
+    color: white;
+    font-size: large;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .button {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #d7ced4;
+    border: none;
+    color: black;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .button span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  .button:hover span {
+    padding-right: 25px;
+  }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  .button:hover {
+    background-color: #9c4d82;
+    color: white;
+  }
+
+  .dropdown-menu {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #9c4d82;
+    border-radius: 15px;
+    color: white;
+  }
+
+  .dropdown-toggle:hover {
+    background: none;
+  }
+
+  .dropdown-item {
+    color: white;
+  }
+
+  .dropdown-item:hover {
+    background-color: #9c4d82;
+    color: white;
+    border-radius: 15px;
+  }
+
+  .title {
+    display: none;
+  }
+}
