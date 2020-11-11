@@ -4,15 +4,16 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ClientLayoutComponent } from '../../components/layouts/client';
-import { HomepageComponent } from './';
+import { ClientLayoutComponent, BlogLayoutComponent } from '../../components/layouts/client';
+import { BlogCategoriesComponent } from '../../components/layouts/client/blog-categories/blog-categories.component';
+import { HomepageComponent, BlogsComponent } from './';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [ClientLayoutComponent, HomepageComponent],
+  declarations: [ClientLayoutComponent, BlogLayoutComponent, HomepageComponent, BlogsComponent, BlogCategoriesComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -27,4 +28,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [],
 })
-export class ClientLayoutModule {}
+export class ClientLayoutModule { }
