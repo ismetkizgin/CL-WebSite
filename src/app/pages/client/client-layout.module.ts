@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ClientLayoutComponent } from '../../components/layouts/client';
+import { ClientLayoutComponent,ClientNavbarComponent} from '../../components/layouts/client';
 import { HomepageComponent } from './';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -12,7 +12,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [ClientLayoutComponent, HomepageComponent],
+  declarations: [ClientLayoutComponent, HomepageComponent,ClientNavbarComponent],
   imports: [
     CommonModule,
     RouterModule,
