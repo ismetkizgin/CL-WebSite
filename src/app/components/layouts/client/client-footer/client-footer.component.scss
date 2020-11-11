@@ -1,0 +1,45 @@
+footer{
+    color:#fff;
+    background: linear-gradient(to bottom, #8e1968, #1c1a1a);
+}
+.footer .copyright p{
+    font-size: 1.3rem;
+    text-shadow: 1px 1px black;
+    border-top: 1px solid rgb(255,255,255,0.8);
+    border-bottom: 1px solid rgb(255,255,255,0.8);
+  
+}
+
+.social-link-footer{
+    display: flex;
+    justify-content: center;
+}
+.social-link-footer li {
+    float: left;
+    margin: 0 10px 10px 0px;
+}
+
+.social-link-footer li a {
+    color: #fff;
+    background: black;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    float: left;
+    text-align: center;
+    font-size: 22px;
+    border-radius: 100px;
+    opacity: 0.5;
+}
+.social-link-footer li a i{
+    padding:5px;
+}
+.social-link-footer li a:hover{
+    opacity: 1.0;
+}
+.linkedin-icon{
+    color:#007bb6;
+}
+.instagram-icon{
+    color:#aa2cb5;
+}
