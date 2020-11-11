@@ -18,6 +18,7 @@ import {
   ProjectListComponent,
   BlogAddComponent,
   UserDetailComponent,
+  BlogDetailComponent
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -27,7 +28,10 @@ const routes: Routes = [
   {
     path: '',
     component: ClientLayoutComponent,
-    children: [{ path: '', component: HomepageComponent }],
+    children: [
+      { path: '', component: HomepageComponent },
+      { path: 'blog-detail', component: BlogDetailComponent},
+    ],
   },
   {
     path: 'admin',

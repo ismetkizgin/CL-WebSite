@@ -10,6 +10,7 @@ import {
   ClientFooterComponent,
 } from '../../components/layouts/client';
 import { HomepageComponent } from './';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -21,6 +22,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomepageComponent,
     ClientNavbarComponent,
     ClientFooterComponent,
+    BlogDetailComponent,
   ],
   imports: [
     CommonModule,
