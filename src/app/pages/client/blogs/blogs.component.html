@@ -1,10 +1,32 @@
-<div style="min-height: 600px;">
-    <p>blog list page! blog list page! blog list page! blog list page! blog list page! blog list page! blog list page!
-        blog list page! blog list page! blog list page! blog list page! blog list page! blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
+<div class="row mt-2">
+    <div class="col-md-3 col-sm-12 ml-auto ">
+        <mat-form-field>
+            <mat-label>{{ 'Search' | translate }}</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText"
+                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
+            <a type="button" matSuffix [attr.aria-label]="'Search'">
+                <mat-icon>search</mat-icon>
+            </a>
+        </mat-form-field>
+    </div>
+</div>
+<div class="card ml-2" *ngFor="let blog of blogs ">
+    <div class="card-body">
+        <div class="row">
+                <div class="col-12 mt-2">
+                    <h1 class="text-primary p-0 m-0">{{ blog.BlogTitle }}</h1>
+                </div>
+                <div class="col-12 border-top blog__description mt-2">
+                    <span class="mt-2">{{ blog.BlogDescription }}</span>
+                </div>
+            
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="row col-12"><span class="pb-0">{{ blog.UserNameSurname }} -
+                {{ blog.BlogCreatedDate | date:'M/dd/yyyy, HH:mm':'+3' }}</span>
+            <button class="btn btn-primary ml-auto"
+                [routerLink]="['/blogs',blog.BlogID]">{{ 'Examine' | translate }}</button>
+        </div>
+    </div>
 </div>
