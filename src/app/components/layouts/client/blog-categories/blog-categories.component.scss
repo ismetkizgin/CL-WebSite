@@ -48,13 +48,10 @@
   }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
   @media screen and (max-width: 768px){
       .openbtn{
           display: block;
+          margin-left: -20px;
       }
       .sidenav .closebtn{
           display: block;
@@ -67,4 +64,8 @@
     #mySidenav{
         width: 250px!important;
     }
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

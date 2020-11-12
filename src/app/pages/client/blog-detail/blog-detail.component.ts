@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Blog } from 'src/app/models';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BlogService } from '../../../utils/services/blog/blog.service';
 
 @Component({
   selector: 'app-blog-detail',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _blogService:BlogService,
+    private _router: Router,
+  ) { }
 
-  ngOnInit(): void {
+  _model: Blog = new Blog();
+
+  async ngOnInit() {
+    const BlogID = this._activatedRoute.snapshot.paramMap.get('BlogID');
+    if (BlogID != null) {
+      try {
+        this._model = <Blog>await this._blogService.findAsync(BlogID);
+      } catch (error) {
+        this._blogService.errorNotification(error);
+        this._router.navigateByUrl('admin');
+      }
+    }
   }
 
 }
