@@ -3,6 +3,7 @@ import { Routes, RouterModule, ChildActivationEnd } from '@angular/router';
 import {
   ClientLayoutComponent,
   AdminLayoutComponent,
+  BlogLayoutComponent,
 } from './components/layouts';
 import {
   HomepageComponent,
@@ -18,7 +19,8 @@ import {
   ProjectListComponent,
   BlogAddComponent,
   UserDetailComponent,
-  BlogDetailComponent
+  BlogDetailComponent,
+  BlogsComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -30,8 +32,13 @@ const routes: Routes = [
     component: ClientLayoutComponent,
     children: [
       { path: '', component: HomepageComponent },
-      { path: 'blog-detail', component: BlogDetailComponent},
-    ],
+      { path: 'blogs',
+        component:BlogLayoutComponent,
+        children:[
+          { path: '', component:BlogsComponent },
+          { path: ':BlogID', component: BlogDetailComponent},
+        ]},
+    ],  
   },
   {
     path: 'admin',
