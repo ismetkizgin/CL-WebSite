@@ -10,23 +10,26 @@
         </mat-form-field>
     </div>
 </div>
-<div class="card ml-2" *ngFor="let blog of blogs ">
-    <div class="card-body">
-        <div class="row">
-                <div class="col-12 mt-2">
-                    <h1 class="text-primary p-0 m-0">{{ blog.BlogTitle }}</h1>
-                </div>
-                <div class="col-12 border-top blog__description mt-2">
-                    <span class="mt-2">{{ blog.BlogDescription }}</span>
-                </div>
-            
-        </div>
-    </div>
-    <div class="card-footer">
-        <div class="row col-12"><span class="pb-0">{{ blog.UserNameSurname }} -
-                {{ blog.BlogCreatedDate | date:'M/dd/yyyy, HH:mm':'+3' }}</span>
-            <button class="btn btn-primary ml-auto"
-                [routerLink]="['/blogs',blog.BlogID]">{{ 'Examine' | translate }}</button>
-        </div>
+<div class="card ml-3">
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{ 'Blog Name' | translate }}</th>
+                    <th>{{ 'Blog Created Date' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let blog of blogs">
+                    <td> {{ blog.BlogTitle }} </td>
+                    <td> {{ blog.BlogCreatedDate }} </td>
+                    <td class="list-button text-right">
+                        <button class="btn btn-sm ">
+                        <span class="text-white">Examine</span>    
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
