@@ -1,10 +1,35 @@
-<div style="min-height: 600px;">
-    <p>blog list page! blog list page! blog list page! blog list page! blog list page! blog list page! blog list page!
-        blog list page! blog list page! blog list page! blog list page! blog list page! blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
-    <p>blog list page!</p>
+<div class="row mt-2">
+    <div class="col-md-3 col-sm-12 ml-auto ">
+        <mat-form-field>
+            <mat-label>{{ 'Search' | translate }}</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText"
+                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
+            <a type="button" matSuffix [attr.aria-label]="'Search'">
+                <mat-icon>search</mat-icon>
+            </a>
+        </mat-form-field>
+    </div>
+</div>
+<div class="card ml-3">
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{ 'Blog Name' | translate }}</th>
+                    <th>{{ 'Blog Created Date' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let blog of blogs">
+                    <td> {{ blog.BlogTitle }} </td>
+                    <td> {{ blog.BlogCreatedDate }} </td>
+                    <td class="list-button text-right">
+                        <button class="btn btn-sm ">
+                        <span class="text-white">Examine</span>    
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
