@@ -40,6 +40,7 @@ export class AuthService {
         this.currentUserSubject.next(respone);
         if (this._router.isActive('/login', true))
           this._router.navigateByUrl('admin');
+        else window.location.reload();
       }
       return respone;
     } catch (error) {
