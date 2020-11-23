@@ -38,7 +38,8 @@ export class AuthService {
       if (respone.result) {
         localStorage.setItem('currentUser', JSON.stringify(respone));
         this.currentUserSubject.next(respone);
-        this._router.navigateByUrl('admin');
+        if (this._router.isActive('/login', true))
+          this._router.navigateByUrl('admin');
       }
       return respone;
     } catch (error) {

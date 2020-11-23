@@ -6,6 +6,8 @@
     justify-content: center;
     width: 100%;
     min-height: 100%;
+  }
+  &__position {
     position: absolute;
   }
   &__forget {
@@ -145,7 +147,6 @@
   }
 
   &__langues {
-
     &__flag {
       width: 30px;
       height: 30px;

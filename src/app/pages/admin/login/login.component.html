@@ -1,4 +1,4 @@
-<div class="login__wrapper">
+<div [ngClass]="{'login__wrapper':true, 'login__position': screenAverageState}">
     <div class="login__formContent">
         <h2 class="login__form-title active">{{ 'Login' | translate }}</h2>
 
@@ -8,8 +8,7 @@
 
         <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
             <input type="text" name="UserEmail" id="UserEmail" class="login__input"
-                placeholder="{{ 'E-Mail' | translate }}" #UserEmail="ngModel" [(ngModel)]="model.UserEmail"
-                required />
+                placeholder="{{ 'E-Mail' | translate }}" #UserEmail="ngModel" [(ngModel)]="model.UserEmail" required />
             <input type="password" name="UserPassword" id="UserPassword" class="login__input"
                 placeholder="{{ 'Password' | translate }}" #UserPassword="ngModel" [(ngModel)]="model.UserPassword"
                 required />
