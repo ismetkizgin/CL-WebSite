@@ -1,3 +1,16 @@
 .list-menu:hover {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.user-detail {
+  &__btn {
+    background: linear-gradient(to bottom, #8e1968, #1c1a1a);
+    border: none;
   }
+
+  &__tab {
+    :active {
+      background-color: linear-gradient(to bottom, #8e1968, #1c1a1a) !important;
+    }
+  }
+}

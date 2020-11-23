@@ -11,15 +11,25 @@ import { Roles, User } from '../../../models';
 export class UserDetailComponent implements OnInit {
   constructor(
     private _activatedRoute: ActivatedRoute,
-    public _router: Router,
+    public router: Router,
     private _userService: UserService,
     private _authService: AuthService
   ) {}
 
   user: User = new User();
-  UserID = this._activatedRoute.snapshot.paramMap.get('UserID');
-  blogTabAuthorize: Array<any> = [Roles.Root, Roles.Administrator, Roles.Editor];
-  componentTabAuthorize: Array<any> = [Roles.Root, Roles.Administrator, Roles.Developer];
+  UserID = this.router.isActive('/profile', true)
+    ? this._authService.currentUserValue.result.UserID
+    : this._activatedRoute.snapshot.paramMap.get('UserID');
+  blogTabAuthorize: Array<any> = [
+    Roles.Root,
+    Roles.Administrator,
+    Roles.Editor,
+  ];
+  componentTabAuthorize: Array<any> = [
+    Roles.Root,
+    Roles.Administrator,
+    Roles.Developer,
+  ];
 
   async ngOnInit() {
     try {
