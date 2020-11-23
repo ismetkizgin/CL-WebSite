@@ -17,7 +17,8 @@ import {
 } from '../../components/layouts/client';
 import { 
   HomepageComponent,
-  BlogsComponent
+  BlogsComponent,
+  BlogDetailComponent
 } from './';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BlogCategoriesComponent,
     ClientNavbarComponent,
     ClientFooterComponent,
+    BlogDetailComponent,
   ],
   imports: [
     MatInputModule,

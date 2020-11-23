@@ -19,6 +19,7 @@ import {
   ProjectListComponent,
   BlogAddComponent,
   UserDetailComponent,
+  BlogDetailComponent,
   BlogsComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
@@ -34,10 +35,10 @@ const routes: Routes = [
       { path: 'blogs',
         component:BlogLayoutComponent,
         children:[
-          { path: '', component:BlogsComponent }
+          { path: '', component:BlogsComponent },
+          { path: ':BlogID', component: BlogDetailComponent},
         ]},
-      
-  ],
+    ],  
   },
   {
     path: 'admin',

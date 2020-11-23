@@ -9,15 +9,15 @@
   padding-top: 60px;
   transition: 0.5s;
 }
-span{
+span {
   font-size: larger;
   position: absolute;
   margin-top: 15px;
   margin-left: 30px;
 }
-h1{
-    padding-left: 32px;
-    margin-top: -20px;
+h1 {
+  padding-left: 32px;
+  margin-top: -20px;
 }
 .sidenav a {
   padding: 8px 0 8px 0;
@@ -42,35 +42,39 @@ h1{
   display: none;
   color: rgb(209, 209, 209);
 }
-.openbtn{
+.openbtn {
   display: none;
 }
-#mySidenav{
+#mySidenav {
   width: 250px;
 }
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
-@media screen and (max-width: 768px){
-  .openbtn{
+@media screen and (max-width: 768px) {
+  .openbtn {
     display: block;
   }
-  .sidenav .closebtn{
+  .sidenav .closebtn {
     display: block;
   }
-  #mySidenav{
-    width: 0!important;
+  #mySidenav {
+    width: 0 !important;
   }
-  .sidenav{
+  .sidenav {
     background: linear-gradient(to top, #8e1968, #1c1a1a);
   }
-  h1{
+  h1 {
     color: white;
   }
 }
-@media screen and (min-width: 769px){
-  #mySidenav{
-    width: 250px!important;
+@media screen and (min-width: 769px) {
+  #mySidenav {
+    width: 250px !important;
   }
 }
