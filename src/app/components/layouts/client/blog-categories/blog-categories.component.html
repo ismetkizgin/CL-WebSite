@@ -1,6 +1,9 @@
 <div id="mySidenav" class="sticky-top sidenav">
     <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-    <h1>{{ 'Categories' | translate }}</h1>
-    <a *ngFor="let category of _categories">{{category.BlogMenuName}}</a>
+    <h1 class="border-bottom">{{ 'Blog Menu' | translate }}</h1>
+    <a *ngFor="let category of _categories" class="text-muted ml-4 mr-4">{{category.BlogMenuName}}</a>
 </div>
-<a class="openbtn btn p-0" (click)="openNav()"><i class="fa fa-bars border border-secondary p-2 rounded"></i></a>
+<div class="openbtn">
+<span>{{ 'Blog Menu' | translate }}</span>
+<a class="btn float-right" (click)="openNav()"><i class="fa fa-bars border border-secondary p-2 rounded"></i></a>
+</div>
