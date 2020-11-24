@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../../../utils/services';
-import { LanguageService } from '../../../utils';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from '../../../models';
+import { User, UserFormType } from '../../../models';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +14,13 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
   constructor(
     private _authService: AuthService,
-    private _languageService: LanguageService,
     private _snackBar: MatSnackBar,
-    private _translateService: TranslateService
+    private _translateService: TranslateService,
+    public router: Router
   ) {}
   model: User = new User();
+  @Input() screenAverageState: boolean = true;
+  formType: UserFormType = UserFormType.login;
   ngOnInit(): void {}
 
   onLogin(loginForm: NgForm) {
@@ -36,7 +38,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  useLanguage(language: string) {
-    this._languageService.setLanguage(language);
+  formTypeToggle(userFormType) {
+    this.formType = userFormType;
   }
 }

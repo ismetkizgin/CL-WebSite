@@ -28,7 +28,8 @@ import {
   PasswordChangeComponent,
   AddBlogMenuComponent,
   PasswordControlWindowComponent,
-  ErrorComponent
+  ErrorComponent,
+  LoginWindowComponent,
 } from '../../components';
 import {
   DashboardComponent,
@@ -74,7 +75,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProjectListComponent,
     BlogListComponent,
     UserDetailComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginWindowComponent,
   ],
   imports: [
     CommonModule,
@@ -101,6 +103,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [],
-  exports: [PaginationComponent],
+  exports: [PaginationComponent, MatDialogModule],
 })
 export class AdminLayoutModule {}

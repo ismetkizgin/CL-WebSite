@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, ChildActivationEnd } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import {
   ClientLayoutComponent,
   AdminLayoutComponent,
@@ -19,11 +19,11 @@ import {
   ProjectListComponent,
   BlogAddComponent,
   UserDetailComponent,
+  BlogDetailComponent,
   BlogsComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
-import { AddBlogMenuComponent } from './components';
 
 const routes: Routes = [
   {
@@ -31,13 +31,16 @@ const routes: Routes = [
     component: ClientLayoutComponent,
     children: [
       { path: '', component: HomepageComponent },
-      { path: 'blogs',
-        component:BlogLayoutComponent,
-        children:[
-          { path: '', component:BlogsComponent }
-        ]},
-      
-  ],
+      {
+        path: 'blogs',
+        component: BlogLayoutComponent,
+        children: [
+          { path: '', component: BlogsComponent },
+          { path: ':BlogID', component: BlogDetailComponent },
+        ],
+      },
+      { path: 'profile', component: UserDetailComponent },
+    ],
   },
   {
     path: 'admin',
@@ -179,7 +182,13 @@ const routes: Routes = [
         data: {
           title: 'Project List',
           icon: 'fas fa-clipboard-list fa-2x',
-          authorize: [Roles.Root, Roles.Administrator,Roles.Developer,Roles.Editor,Roles.User],
+          authorize: [
+            Roles.Root,
+            Roles.Administrator,
+            Roles.Developer,
+            Roles.Editor,
+            Roles.User,
+          ],
         },
       },
     ],

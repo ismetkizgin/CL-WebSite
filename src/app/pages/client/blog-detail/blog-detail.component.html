@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>{{_model.BlogTitle}}</h1>
+  <p>
+    <small>{{ 'By' | translate }} <em> {{_model.UserNameSurname}}</em> | Tarih: <em> {{_model.BlogCreatedDate}} </em></small>
+  </p>
+</div>
+<div class="medium"  [innerHTML]="_model.BlogContent"></div>

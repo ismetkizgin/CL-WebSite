@@ -5,6 +5,10 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BlogCategoriesComponent } from '../../components/layouts/client/blog-categories/blog-categories.component';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {
   ClientLayoutComponent,
   ClientNavbarComponent,
@@ -13,7 +17,8 @@ import {
 } from '../../components/layouts/client';
 import { 
   HomepageComponent,
-  BlogsComponent
+  BlogsComponent,
+  BlogDetailComponent
 } from './';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -29,8 +34,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     BlogCategoriesComponent,
     ClientNavbarComponent,
     ClientFooterComponent,
+    BlogDetailComponent,
   ],
   imports: [
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatIconModule,
     CommonModule,
     RouterModule,
     HttpClientModule,

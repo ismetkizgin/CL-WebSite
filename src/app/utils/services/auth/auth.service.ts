@@ -38,7 +38,9 @@ export class AuthService {
       if (respone.result) {
         localStorage.setItem('currentUser', JSON.stringify(respone));
         this.currentUserSubject.next(respone);
-        this._router.navigateByUrl('admin');
+        if (this._router.isActive('/login', false))
+          this._router.navigateByUrl('admin');
+        else window.location.reload();
       }
       return respone;
     } catch (error) {
@@ -157,7 +159,7 @@ export class AuthService {
 
   async logout() {
     localStorage.removeItem('currentUser');
-    this._router.navigate(['login']);
+    window.location.href = '/';
   }
 
   async changePassword(values) {

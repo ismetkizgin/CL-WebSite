@@ -9,12 +9,12 @@
   padding-top: 15px;
   transition: 0.5s;
 }
-span{
+span {
   position: absolute;
   right: 100px;
   top: 7px;
 }
-.fas{
+.fas {
   font-size: 10px;
 }
 .sidenav a {
@@ -24,16 +24,16 @@ span{
   padding-left: 15px;
   border-bottom: 1px solid #efefef;
 }
-  
+
 .sidenav a:hover {
   color: white;
 }
-h3{
+h3 {
   font-weight: 500;
   padding-top: 5px;
   padding-left: 15px;
 }
-  
+
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -42,48 +42,52 @@ h3{
   margin-left: 50px;
   display: none;
 }
-.openbtn{
+.openbtn {
   display: none;
 }
-#mySidenav{
+#mySidenav {
   width: 250px;
 }
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
-@media screen and (max-width: 768px){
-  .openbtn{
+@media screen and (max-width: 768px) {
+  .openbtn {
     display: block;
   }
-  .sidenav .closebtn{
+  .sidenav .closebtn {
     display: block;
   }
-  .sidenav{
+  .sidenav {
     background: linear-gradient(to top, #8e1968, #1c1a1a);
   }
-  #mySidenav{
-    width: 0!important;
+  #mySidenav {
+    width: 0 !important;
   }
-  h3{
+  h3 {
     color: rgb(247, 247, 247);
   }
-  .sidenav a{
+  .sidenav a {
     border-bottom: none;
   }
 }
-@media screen and (min-width: 769px){
-  #mySidenav{
-    width: 250px!important;
+@media screen and (min-width: 769px) {
+  #mySidenav {
+    width: 250px !important;
   }
-  .sidenav a{
+  .sidenav a {
     color: black;
   }
-  .sidenav a:hover{
+  .sidenav a:hover {
     color: rgb(160, 159, 159);
     cursor: pointer;
   }
-  h3{
-    text-align: left!important;
+  h3 {
+    text-align: left !important;
   }
 }
