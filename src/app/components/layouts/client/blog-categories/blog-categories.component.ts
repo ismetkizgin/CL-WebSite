@@ -20,13 +20,10 @@ export class BlogCategoriesComponent implements OnInit {
   }
 
   openNav() {
-    console.log("open");
     document.getElementById("mySidenav").style.cssText = 'width:250px !important'
   }
 
   closeNav() {
-    console.log("close");
     document.getElementById("mySidenav").removeAttribute('style')
   }
-
 }
