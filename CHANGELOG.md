@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/ismetkizgin/CL-WebSite/compare/v1.5.1...v1.6.0) (2020-11-24)
+
+
+### Features
+
+* added blog categories and blog layout ([e7bf418](https://github.com/ismetkizgin/CL-WebSite/commit/e7bf418e974a25d729da65b95354d686253d7cb9))
+* added blog detail page ([5d80c31](https://github.com/ismetkizgin/CL-WebSite/commit/5d80c3150485ed4b9f2934de8c31db2badc1dcba))
+* added blog page ([cff32c6](https://github.com/ismetkizgin/CL-WebSite/commit/cff32c6c700d54f5edd3fffba6c21132665440f7))
+* added footer component ([0235a60](https://github.com/ismetkizgin/CL-WebSite/commit/0235a6015b795a4f0c22a8e1202dc88cdf597354))
+* added legacy user menu in navbar ([292f228](https://github.com/ismetkizgin/CL-WebSite/commit/292f2284eef06ad1a5b584252a9dd928a09b1721))
+* added login window ([b241d29](https://github.com/ismetkizgin/CL-WebSite/commit/b241d29103a60fd4a93a81fd8b8bc2e7bf823f25))
+* added navbar component ([6448e89](https://github.com/ismetkizgin/CL-WebSite/commit/6448e89bc8c7732a7d89a5b0b30d65d6dd6c9ae6))
+* added profile page ([65bbb4b](https://github.com/ismetkizgin/CL-WebSite/commit/65bbb4b0076de07c4350c1cf53d0e91889da0aaa))
+
 ### [1.5.1](https://github.com/ismetkizgin/CL-WebSite/compare/v1.5.0...v1.5.1) (2020-11-03)
 
 
