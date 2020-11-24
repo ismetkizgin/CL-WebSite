@@ -32,7 +32,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomepageComponent },
       {
-        path: 'blogs',
+        path: 'blog',
         component: BlogLayoutComponent,
         children: [
           { path: '', component: BlogsComponent },
