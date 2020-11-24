@@ -21,17 +21,42 @@
                         [(ngModel)]="model.UserPassword" required />
                     <button type="submit" class="login__button">{{ 'Login' | translate }}</button>
                 </form>
+                <div class="login__formFooter">
+                    <div class="row">
+                        <div class="col-12">
+                            <a class="login__forget login__underlineHover" href="#">{{ 'Forgot password ?' | translate }}</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div *ngSwitchCase="'signUp'">
-                <h1>sign up form !</h1>
-            </div>
-        </div>
-        <div class="login__formFooter">
-            <div class="row">
-                <div class="col-12">
-                    <a class="login__forget login__underlineHover" href="#">{{ 'Forgot password ?' | translate }}</a>
+                <form #signUpForm="ngForm" (ngSubmit)="onSignup(signUpForm)">
+                    <input type="text" name="UserFirstName" id="UserFirstName" class="login__input"
+                        placeholder="{{ 'First Name' | translate }}" #UserFirstName="ngModel" [(ngModel)]="model.UserFirstName"
+                        required />
+                    <input type="text" name="UserLastName" id="UserLastName" class="login__input"
+                        placeholder="{{ 'Last Name' | translate }}" #UserLastName="ngModel" [(ngModel)]="model.UserLastName"
+                        required />
+                    <input type="text" name="UserEmail" id="UserEmail" class="login__input"
+                        placeholder="{{ 'E-Mail' | translate }}" #UserEmail="ngModel" [(ngModel)]="model.UserEmail"
+                        required />
+                    <input type="date" name="UserDateOfBirth" id="UserDateOfBirth" class="login__input"
+                        placeholder="{{ 'Date Of Birth' | translate }}" #UserPassword="ngModel"
+                        [(ngModel)]="model.UserDateOfBirth" required />
+                    <input type="password" name="UserPassword" id="UserPassword" class="login__input"
+                        placeholder="{{ 'Password' | translate }}" #UserPassword="ngModel"
+                        [(ngModel)]="model.UserPassword" required />
+                    <button type="submit" class="signup_button">{{ 'Sign Up' | translate }}</button>
+                </form>
+                <div class="login__formFooter">
+                    <div class="row">
+                        <div class="col-12">
+                            <a class="login__forget login__underlineHover" href="#">{{ 'Forgot password ?' | translate }}</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+       
     </div>
 </div>
