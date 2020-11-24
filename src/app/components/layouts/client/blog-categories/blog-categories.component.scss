@@ -1,46 +1,46 @@
 .sidenav {
   position: absolute;
-  min-height: 100vh;
+  height: 100%;
   width: 0;
   z-index: 1;
   top: 0px;
   right: -7px;
   overflow-x: hidden;
-  padding-top: 60px;
+  padding-top: 15px;
   transition: 0.5s;
 }
 span {
-  font-size: larger;
   position: absolute;
-  margin-top: 15px;
-  margin-left: 30px;
+  right: 100px;
+  top: 7px;
 }
-h1 {
-  padding-left: 32px;
-  margin-top: -20px;
+.fas {
+  font-size: 10px;
 }
 .sidenav a {
-  padding: 8px 0 8px 0;
-  text-decoration: none;
-  font-size: 16px;
+  padding: 8px 0px;
+  color: rgb(247, 247, 247);
   display: block;
-  transition: 0.3s;
+  padding-left: 15px;
+  border-bottom: 1px solid #efefef;
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #c0c0c0;
-  cursor: pointer;
+  color: white;
+}
+h3 {
+  font-weight: 500;
+  padding-top: 5px;
+  padding-left: 15px;
 }
 
-/* Position and style the close button (top right corner) */
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  left: 30px;
+  left: -50px;
   font-size: 36px;
+  margin-left: 50px;
   display: none;
-  color: rgb(209, 209, 209);
 }
 .openbtn {
   display: none;
@@ -63,18 +63,31 @@ h1 {
   .sidenav .closebtn {
     display: block;
   }
-  #mySidenav {
-    width: 0 !important;
-  }
   .sidenav {
     background: linear-gradient(to top, #8e1968, #1c1a1a);
   }
-  h1 {
-    color: white;
+  #mySidenav {
+    width: 0 !important;
+  }
+  h3 {
+    color: rgb(247, 247, 247);
+  }
+  .sidenav a {
+    border-bottom: none;
   }
 }
 @media screen and (min-width: 769px) {
   #mySidenav {
     width: 250px !important;
+  }
+  .sidenav a {
+    color: black;
+  }
+  .sidenav a:hover {
+    color: rgb(160, 159, 159);
+    cursor: pointer;
+  }
+  h3 {
+    text-align: left !important;
   }
 }
