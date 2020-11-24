@@ -1,70 +1,89 @@
-/* The side navigation menu */
 .sidenav {
   position: absolute;
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    z-index: 1; /* Stay on top */
-    top: 0px; /* Stay at the top */
-    right: -8px;
-    background: rgb(244,244,244);
-    background: linear-gradient(90deg, rgba(244,244,244,1) 0%, rgba(218,218,218,1) 100%);
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  }
+  height: 100%;
+  width: 0;
+  z-index: 1;
+  top: 0px;
+  right: -7px;
+  overflow-x: hidden;
+  padding-top: 15px;
+  transition: 0.5s;
+}
+span{
+  position: absolute;
+  right: 100px;
+  top: 7px;
+}
+.fas{
+  font-size: 10px;
+}
+.sidenav a {
+  padding: 8px 0px;
+  color: rgb(247, 247, 247);
+  display: block;
+  padding-left: 15px;
+  border-bottom: 1px solid #efefef;
+}
   
-  /* The navigation menu links */
-  h1{
-      padding-left: 32px;
-  }
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 16px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
+.sidenav a:hover {
+  color: white;
+}
+h3{
+  font-weight: 500;
+  padding-top: 5px;
+  padding-left: 15px;
+}
   
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    color: #c0c0c0;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    left: -50px;
-    font-size: 36px;
-    margin-left: 50px;
-    display: none;
-  }
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  left: -50px;
+  font-size: 36px;
+  margin-left: 50px;
+  display: none;
+}
+.openbtn{
+  display: none;
+}
+#mySidenav{
+  width: 250px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+@media screen and (max-width: 768px){
   .openbtn{
-      display: none;
+    display: block;
+  }
+  .sidenav .closebtn{
+    display: block;
+  }
+  .sidenav{
+    background: linear-gradient(to top, #8e1968, #1c1a1a);
   }
   #mySidenav{
-      width: 250px;
+    width: 0!important;
   }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+  h3{
+    color: rgb(247, 247, 247);
   }
-  @media screen and (max-width: 768px){
-      .openbtn{
-          display: block;
-      }
-      .sidenav .closebtn{
-          display: block;
-      }
-      #mySidenav{
-          width: 0!important;
-      }
+  .sidenav a{
+    border-bottom: none;
   }
-  @media screen and (min-width: 769px){
-    #mySidenav{
-        width: 250px!important;
-    }
+}
+@media screen and (min-width: 769px){
+  #mySidenav{
+    width: 250px!important;
+  }
+  .sidenav a{
+    color: black;
+  }
+  .sidenav a:hover{
+    color: rgb(160, 159, 159);
+    cursor: pointer;
+  }
+  h3{
+    text-align: left!important;
+  }
 }
