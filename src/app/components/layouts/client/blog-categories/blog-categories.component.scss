@@ -11,8 +11,8 @@
 }
 span {
   position: absolute;
-  right: 100px;
-  top: 7px;
+  right: 115px;
+  top: 18px;
 }
 .fas {
   font-size: 10px;
@@ -44,6 +44,8 @@ h3 {
 }
 .openbtn {
   display: none;
+  margin-left: -49px;
+  margin-top: 10px;
 }
 #mySidenav {
   width: 250px;
@@ -79,6 +81,7 @@ h3 {
 @media screen and (min-width: 769px) {
   #mySidenav {
     width: 250px !important;
+    right: 10px;
   }
   .sidenav a {
     color: black;
