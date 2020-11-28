@@ -8,8 +8,8 @@
 
         <div [ngSwitch]="formType">
             <div *ngSwitchCase="'login'">
-                <div>
-                    <img src="favicon.ico" class="login__logo" alt="User Icon" />
+                <div class="logo">
+                    <img src="/assets/images/cl-logoS.png" width="250" height="100" class="d-inline-block align-top" alt="CL Logo" />
                 </div>
 
                 <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
