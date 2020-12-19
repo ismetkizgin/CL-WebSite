@@ -23,6 +23,7 @@
                         <th>{{ 'Blog No' | translate }}</th>
                         <th>{{ 'Blog Title' | translate }}</th>
                         <th *ngIf="!UserID">{{ 'User Name' | translate }}</th>
+                        <th>{{ 'Read State' | translate }}</th>
                         <th>{{ 'Created Date' | translate }}</th>
                     </tr>
                 </thead>
@@ -31,6 +32,10 @@
                         <td> {{ blog.BlogID }} </td>
                         <td> {{ blog.BlogTitle }} </td>
                         <td *ngIf="!UserID"> {{ blog.UserNameSurname }}</td>
+                        <ng-container [ngSwitch]="blog.BlogState">
+                            <td *ngSwitchCase="0"><span class="badge badge-danger">{{ 'Deactive' | translate }}</span></td>
+                            <td *ngSwitchCase="1"><span class="badge badge-success">{{ 'Active' | translate }}</span></td>
+                        </ng-container>
                         <td> {{ blog.BlogCreatedDate | date:'M/dd/yyyy, HH:mm':'+3' }} </td>
                         <td class="list-button text-right">
                             <a mat-icon-button [matMenuTriggerFor]="menu">
