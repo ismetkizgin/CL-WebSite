@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
   model: User = new User();
   @Input() screenAverageState: boolean = true;
   formType: UserFormType = UserFormType.login;
+  _passwordShowHide: boolean=false;
+  
   ngOnInit(): void {}
 
   onLogin(loginForm: NgForm) {
