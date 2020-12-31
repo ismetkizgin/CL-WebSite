@@ -23,6 +23,7 @@
                         <th>{{ 'Component No' | translate }}</th>
                         <th>{{ 'Component Name' | translate }}</th>
                         <th *ngIf="!UserID">{{ 'User Name' | translate }}</th>
+                        <th>{{ 'Read State' | translate }}</th>
                         <th>{{ 'Created Date' | translate }}</th>
                     </tr>
                 </thead>
@@ -31,6 +32,10 @@
                         <td> {{ component.ComponentID }} </td>
                         <td> {{ component.ComponentName }} </td>
                         <td *ngIf="!UserID"> {{ component.UserNameSurname }}</td>
+                        <ng-container [ngSwitch]="component.ComponentState">
+                            <td *ngSwitchCase="0"><span class="badge badge-danger">{{ 'Deactive' | translate }}</span></td>
+                            <td *ngSwitchCase="1"><span class="badge badge-success">{{ 'Active' | translate }}</span></td>
+                        </ng-container>
                         <td> {{ component.ComponentCreatedDate | date:'M/dd/yyyy, HH:mm':'+3' }}</td>
                         <td class="list-button text-right">
                             <a mat-icon-button [matMenuTriggerFor]="menu">
