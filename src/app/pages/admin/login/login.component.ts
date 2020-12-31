@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { User, UserFormType } from '../../../models';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,14 @@ export class LoginComponent implements OnInit {
     private _authService: AuthService,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
+    private _dialogRef: MatDialogRef<LoginComponent>,
     public router: Router
   ) {}
   model: User = new User();
   @Input() screenAverageState: boolean = true;
   formType: UserFormType = UserFormType.login;
-  _passwordShowHide: boolean=false;
-  
+  _passwordShowHide: boolean = false;
+
   ngOnInit(): void {}
 
   onLogin(loginForm: NgForm) {
@@ -42,5 +44,35 @@ export class LoginComponent implements OnInit {
 
   formTypeToggle(userFormType) {
     this.formType = userFormType;
+  }
+
+  async onSignUp(signUpForm: NgForm) {
+    try {
+      let notification: any = {
+        message: '',
+        panelClass: '',
+      };
+      if (signUpForm.valid) {
+        this._translateService
+          .get('User registration is complete')
+          .subscribe((value) => (notification.message = value));
+        notification.panelClass = 'notification__success';
+        await this._authService.signUpAsync(signUpForm.value);
+        this._dialogRef.close();
+      } else {
+        this._translateService
+          .get('Please fill in the required fields')
+          .subscribe((value) => (notification.message = value));
+        notification.panelClass = 'notification__error';
+      }
+      this._snackBar.open(notification.message, 'X', {
+        duration: 3000,
+        horizontalPosition: 'right',
+        verticalPosition: 'bottom',
+        panelClass: notification.panelClass,
+      });
+    } catch (err) {
+      this._authService.errorNotification(err);
+    }
   }
 }

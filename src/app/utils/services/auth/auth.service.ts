@@ -198,12 +198,21 @@ export class AuthService {
     );
   }
 
+  async signUpAsync(values) {
+    return this._apiFetchService.requestAsync('POST', 'sign-up', values);
+  }
+
   errorNotification(error) {
     let errorMessage: string;
     switch (error.status) {
       case 401:
         this._translateService
           .get('Unauthorized transaction !')
+          .subscribe((value) => (errorMessage = value));
+        break;
+      case 409:
+        this._translateService
+          .get('Such an user is already registered in the system !')
           .subscribe((value) => (errorMessage = value));
         break;
       case 417:
