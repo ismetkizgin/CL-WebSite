@@ -8,7 +8,8 @@
         <div [ngSwitch]="formType">
             <div *ngSwitchCase="'login'">
                 <div class="logo">
-                    <img src="/assets/images/cl-logoS.png" width="250" height="100" class="d-inline-block align-top" alt="CL Logo" />
+                    <img src="/assets/images/default/cl-logoB.png" width="250" height="100"
+                        class="d-inline-block align-top" alt="CL Logo" />
                 </div>
                 <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
                     <div class="form-group px-5 mt-2">
@@ -41,18 +42,19 @@
                 <div class="login__formFooter">
                     <div class="row">
                         <div class="col-12">
-                            <a class="login__forget login__underlineHover" href="#">{{ 'Forgot password ?' | translate }}</a>
+                            <a class="login__forget login__underlineHover" href="#">{{ 'Forgot password ?' | translate
+                                }}</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div *ngSwitchCase="'signUp'">
+            <<<<<<< HEAD <div *ngSwitchCase="'signUp'">
                 <form #signUpForm="ngForm" (ngSubmit)="onSignup(signUpForm)">
                     <div class="form-group px-5 mt-2">
                         <mat-form-field appearance="outline" class="w-100">
                             <mat-label>{{'First Name'| translate}}</mat-label>
-                            <input matNativeControl name="UserFirstName" #UserFirstName="ngModel" [(ngModel)]="model.UserFirstName"
-                                required>
+                            <input matNativeControl name="UserFirstName" #UserFirstName="ngModel"
+                                [(ngModel)]="model.UserFirstName" required>
                             <mat-error *ngIf="UserFirstName.invalid&&UserFirstName.touched">
                                 {{ 'First Name field must be filled' | translate }}
                             </mat-error>
@@ -61,8 +63,8 @@
                     <div class="form-group px-5">
                         <mat-form-field appearance="outline" class="w-100">
                             <mat-label>{{'Last Name'| translate}}</mat-label>
-                            <input matNativeControl name="UserLastName" #UserLastName="ngModel" [(ngModel)]="model.UserLastName"
-                                required>
+                            <input matNativeControl name="UserLastName" #UserLastName="ngModel"
+                                [(ngModel)]="model.UserLastName" required>
                             <mat-error *ngIf="UserLastName.invalid&&UserLastName.touched">
                                 {{ 'Last Name field must be filled' | translate }}
                             </mat-error>
@@ -81,8 +83,8 @@
                     <div class="form-group px-5">
                         <mat-form-field appearance="outline" class="w-100">
                             <mat-label>{{'Date Of Birth'| translate}}</mat-label>
-                            <input type="date" matNativeControl name="UserDateOfBirth" #UserDateOfBirth="ngModel" [(ngModel)]="model.UserDateOfBirth"
-                                required>
+                            <input type="date" matNativeControl name="UserDateOfBirth" #UserDateOfBirth="ngModel"
+                                [(ngModel)]="model.UserDateOfBirth" required>
                             <mat-error *ngIf="UserDateOfBirth.invalid&&UserDateOfBirth.touched">
                                 {{ 'Date Of Birth field must be filled' | translate }}
                             </mat-error>
@@ -108,11 +110,14 @@
                 <div class="login__formFooter">
                     <div class="row">
                         <div class="col-12">
-                            <a class="login__forget login__underlineHover" href="#">{{ 'Forgot password ?' | translate }}</a>
+                            <a class="login__forget login__underlineHover" href="#">{{ 'Forgot password ?' | translate
+                                }}</a>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
+        =======
+        >>>>>>> origin/master
     </div>
+</div>
 </div>
