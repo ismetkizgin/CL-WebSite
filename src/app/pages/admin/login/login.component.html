@@ -2,30 +2,102 @@
     <div class="login__formContent">
         <h2 (click)="formTypeToggle('login')" class="login__form-title" [class.active]="formType=='login'">
             {{ 'Login' | translate }}</h2>
+        <h2 *ngIf="!router.isActive('/login', false)" (click)="formTypeToggle('signUp')" class="login__form-title"
+            [class.active]="formType=='signUp'">
+            {{ 'Sign Up' | translate }}</h2>
         <div [ngSwitch]="formType">
             <div *ngSwitchCase="'login'">
                 <div class="logo">
-                    <img src="/assets/images/default/cl-logoB.png" width="250" height="100" class="d-inline-block align-top" alt="CL Logo" />
+                    <img src="/assets/images/default/cl-logoB.png" width="250" height="100"
+                        class="d-inline-block align-top" alt="CL Logo" />
                 </div>
-
                 <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
-                    <input type="text" name="UserEmail" id="UserEmail" class="login__input"
-                        placeholder="{{ 'E-Mail' | translate }}" #UserEmail="ngModel" [(ngModel)]="model.UserEmail"
-                        required />
-                    <input type="password" name="UserPassword" id="UserPassword" class="login__input"
-                        placeholder="{{ 'Password' | translate }}" #UserPassword="ngModel"
-                        [(ngModel)]="model.UserPassword" required />
-                    <button type="submit" class="login__button">{{ 'Login' | translate }}</button>
+                    <mat-form-field appearance="outline" class="w-100 pr-3 pl-3 pt-3">
+                        <mat-label>{{'E-Mail'| translate}}</mat-label>
+                        <input matNativeControl name="UserEmail" #UserEmail="ngModel" [(ngModel)]="model.UserEmail"
+                            required>
+                        <mat-error *ngIf="UserEmail.invalid&&UserEmail.touched">
+                            {{ 'E-Mail field must be filled' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100 pr-3 pl-3">
+                        <mat-label>{{ 'Password' | translate }}</mat-label>
+                        <input matInput [type]=" _passwordShowHide ? 'text' : 'password'"
+                            placeholder="{{ 'Password' | translate }}" name="UserPassword" #UserPassword="ngModel"
+                            [(ngModel)]="model.UserPassword" required>
+                        <a type="button" matSuffix (click)="_passwordShowHide = !_passwordShowHide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="_passwordShowHide">
+                            <mat-icon>{{ _passwordShowHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </a>
+                        <mat-error
+                            *ngIf="UserPassword.invalid && (UserPassword.dirty || UserPassword.touched) && UserPassword.errors.required">
+                            {{ 'Password field must be filled' | translate }}</mat-error>
+                    </mat-form-field>
+                    <button type="submit"
+                        [ngClass]="{'login__button': true, 'login__button__blue': router.isActive('/login', true),'login__button__purple-linear': !router.isActive('/login', false) }">{{
+                        'Login' | translate }}</button>
                 </form>
-                <div class="login__formFooter">
-                    <div class="row">
-                        <div class="col-12">
-                            <a class="login__forget login__underlineHover" href="#">{{ 'Forgot password ?' | translate }}</a>
-                        </div>
-                    </div>
+            </div>
+            <div *ngSwitchCase="'signUp'">
+                <form #signUpForm="ngForm" (ngSubmit)="onSignUp(signUpForm)">
+                    <mat-form-field appearance="outline" class="w-100 pr-3 pl-3">
+                        <mat-label>{{'First Name'| translate}}</mat-label>
+                        <input matNativeControl name="UserFirstName" #UserFirstName="ngModel"
+                            [(ngModel)]="model.UserFirstName" required>
+                        <mat-error *ngIf="UserFirstName.invalid&&UserFirstName.touched">
+                            {{ 'First Name field must be filled' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100 pr-3 pl-3">
+                        <mat-label>{{'Last Name'| translate}}</mat-label>
+                        <input matNativeControl name="UserLastName" #UserLastName="ngModel"
+                            [(ngModel)]="model.UserLastName" required>
+                        <mat-error *ngIf="UserLastName.invalid&&UserLastName.touched">
+                            {{ 'Last Name field must be filled' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100 pr-3 pl-3">
+                        <mat-label>{{'E-Mail'| translate}}</mat-label>
+                        <input matNativeControl name="UserEmail" #UserEmail="ngModel" [(ngModel)]="model.UserEmail"
+                            required>
+                        <mat-error *ngIf="UserEmail.invalid&&UserEmail.touched">
+                            {{ 'E-Mail field must be filled' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100 pr-3 pl-3">
+                        <mat-label>{{'Date Of Birth'| translate}}</mat-label>
+                        <input type="date" matNativeControl name="UserDateOfBirth" #UserDateOfBirth="ngModel"
+                            [(ngModel)]="model.UserDateOfBirth" required>
+                        <mat-error *ngIf="UserDateOfBirth.invalid&&UserDateOfBirth.touched">
+                            {{ 'Date Of Birth field must be filled' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100 pr-3 pl-3">
+                        <mat-label>{{ 'Password' | translate }}</mat-label>
+                        <input matInput [type]=" _passwordShowHide ? 'text' : 'password'"
+                            placeholder="{{ 'Password' | translate }}" name="UserPassword" #UserPassword="ngModel"
+                            [(ngModel)]="model.UserPassword" required>
+                        <a type="button" matSuffix (click)="_passwordShowHide = !_passwordShowHide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="_passwordShowHide">
+                            <mat-icon>{{ _passwordShowHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </a>
+                        <mat-error
+                            *ngIf="UserPassword.invalid && (UserPassword.dirty || UserPassword.touched) && UserPassword.errors.required">
+                            {{ 'Password field must be filled' | translate }}</mat-error>
+                    </mat-form-field>
+                    <button type="submit" class="login__button login__button__purple-linear">{{ 'Sign Up' | translate
+                        }}</button>
+                </form>
+            </div>
+        </div>
+        <div class="login__formFooter">
+            <div class="row">
+                <div class="col-12">
+                    <a class="login__forget login__underlineHover" href="#">
+                        {{ 'Forgot password ?' | translate }}
+                    </a>
                 </div>
             </div>
         </div>
-       
     </div>
 </div>
