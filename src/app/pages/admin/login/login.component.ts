@@ -5,7 +5,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { User, UserFormType } from '../../../models';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +16,6 @@ export class LoginComponent implements OnInit {
     private _authService: AuthService,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
-    private _dialogRef: MatDialogRef<LoginComponent>,
     public router: Router
   ) {}
   model: User = new User();
@@ -58,7 +56,7 @@ export class LoginComponent implements OnInit {
           .subscribe((value) => (notification.message = value));
         notification.panelClass = 'notification__success';
         await this._authService.signUpAsync(signUpForm.value);
-        this._dialogRef.close();
+        signUpForm.resetForm();
       } else {
         this._translateService
           .get('Please fill in the required fields')
