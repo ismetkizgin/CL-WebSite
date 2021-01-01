@@ -45,6 +45,7 @@ import {
   BlogListComponent,
   UserDetailComponent,
 } from '.';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -77,6 +78,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserDetailComponent,
     ErrorComponent,
     LoginWindowComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     CommonModule,

@@ -21,6 +21,7 @@ import {
   UserDetailComponent,
   BlogDetailComponent,
   BlogsComponent,
+  ChangePasswordComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -189,6 +190,15 @@ const routes: Routes = [
             Roles.Editor,
             Roles.User,
           ],
+        },
+      },
+      {
+        path: 'change-password',
+        component: ChangePasswordComponent,
+        data: {
+          title: 'Change Password',
+          icon: 'fas fa-list fa-2x',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
       },
     ],
