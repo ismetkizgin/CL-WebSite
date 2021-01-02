@@ -37,6 +37,7 @@ const routes: Routes = [
         children: [
           { path: '', component: BlogsComponent },
           { path: ':BlogID', component: BlogDetailComponent },
+          { path: 'category/:BlogMenuID', component: BlogsComponent }
         ],
       },
       { path: 'profile', component: UserDetailComponent },
@@ -204,5 +205,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 export const routingComponents = [];
