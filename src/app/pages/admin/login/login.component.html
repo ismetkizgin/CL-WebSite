@@ -90,21 +90,20 @@
                 </form>
             </div>
             <div *ngSwitchCase="'forgotPassword'">
-                <h2 (click)="formTypeToggle('forgotPassword')" class="login__form-title"
-                    [class.active]="formType=='forgotPassword'">
+                <h2 (click)="formTypeToggle('forgotPassword')" class="login__form-title active">
                     {{ 'Forgot Password' | translate }}</h2>
-                <form #forgotPasswordForm='ngForm'>
+                <form #forgotPasswordForm="ngForm" (ngSubmit)="onForgotPassword(forgotPasswordForm)">
                     <div class="form-group mt-2">
                         <mat-form-field appearance="outline" class="w-100 pr-3 pl-3">
                             <mat-label>{{ 'E-mail Address' | translate }}</mat-label>
                             <input matInput type="text" placeholder="{{ 'Enter E-Mail Address' | translate }}"
-                                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="EMailAddress" #EMailAddress="ngModel"
-                                [(ngModel)]="model.UserEmail" required>
-                            <mat-error *ngIf="EMailAddress.invalid&&EMailAddress.touched">
+                                name="UserEmail" #UserEmail="ngModel" [(ngModel)]="model.UserEmail" required>
+                            <mat-error *ngIf="UserEmail.invalid&&UserEmail.touched">
                                 {{ 'E-Mail field must be filled' | translate }}</mat-error>
                         </mat-form-field>
-                        <button type="submit" class="login__button login__button__purple-linear">{{ 'Send' | translate
-                            }}</button>
+                        <button type="submit" class="login__button login__button__purple-linear">
+                            {{ 'Send' | translate }}
+                        </button>
                     </div>
                 </form>
             </div>
