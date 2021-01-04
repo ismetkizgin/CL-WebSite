@@ -6,3 +6,4 @@ export * from './component-menu';
 export * from './blog';
 export * from './blog-menu';
 export * from './userFormType';
+export * from './changePassword';

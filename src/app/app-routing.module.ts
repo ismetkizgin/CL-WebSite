@@ -21,6 +21,7 @@ import {
   UserDetailComponent,
   BlogDetailComponent,
   BlogsComponent,
+  ChangePasswordComponent,
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -35,12 +36,39 @@ const routes: Routes = [
         path: 'blog',
         component: BlogLayoutComponent,
         children: [
-          { path: '', component: BlogsComponent },
-          { path: ':BlogID', component: BlogDetailComponent },
-          { path: 'category/:BlogMenuID', component: BlogsComponent }
+          {
+            path: '',
+            component: BlogsComponent,
+            data: {
+              title: 'Blog',
+            },
+          },
+          {
+            path: ':BlogID',
+            component: BlogDetailComponent,
+            data: {
+              title: 'Blog',
+            },
+          },
         ],
+        data: {
+          title: 'Blog',
+        },
       },
-      { path: 'profile', component: UserDetailComponent },
+      {
+        path: 'profile',
+        component: UserDetailComponent,
+        data: {
+          title: 'Profile',
+        },
+      },
+      {
+        path: 'forgot-password/:UserEmail/:ForgotPasswordKey',
+        component: ChangePasswordComponent,
+        data: {
+          title: 'Change Password',
+        },
+      },
     ],
   },
   {
@@ -205,5 +233,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 export const routingComponents = [];

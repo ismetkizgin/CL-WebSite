@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService, AuthService } from '../../../../utils';
 import { MatDialog } from '@angular/material/dialog';
-import { PasswordChangeComponent } from '../../../';
+import { PasswordChangeComponent } from '../../../password-change/password-change.component';
 
 @Component({
   selector: 'app-admin-header',

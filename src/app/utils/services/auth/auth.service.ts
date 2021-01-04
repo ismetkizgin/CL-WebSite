@@ -202,6 +202,10 @@ export class AuthService {
     return this._apiFetchService.requestAsync('POST', 'sign-up', values);
   }
 
+  async forgotChangePasswordAsync(values) {
+    return this._apiFetchService.requestAsync('PUT', 'forgot-password', values);
+  }
+
   async forgotPasswordAsync(values) {
     return this._apiFetchService.requestAsync(
       'POST',
