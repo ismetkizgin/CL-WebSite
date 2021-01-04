@@ -4,6 +4,7 @@ h1 {
     letter-spacing: -1px;
     text-indent: -2px; 
     color: #2a2626;
+    margin-left: 3%;
 }
 .medium{
     margin-left: 30px;
@@ -17,11 +18,18 @@ h1 {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color:#e6dede;
 }
-@media screen and (max-width:768px){
+.text
+{
+    margin-left: 3%;
+}
+@media screen and (max-width:10000px){
     .container{
-        min-width: 100vw;
-        margin-top: -35px;
-        border-radius: 0;
-        padding-top: 40px;
+        margin-left: 0px;
+        max-width: 86%;
     }
+    .medium{
+        margin-left:3%;
+        max-width: 82%;
+    }
+    
 }
