@@ -73,4 +73,34 @@ export class LoginComponent implements OnInit {
       this._authService.errorNotification(err);
     }
   }
+
+  async onForgotPassword(forgotPasswordForm: NgForm) {
+    try {
+      let notification: any = {
+        message: '',
+        panelClass: '',
+      };
+      if (forgotPasswordForm.valid) {
+        this._translateService
+          .get('Check your email account')
+          .subscribe((value) => (notification.message = value));
+        notification.panelClass = 'notification__success';
+        await this._authService.forgotPasswordAsync(forgotPasswordForm.value);
+        forgotPasswordForm.resetForm();
+      } else {
+        this._translateService
+          .get('Please fill in the required fields')
+          .subscribe((value) => (notification.message = value));
+        notification.panelClass = 'notification__error';
+      }
+      this._snackBar.open(notification.message, 'X', {
+        duration: 3000,
+        horizontalPosition: 'right',
+        verticalPosition: 'bottom',
+        panelClass: notification.panelClass,
+      });
+    } catch (err) {
+      this._authService.errorNotification(err);
+    }
+  }
 }

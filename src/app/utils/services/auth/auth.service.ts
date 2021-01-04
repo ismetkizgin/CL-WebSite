@@ -202,12 +202,25 @@ export class AuthService {
     return this._apiFetchService.requestAsync('POST', 'sign-up', values);
   }
 
+  async forgotPasswordAsync(values) {
+    return this._apiFetchService.requestAsync(
+      'POST',
+      'forgot-password',
+      values
+    );
+  }
+
   errorNotification(error) {
     let errorMessage: string;
     switch (error.status) {
       case 401:
         this._translateService
           .get('Unauthorized transaction !')
+          .subscribe((value) => (errorMessage = value));
+        break;
+      case 404:
+        this._translateService
+          .get('No such email address is registered in the system !')
           .subscribe((value) => (errorMessage = value));
         break;
       case 409:
