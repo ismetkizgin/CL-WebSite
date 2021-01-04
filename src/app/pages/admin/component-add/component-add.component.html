@@ -16,7 +16,7 @@
         <mat-form-field appearance="outline" class="w-100">
             <mat-label>{{ 'Component Name' | translate }}</mat-label>
             <input matInput type="text" placeholder="{{ 'Enter Component Name' | translate }}"
-                pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="ComponentName" #ComponentName="ngModel"
+                name="ComponentName" #ComponentName="ngModel"
                 [(ngModel)]="_model.ComponentName" required>
             <mat-error *ngIf="ComponentName.invalid&&ComponentName.touched">
                 {{ 'Component Name field must be filled' | translate }}</mat-error>
@@ -36,7 +36,7 @@
         <mat-form-field appearance="outline" class="w-100">
             <mat-label>{{ 'Component Description' | translate }}</mat-label>
             <textarea style="resize: none;" rows="4" matInput type="text"
-                placeholder="{{ 'Enter Component Description' | translate }}" pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$"
+                placeholder="{{ 'Enter Component Description' | translate }}"
                 name="ComponentDescription" #ComponentDescription="ngModel" [(ngModel)]="_model.ComponentDescription"
                 required></textarea>
             <mat-error *ngIf="ComponentDescription.invalid&&ComponentDescription.touched">

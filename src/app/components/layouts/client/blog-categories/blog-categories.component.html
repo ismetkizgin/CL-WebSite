@@ -7,7 +7,7 @@
             <h3 class="text-right mr-4">{{ 'Category' | translate }}</h3>
         </div>
     </div>
-    <a *ngFor="let category of _categories"><i class="fas fa-hand-point-right"></i> {{category.BlogMenuName}}</a>
+    <a *ngFor="let category of _categories" [routerLink]="['/blog/category/',category.BlogMenuID]"><i class="fas fa-hand-point-right"></i> {{category.BlogMenuName}}</a>
 </div>
 <div class="openbtn">
     <span>{{ 'Category' | translate }}</span>
