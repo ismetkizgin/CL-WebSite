@@ -5,20 +5,19 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BlogCategoriesComponent } from '../../components/layouts/client/blog-categories/blog-categories.component';
-import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatModule, MustMatchDirective } from '../../utils';
 import {
   ClientLayoutComponent,
   ClientNavbarComponent,
   ClientFooterComponent,
-  BlogLayoutComponent
+  BlogLayoutComponent,
 } from '../../components/layouts/client';
-import { 
+import {
   HomepageComponent,
   BlogsComponent,
-  BlogDetailComponent
+  BlogDetailComponent,
+  ChangePasswordComponent,
 } from './';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,21 +26,21 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    ClientLayoutComponent, 
-    BlogLayoutComponent, 
-    HomepageComponent, 
-    BlogsComponent, 
+    ClientLayoutComponent,
+    BlogLayoutComponent,
+    HomepageComponent,
+    BlogsComponent,
     BlogCategoriesComponent,
     ClientNavbarComponent,
     ClientFooterComponent,
     BlogDetailComponent,
+    ChangePasswordComponent,
+    MustMatchDirective,
   ],
   imports: [
-    MatInputModule,
-    MatFormFieldModule,
     FormsModule,
-    MatIconModule,
     CommonModule,
+    MatModule,
     RouterModule,
     HttpClientModule,
     TranslateModule.forRoot({

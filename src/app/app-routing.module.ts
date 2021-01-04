@@ -36,11 +36,39 @@ const routes: Routes = [
         path: 'blog',
         component: BlogLayoutComponent,
         children: [
-          { path: '', component: BlogsComponent },
-          { path: ':BlogID', component: BlogDetailComponent },
+          {
+            path: '',
+            component: BlogsComponent,
+            data: {
+              title: 'Blog',
+            },
+          },
+          {
+            path: ':BlogID',
+            component: BlogDetailComponent,
+            data: {
+              title: 'Blog',
+            },
+          },
         ],
+        data: {
+          title: 'Blog',
+        },
       },
-      { path: 'profile', component: UserDetailComponent },
+      {
+        path: 'profile',
+        component: UserDetailComponent,
+        data: {
+          title: 'Profile',
+        },
+      },
+      {
+        path: 'forgot-password/:UserEmail/:ForgotPasswordKey',
+        component: ChangePasswordComponent,
+        data: {
+          title: 'Change Password',
+        },
+      },
     ],
   },
   {
@@ -190,15 +218,6 @@ const routes: Routes = [
             Roles.Editor,
             Roles.User,
           ],
-        },
-      },
-      {
-        path: 'change-password',
-        component: ChangePasswordComponent,
-        data: {
-          title: 'Change Password',
-          icon: 'fas fa-list fa-2x',
-          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
       },
     ],
