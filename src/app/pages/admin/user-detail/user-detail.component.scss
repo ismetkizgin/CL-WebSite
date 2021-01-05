@@ -7,13 +7,10 @@
     background: linear-gradient(to bottom, #8e1968, #1c1a1a);
     border: none;
   }
-}
-.nav-link.user-detail__tab.active
-{
-  background: linear-gradient(to bottom, #8e1968, #1c1a1a);
-}
 
-
-a.nav-link.active{
-  background: linear-gradient(to bottom, #8e1968, #1c1a1a);
+  &__tab-bg {
+    > .nav-item > .nav-link.active {
+      background: linear-gradient(to bottom, #8e1968, #1c1a1a);
+    }
+  }
 }
