@@ -1,10 +1,30 @@
 nav {
   background: linear-gradient(to bottom, #8e1968, #1c1a1a);
-
+}
   i {
     color: white;
   }
+ .avatar{
+    font-size: 30px;
+    text-align: center;
+    height: 80px;
+    padding-top: 29px;
+    display: inline-grid;
+    width: 80px;
+    border: 3px solid; 
+    border-color:rgba(255,255,255,.2);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)!important;
+    border-radius: 100%;
+  }
+  .circle-avatar{
+    height:45px;
+    width:45px;
+    padding-top: 10px;
+    margin-right: 5px;
+    font-size: 19px;
+  }
 
+  
   .nav-link {
     color: white;
     font-size: large;
@@ -81,4 +101,4 @@ nav {
   .title {
     display: none;
   }
-}
+
