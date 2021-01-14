@@ -9,7 +9,7 @@ import {
   BlogMenuService,
   BlogService,
 } from '../../../utils/services';
-import { Roles,Blog, BlogMenu } from '../../../models';
+import { Roles, Blog, BlogMenu } from '../../../models';
 
 @Component({
   selector: 'app-blog-add',
@@ -38,7 +38,7 @@ export class BlogAddComponent implements OnInit {
     ) === -1
       ? true
       : false;
-  
+
   async ngOnInit() {
     try {
       this.blogMenus = <Array<BlogMenu>>await this._blogMenuService.listAsync();
@@ -90,7 +90,7 @@ export class BlogAddComponent implements OnInit {
   async insertAsync(blogForm: NgForm) {
     try {
       await this._blogService.insertAsync(blogForm.value);
-      blogForm.resetForm();
+      this._router.navigateByUrl('/admin/components');
       return true;
     } catch (error) {
       this._blogService.errorNotification(error);
