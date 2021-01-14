@@ -10,7 +10,9 @@ nav {
     font-size: large;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
-
+  .dropdown-item:hover{
+    background-color: #80426b!important;
+  }
   .button {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: #d7ced4;

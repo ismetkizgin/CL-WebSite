@@ -33,27 +33,12 @@ const routes: Routes = [
     children: [
       { path: '', component: HomepageComponent },
       {
-        path: 'blog',
-        component: BlogLayoutComponent,
-        children: [
-          {
-            path: '',
-            component: BlogsComponent,
-            data: {
-              title: 'Blog',
-            },
-          },
-          {
-            path: ':BlogID',
-            component: BlogDetailComponent,
-            data: {
-              title: 'Blog',
-            },
-          },
-        ],
-        data: {
-          title: 'Blog',
-        },
+        path: 'blog/:BlogMenuID',
+        component: BlogsComponent,
+      },
+      {
+        path: 'blog/detail/:BlogID',
+        component: BlogDetailComponent,
       },
       {
         path: 'profile',
