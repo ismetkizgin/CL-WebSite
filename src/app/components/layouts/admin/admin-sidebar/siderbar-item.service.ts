@@ -11,11 +11,6 @@ export class SidebarItemService {
   _url = this._router.routerState.snapshot.url;
   menu: Array<object> = [
     {
-      title: 'Dashboard',
-      icon: 'fas fa-tachometer-alt',
-      link: '/admin',
-    },
-    {
       title: 'User Transactions',
       icon: 'fas fa-users',
       linkActive: ['/admin/users', '/admin/user/add'],

@@ -27,8 +27,8 @@ export class AdminLayoutComponent implements OnInit {
         })
       )
       .subscribe((data) => {
-        this.title = data.title;
-        this.icon = data.icon;
+        this.title = data?.title;
+        this.icon = data?.icon;
       });
   }
 

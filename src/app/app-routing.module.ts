@@ -66,8 +66,6 @@ const routes: Routes = [
         path: '',
         component: DashboardComponent,
         data: {
-          title: 'Dashboard',
-          icon: 'fas fa-tachometer-alt fa-2x',
           authorize: [
             Roles.Root,
             Roles.Administrator,
