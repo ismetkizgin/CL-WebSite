@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ComponentModel, ComponentMenu,Roles } from '../../../models';
+import { ComponentModel, ComponentMenu, Roles } from '../../../models';
 import { LanguageService } from '../../../utils';
 import {
   AuthService,
@@ -97,7 +97,7 @@ export class ComponentAddComponent implements OnInit {
   async insertAsync(componentForm: NgForm) {
     try {
       await this._componentService.insertAsync(componentForm.value);
-      componentForm.resetForm();
+      this._router.navigateByUrl('/admin/components');
       return true;
     } catch (error) {
       this._componentService.errorNotification(error);
