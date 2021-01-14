@@ -24,13 +24,13 @@
         </li>
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                <span class="avatar circle-avatar">{{ (userInformation.UserFirstName)[0] }}{{ (userInformation.UserLastName)[0] }}</span>
+                <span class="avatar circle-avatar">{{ (userInformation.UserFirstName)[0].toUpperCase() }}{{ (userInformation.UserLastName)[0].toUpperCase() }}</span>
                 <span class="d-none d-md-inline">{{ userInformation.UserFirstName }}
                     {{ userInformation.UserLastName }}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
                 <li class="user-header bg-primary">
-                    <span class="avatar">{{ (userInformation.UserFirstName)[0] }}{{ (userInformation.UserLastName)[0] }}</span>
+                    <span class="avatar">{{ (userInformation.UserFirstName)[0].toUpperCase() }}{{ (userInformation.UserLastName)[0].toUpperCase() }}</span>
 
                     <p>
                         {{ userInformation.UserFirstName }} {{ userInformation.UserLastName }}
