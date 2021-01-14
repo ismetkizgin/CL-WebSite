@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Blog } from 'src/app/models';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { BlogService } from '../../../utils/services/blog/blog.service';
 
 @Component({
   selector: 'app-blog-detail',
   templateUrl: './blog-detail.component.html',
-  styleUrls: ['./blog-detail.component.scss']
+  styleUrls: ['./blog-detail.component.scss'],
 })
 export class BlogDetailComponent implements OnInit {
-
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _blogService:BlogService,
-    private _router: Router,
-  ) { }
+    private _blogService: BlogService
+  ) {}
 
   _model: Blog = new Blog();
 
@@ -25,9 +23,7 @@ export class BlogDetailComponent implements OnInit {
         this._model = <Blog>await this._blogService.findAsync(BlogID);
       } catch (error) {
         this._blogService.errorNotification(error);
-        this._router.navigateByUrl('admin');
       }
     }
   }
-
 }
