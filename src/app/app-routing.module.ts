@@ -86,7 +86,7 @@ const routes: Routes = [
         path: 'blog/edit/:BlogID',
         component: BlogAddComponent,
         data: {
-          title: 'Edit Blog',
+          title: 'Blog Edit',
           icon: 'fa fa-2x fa-address-book',
         },
       },
@@ -112,7 +112,7 @@ const routes: Routes = [
         path: 'user/add',
         component: UserAddComponent,
         data: {
-          title: 'User Add',
+          title: 'Add User',
           icon: 'fas fa-user-plus fa-2x',
           authorize: [Roles.Root, Roles.Administrator],
         },
@@ -121,7 +121,7 @@ const routes: Routes = [
         path: 'user/profile',
         component: UserAddComponent,
         data: {
-          title: 'User Add',
+          title: 'User Profile',
           icon: 'fa fa-2x fa-home',
         },
       },
@@ -156,7 +156,7 @@ const routes: Routes = [
         path: 'component/add',
         component: ComponentAddComponent,
         data: {
-          title: 'Component List',
+          title: 'Add Component',
           icon: 'fas fa-plus-square fa-2x',
           authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
@@ -165,7 +165,7 @@ const routes: Routes = [
         path: 'component/edit/:ComponentID',
         component: ComponentAddComponent,
         data: {
-          title: 'Component List',
+          title: 'Component Edit',
           icon: 'fas fa-list fa-2x',
           authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
