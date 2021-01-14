@@ -43,7 +43,8 @@ export class ComponentMenuListComponent implements OnInit {
   openComponentMenuModal(ComponentMenuID = null) {
     const diologRef = this._dialog.open(AddComponentMenuComponent, {
       width: '500px',
-      data: this.componentMenus.find(
+      data: 
+      ComponentMenuID==null?null:this.componentMenus.find(
         (componentMenu) => componentMenu.ComponentMenuID == ComponentMenuID
       ),
     });

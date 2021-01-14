@@ -41,7 +41,8 @@ export class BlogMenuListComponent implements OnInit {
   openBlogMenuModal(BlogMenuID = null) {
     const diologRef = this._dialog.open(AddBlogMenuComponent, {
       width: '500px',
-      data: this.blogMenus.find(
+      data: 
+      BlogMenuID==null?null:this.blogMenus.find(
         (blogMenu) => blogMenu.BlogMenuID == BlogMenuID
       ),
     });
