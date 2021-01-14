@@ -14,7 +14,7 @@
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>{{ 'Component Menu Name' | translate }}</mat-label>
                     <input matInput type="text" placeholder="{{ 'Enter Component Menu Name' | translate }}"
-                        pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$" name="ComponentMenuName" #ComponentMenuName="ngModel"
+                        name="ComponentMenuName" #ComponentMenuName="ngModel"
                         [(ngModel)]="_model.ComponentMenuName" required>
                     <mat-error *ngIf="ComponentMenuName.invalid&&ComponentMenuName.touched">
                         {{ 'Component Name field must be filled' | translate }}</mat-error>
