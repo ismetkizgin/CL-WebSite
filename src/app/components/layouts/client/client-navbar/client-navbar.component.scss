@@ -4,6 +4,12 @@ nav {
   i {
     color: white;
   }
+  .cursor{
+    cursor: pointer;
+  }
+  .cursor:hover{
+    color: white!important;
+  }
  .avatar{
     font-size: 30px;
     text-align: center;
