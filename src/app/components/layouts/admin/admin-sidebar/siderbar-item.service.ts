@@ -113,7 +113,7 @@ export class SidebarItemService {
     },
     {
       title: 'Soap Transactions',
-      icon: 'fas fa-lightbulb',
+      icon: 'fab fa-servicestack',
       link: '/admin/soap',
       authorize: [Roles.Root, Roles.Administrator],
     },

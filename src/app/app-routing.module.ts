@@ -208,8 +208,8 @@ const routes: Routes = [
         path: 'soap',
         component: SoapComponent,
         data: {
-          title: 'Soap Page',
-          icon: '',
+          title: 'Soap Example',
+          icon: 'fab fa-servicestack fa-2x',
           authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
       },
