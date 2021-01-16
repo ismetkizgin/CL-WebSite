@@ -22,6 +22,7 @@ import {
   BlogDetailComponent,
   BlogsComponent,
   ChangePasswordComponent,
+  SoapComponent
 } from './pages';
 import { AuthGuard } from './utils/guards';
 import { Roles } from './models/roles';
@@ -201,6 +202,15 @@ const routes: Routes = [
             Roles.Editor,
             Roles.User,
           ],
+        },
+      },
+      {
+        path: 'soap',
+        component: SoapComponent,
+        data: {
+          title: 'Soap Page',
+          icon: '',
+          authorize: [Roles.Root, Roles.Administrator, Roles.Developer],
         },
       },
     ],

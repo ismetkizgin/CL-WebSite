@@ -111,6 +111,12 @@ export class SidebarItemService {
       ],
       authorize: [Roles.Root, Roles.Administrator],
     },
+    {
+      title: 'Soap Transactions',
+      icon: 'fas fa-lightbulb',
+      link: '/admin/soap',
+      authorize: [Roles.Root, Roles.Administrator],
+    },
   ];
 
   getChildUrlActiveState(path: string[]) {

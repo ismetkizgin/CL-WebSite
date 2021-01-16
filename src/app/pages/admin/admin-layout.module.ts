@@ -38,6 +38,7 @@ import {
   BlogListComponent,
   UserDetailComponent,
 } from '.';
+import { SoapComponent } from './soap/soap.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -70,6 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserDetailComponent,
     ErrorComponent,
     LoginWindowComponent,
+    SoapComponent,
   ],
   imports: [
     CommonModule,

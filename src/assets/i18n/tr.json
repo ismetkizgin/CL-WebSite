@@ -150,6 +150,7 @@
   "Administrator": "Yönetici",
   "User Detail": "Kullanıcı Detayı",
   "User List": "Kullanıcı Listesi",
+  "Component Transactions":"Bileşen İşlemleri",
   "Component Transections": "Bileşen İşlemleri",
   "Dashboard": "Gösterge Paneli",
   "User Add": "Kullanıcı Ekle",
@@ -169,5 +170,7 @@
   "Project List": "Proje Listesi",
   "Edit User Information": "Kullanıcı Bilgilerini Düzenle",
   "Blog Desccription field must be filled": "Blog açıklaması alanı doldurulması zorunludur !",
-  "Welcome to the Code Life Control Panel":"Code Life Kontrol Paneline Hoşgeldiniz"
+  "Welcome to the Code Life Control Panel":"Code Life Kontrol Paneline Hoşgeldiniz",
+  "Add Component":"Bileşen Ekle",
+  "Soap Transactions":"Soap İşlemleri"
 }

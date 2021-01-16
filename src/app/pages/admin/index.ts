@@ -11,3 +11,4 @@ export * from './project-list/project-list.component';
 export * from './blog-add/blog-add.component';
 export * from './component-add/component-add.component';
 export * from './user-detail/user-detail.component';
+export * from './soap/soap.component'
