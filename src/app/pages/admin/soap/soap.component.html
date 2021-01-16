@@ -1,10 +1,15 @@
-<div class="form-group mt-5 text-center">
-    <mat-form-field appearance="outline" class="w-50 ">
-        <mat-label>{{ 'Name' | translate }}</mat-label>
-        <input matInput type="text" placeholder="{{ 'Enter Name' | translate }}" required>
-    </mat-form-field> 
-</div>
-<div class="text-center">
-    <button type="submit" class="btn btn-info w-25 ">{{'Save'| translate}}</button>
-</div>
-
+<form #soapForm='ngForm' (ngSubmit)="onSave(soapForm)">
+    <div class="form-group mt-5 text-center">
+        <mat-form-field appearance="outline" class="w-50 ">
+            <mat-label>{{ 'Name' | translate }}</mat-label>
+            <input matInput type="text" placeholder="{{ 'Enter Name' | translate }}" name="name" #name="ngModel"
+                [(ngModel)]="_name" required>
+        </mat-form-field>
+    </div>
+    <div class="text-center mb-5">
+        {{result}}
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-info w-25 ">{{'Save'| translate}}</button>
+    </div>
+</form>
