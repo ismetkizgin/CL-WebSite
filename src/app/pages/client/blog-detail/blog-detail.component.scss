@@ -1,35 +1,62 @@
-h1 {
-    font-size: 2.8rem;
+.title {
+   
+    margin-top: 10%;
+    font-size: 2.4rem;
     line-height: 1.2em;
     letter-spacing: -1px;
-    text-indent: -2px; 
+    text-indent:-2px;
     color: #2a2626;
     margin-left: 3%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-shadow: 3px 2px 1px white;
 }
+.image
+{
+    margin-top: 3%;
+    margin-left: 25%;
+    width:70%;
+    height: auto;
+ 
+}
+
 .medium{
-    margin-left: 30px;
+   
     margin-right: 30px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     min-height: 600px;
 }
-.container
+.row
 {
-    border-radius: 0 0 100px 0;
+
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color:#e6dede;
+    background-color:#e0efe3;
+    
+    
 }
 .text
 {
-    margin-left: 3%;
+    text-indent: 0%;
+    margin-left: 27%;
+    font-weight: bold;
 }
+
 @media screen and (max-width:10000px){
-    .container{
+    .row{
         margin-left: 0px;
-        max-width: 86%;
+        max-width: 100%;
     }
     .medium{
-        margin-left:3%;
-        max-width: 82%;
+        text-indent: 25px;
+        margin-top:3%;
+        margin-left:11%;
+        max-width: 75%;
+    }
+    
+}
+@media screen and (max-width:600px){
+    .title{
+        font-size: 1.2rem;
     }
     
 }
