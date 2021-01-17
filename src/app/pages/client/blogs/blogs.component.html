@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let blog of blogs">
+                    <tr *ngFor="let blog of blogs | filter:searchText">
                         <td> {{ blog.BlogTitle }} </td>
                         <td> {{ blog.BlogCreatedDate | date:'M/dd/yyyy, HH:mm':'+3' }} </td>
                         <td class="list-button text-right">

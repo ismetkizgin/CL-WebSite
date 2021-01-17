@@ -7,6 +7,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BlogCategoriesComponent } from '../../components/layouts/client/blog-categories/blog-categories.component';
 import { FormsModule } from '@angular/forms';
 import { MatModule, MustMatchDirective } from '../../utils';
+import { NgSearchFilterModule } from 'ng-search-filter';
 import {
   ClientLayoutComponent,
   ClientNavbarComponent,
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatModule,
     RouterModule,
     HttpClientModule,
+    NgSearchFilterModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
