@@ -69,6 +69,13 @@ export class UserAddComponent implements OnInit {
           ? false
           : true,
     },
+    {
+      userTypeName: 'User',
+      authorize:
+        [Roles.Root, Roles.Administrator].indexOf(this._UserTypeName) === -1
+          ? false
+          : true,
+    },
   ];
 
   async ngOnInit() {
@@ -130,7 +137,6 @@ export class UserAddComponent implements OnInit {
 
   async insertActionAsync(userForm: NgForm) {
     try {
-      console.log(userForm);
       await this._userService.insertAsync(userForm.value);
       userForm.resetForm();
       return true;
