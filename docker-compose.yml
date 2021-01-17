@@ -1,12 +1,12 @@
-version: '3.7'
+version: "3.7"
 services:
   example:
-    container_name: AdminLTE-Starting-Kit-Angularjs
+    container_name: cl-website
     build:
       context: .
       dockerfile: ./docker/Dockerfile
     volumes:
-      - '.:/app'
-      - '/app/node_modules'
+      - ".:/app"
+      - "/app/node_modules"
     ports:
-      - '4201:4200'
+      - "4201:4200"

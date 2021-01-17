@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "adminlte-starting-kit-angularjs": {
+    "cl-website": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/adminlte-starting-kit-angularjs",
+            "outputPath": "dist/cl-website",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -87,21 +87,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "adminlte-starting-kit-angularjs:build"
+            "browserTarget": "cl-website:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "adminlte-starting-kit-angularjs:build:production"
+              "browserTarget": "cl-website:build:production"
             },
             "stage": {
-              "browserTarget": "adminlte-starting-kit-angularjs:build:stage"
+              "browserTarget": "cl-website:build:stage"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "adminlte-starting-kit-angularjs:build"
+            "browserTarget": "cl-website:build"
           }
         },
         "test": {
@@ -131,18 +131,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "adminlte-starting-kit-angularjs:serve"
+            "devServerTarget": "cl-website:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "adminlte-starting-kit-angularjs:serve:production"
+              "devServerTarget": "cl-website:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "adminlte-starting-kit-angularjs",
+  "defaultProject": "cl-website",
   "cli": {
     "analytics": "cf345b71-4a4e-49d5-983b-fce603aef263"
   }
