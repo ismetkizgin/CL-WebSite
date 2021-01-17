@@ -9,6 +9,7 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Roles } from 'src/app/models';
 
 @Injectable({
   providedIn: 'root',
@@ -40,9 +41,13 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     if (response) {
       if (
         next.data.authorize &&
-        next.data.authorize.indexOf(response.UserTypeName) === -1
+        next.data.authorize.indexOf(response.UserTypeName) === -1 &&
+        response.UserTypeName != Roles.User
       ) {
         this._router.navigate(['/admin']);
+        return false;
+      } else if (response.UserTypeName == Roles.User) {
+        this._router.navigate(['/']);
         return false;
       }
       return true;
