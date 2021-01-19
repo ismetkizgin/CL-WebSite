@@ -26,7 +26,7 @@
                         <td> {{ blog.BlogCreatedDate | date:'M/dd/yyyy, HH:mm':'+3' }} </td>
                         <td class="list-button text-right">
                             <button class="btn btn-sm " [routerLink]="['/blog/detail/',blog.BlogID]">
-                                <span class="text-white">Examine</span>
+                                <span class="text-white">{{ 'Examine' | translate }}</span>
                             </button>
                         </td>
                     </tr>
